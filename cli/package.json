@@ -1,0 +1,18 @@
+{
+  "name": "@ausaf/cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The `ausaf` content CLI — scaffold, validate, and publish MDX content; read stats from the live API.",
+  "bin": {
+    "ausaf": "./bin/ausaf.ts"
+  },
+  "dependencies": {
+    "@ausaf/commands": "*",
+    "@ausaf/schema": "*",
+    "@clack/prompts": "^1.7.0",
+    "gray-matter": "^4.0.3",
+    "picocolors": "^1.1.1",
+    "zod": "^4.4.3"
+  }
+}

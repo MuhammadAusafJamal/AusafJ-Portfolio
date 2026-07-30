@@ -1,0 +1,16 @@
+{
+  "name": "@ausaf/commands",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The command grammar. Parsed by the `ausaf` CLI in the terminal and by the command palette in the browser — one definition, two clients.",
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./types": "./src/types/index.ts"
+  },
+  "dependencies": {
+    "@ausaf/schema": "*",
+    "zod": "^4.4.3"
+  }
+}

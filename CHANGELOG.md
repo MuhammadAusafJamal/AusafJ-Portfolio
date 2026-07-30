@@ -18,3 +18,17 @@ change that invalidates existing MDX; **minor** — a new page, section, or CLI 
   CLI, verification).
 - `DESIGN-PROMPT.md` — paste-ready prompts for text-to-UI tools, derived from `PLAN.md` §4
   and §5.
+- Toolchain: Next 16 + React 19 + TypeScript 6, Tailwind v4 (CSS-first), ESLint 9 flat
+  config with the Next core-web-vitals layer and Prettier-as-a-lint-error, Vitest, and npm
+  workspaces for `@ausaf/schema`, `@ausaf/commands`, and `@ausaf/cli`.
+- `styles/globals.css` — the design tokens from `PLAN.md` §4 as Tailwind v4 `@theme`
+  variables, with light/dark palettes and a `prefers-reduced-motion` override.
+
+### Notes
+
+- TypeScript is pinned to the 6.x line, not 7.x: `typescript-eslint@8` peers
+  `typescript >=4.8.4 <6.1.0`, so TS 7 breaks linting.
+- ESLint is pinned to the 9.x line, not 10.x: `eslint-plugin-react@7.37.5` peers
+  `eslint <=9.7` and has no ESLint 10 support yet. This is also why `npm audit` reports
+  transitive `brace-expansion` advisories through the lint toolchain — dev-only, and not
+  resolvable until that plugin ships ESLint 10 support.

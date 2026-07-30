@@ -23,22 +23,22 @@ Starting point: `D:\My Projects\AusafJ-Portfolio` — empty, no commits. Greenfi
 
 ### 1.2 What the data says
 
-| Site | Hire | Aesth | Creat | Total |
-| --- | --- | --- | --- | --- |
-| prasoon-v2.vercel.app | 10 | 10 | 10 | 30 |
-| sugith.in | 9.5 | 9 | 10 | 28.5 |
-| tedawf.com | 10 | 9 | 9 | 28 |
-| thegr8binil.me | 9 | 9.5 | 9.5 | 28 |
-| jasoncameron.dev | 10 | 9 | 9 | 28 |
-| andrijaweb.vercel.app | 8.5 | 10 | 9 | 27.5 |
-| rafaelamaral.dev | 10 | 9 | 8.5 | 27.5 |
-| yuteoctober (Win95 theme) | 10 | 10 | 7 | 27 |
-| natsha.me | 7 | 10 | 10 | 27 |
-| bryanleezh.dev | 8 | 9 | 10 | 27 |
-| wallenart.dev | 9 | 7.5 | 10 | 26.5 |
-| cobraaitch | 6 | 10 | 10 | 26 |
+| Site                      | Hire | Aesth | Creat | Total |
+| ------------------------- | ---- | ----- | ----- | ----- |
+| prasoon-v2.vercel.app     | 10   | 10    | 10    | 30    |
+| sugith.in                 | 9.5  | 9     | 10    | 28.5  |
+| tedawf.com                | 10   | 9     | 9     | 28    |
+| thegr8binil.me            | 9    | 9.5   | 9.5   | 28    |
+| jasoncameron.dev          | 10   | 9     | 9     | 28    |
+| andrijaweb.vercel.app     | 8.5  | 10    | 9     | 27.5  |
+| rafaelamaral.dev          | 10   | 9     | 8.5   | 27.5  |
+| yuteoctober (Win95 theme) | 10   | 10    | 7     | 27    |
+| natsha.me                 | 7    | 10    | 10    | 27    |
+| bryanleezh.dev            | 8    | 9     | 10    | 27    |
+| wallenart.dev             | 9    | 7.5   | 10    | 26.5  |
+| cobraaitch                | 6    | 10    | 10    | 26    |
 
-**Read of the data:** totals above 27 come from *balance*, not from a maxed Creativity. Every site that maxed Creativity by going concept-heavy paid for it elsewhere — cobraaitch 6.0 Hireability, natsha 7.0 Hireability, wallenart 7.5 Aesthetic. Meanwhile the Win95 concept site scored 10/10 on Hireability and Aesthetic and still only totalled 27 because Creativity was judged 7.
+**Read of the data:** totals above 27 come from _balance_, not from a maxed Creativity. Every site that maxed Creativity by going concept-heavy paid for it elsewhere — cobraaitch 6.0 Hireability, natsha 7.0 Hireability, wallenart 7.5 Aesthetic. Meanwhile the Win95 concept site scored 10/10 on Hireability and Aesthetic and still only totalled 27 because Creativity was judged 7.
 
 Conclusion: **conventional-but-excellent + one memorable, additive moment** is the highest expected value. Target 9.5 / 9.5 / 9 = 28.
 
@@ -52,16 +52,16 @@ nav (home / projects / blog / contact) → hero with photo, one-line identity ("
 
 ## 2. Decisions
 
-| Area | Decision | Reasoning |
-| --- | --- | --- |
-| Framework | Next.js App Router + TypeScript | Static output, best-in-class metadata/OG tooling, first-class on Vercel |
-| Styling | Tailwind, tokens only | Tokens in config; arbitrary values banned in components |
-| CLI stack | Node + TypeScript | Shared types with site, one language |
-| Content storage | **MDX in git** | Source of truth for all page content |
-| Dynamic data | **MongoDB Atlas** | Off the critical render path |
-| Hosting | Vercel | Static/ISR pages + serverless routes |
-| Audience | Everyone, via layering | Progressive disclosure, nothing cut |
-| Creativity | One signature moment | Command palette sharing the CLI's grammar |
+| Area            | Decision                        | Reasoning                                                               |
+| --------------- | ------------------------------- | ----------------------------------------------------------------------- |
+| Framework       | Next.js App Router + TypeScript | Static output, best-in-class metadata/OG tooling, first-class on Vercel |
+| Styling         | Tailwind, tokens only           | Tokens in config; arbitrary values banned in components                 |
+| CLI stack       | Node + TypeScript               | Shared types with site, one language                                    |
+| Content storage | **MDX in git**                  | Source of truth for all page content                                    |
+| Dynamic data    | **MongoDB Atlas**               | Off the critical render path                                            |
+| Hosting         | Vercel                          | Static/ISR pages + serverless routes                                    |
+| Audience        | Everyone, via layering          | Progressive disclosure, nothing cut                                     |
+| Creativity      | One signature moment            | Command palette sharing the CLI's grammar                               |
 
 ### 2.1 Mongo over Firebase
 
@@ -79,11 +79,11 @@ Static MDX renders instantly and cannot go down. The backend is still real — i
 
 Everything is present. Hierarchy decides what a 10-second visitor absorbs.
 
-| Layer | Where | Content |
-| --- | --- | --- |
-| 1 | Above the fold | Who you are, what you build, seniority signal, resume, contact |
-| 2 | Homepage scroll | 3 featured projects, experience timeline, skill groups, recent writing |
-| 3 | Dedicated pages | Every case study, full skill matrix, all posts, uses, archive |
+| Layer | Where           | Content                                                                |
+| ----- | --------------- | ---------------------------------------------------------------------- |
+| 1     | Above the fold  | Who you are, what you build, seniority signal, resume, contact         |
+| 2     | Homepage scroll | 3 featured projects, experience timeline, skill groups, recent writing |
+| 3     | Dedicated pages | Every case study, full skill matrix, all posts, uses, archive          |
 
 Nothing is dropped. Depth is opt-in. Flat-everything is precisely what capped the 6.0 and 6.5 Hireability rows in the sheet.
 
@@ -103,6 +103,7 @@ Hireability is decided here, not in the codebase. Produce `content/positioning.m
    - a live URL and a source URL
 
    A project without a measurable outcome is a Layer-3 project, not a flagship.
+
 4. **Update the resume PDF first.** It gets linked from the hero and it is the artifact the recruiter actually reads. The site is the trailer; the resume is the film.
 5. **Buy a real domain.** `ausafjamal.dev` / `ausaf.dev` / similar. Sub-25 scorers in the sheet were disproportionately on default `*.vercel.app` domains.
 6. **Get one good photo.** tedawf, the 28-scorer, leads with a photo. Faces build trust faster than illustration.
@@ -121,41 +122,41 @@ Rationale: the overwhelming majority of dev portfolios use blue or violet on dar
 
 ### 4.2 Color tokens — dark (default)
 
-| Token | Hex | Use |
-| --- | --- | --- |
-| `bg` | `#0B0B0C` | Page background |
-| `surface` | `#141416` | Cards, panels |
-| `surface-2` | `#1C1C20` | Hover, raised, code blocks |
-| `border` | `#26262B` | Hairlines, card outlines |
-| `border-strong` | `#3A3A42` | Focus outlines, active borders |
-| `text` | `#EDEDEF` | Headings, body |
-| `text-muted` | `#A1A1AA` | Secondary copy, meta |
-| `text-subtle` | `#71717A` | Timestamps, non-essential only |
-| `accent` | `#E8A33D` | Links, primary button, active states |
-| `accent-hover` | `#F5B85A` | Accent hover |
-| `accent-quiet` | `#3A2E17` | Accent-tinted fills, tag backgrounds |
-| `success` | `#4ADE80` | Health/status OK |
-| `danger` | `#F87171` | Errors, destructive |
+| Token           | Hex       | Use                                  |
+| --------------- | --------- | ------------------------------------ |
+| `bg`            | `#0B0B0C` | Page background                      |
+| `surface`       | `#141416` | Cards, panels                        |
+| `surface-2`     | `#1C1C20` | Hover, raised, code blocks           |
+| `border`        | `#26262B` | Hairlines, card outlines             |
+| `border-strong` | `#3A3A42` | Focus outlines, active borders       |
+| `text`          | `#EDEDEF` | Headings, body                       |
+| `text-muted`    | `#A1A1AA` | Secondary copy, meta                 |
+| `text-subtle`   | `#71717A` | Timestamps, non-essential only       |
+| `accent`        | `#E8A33D` | Links, primary button, active states |
+| `accent-hover`  | `#F5B85A` | Accent hover                         |
+| `accent-quiet`  | `#3A2E17` | Accent-tinted fills, tag backgrounds |
+| `success`       | `#4ADE80` | Health/status OK                     |
+| `danger`        | `#F87171` | Errors, destructive                  |
 
 Contrast check: `text` on `bg` ≈ 17:1, `text-muted` ≈ 8:1, `accent` ≈ 9:1. All pass AA comfortably. `text-subtle` ≈ 4.6:1 — **never use it for information a recruiter needs.**
 
 ### 4.3 Color tokens — light
 
-| Token | Hex | Use |
-| --- | --- | --- |
-| `bg` | `#FAFAF9` | Page background |
-| `surface` | `#FFFFFF` | Cards, panels |
-| `surface-2` | `#F4F4F2` | Hover, raised, code blocks |
-| `border` | `#E4E4E1` | Hairlines |
-| `border-strong` | `#C9C9C4` | Focus outlines |
-| `text` | `#18181B` | Headings, body |
-| `text-muted` | `#52525B` | Secondary copy |
-| `text-subtle` | `#71717A` | Non-essential only |
-| `accent` | `#A96A00` | Links, primary button |
-| `accent-hover` | `#8A5600` | Accent hover |
-| `accent-quiet` | `#FDF3E2` | Tag backgrounds |
-| `success` | `#15803D` | Status OK |
-| `danger` | `#B91C1C` | Errors |
+| Token           | Hex       | Use                        |
+| --------------- | --------- | -------------------------- |
+| `bg`            | `#FAFAF9` | Page background            |
+| `surface`       | `#FFFFFF` | Cards, panels              |
+| `surface-2`     | `#F4F4F2` | Hover, raised, code blocks |
+| `border`        | `#E4E4E1` | Hairlines                  |
+| `border-strong` | `#C9C9C4` | Focus outlines             |
+| `text`          | `#18181B` | Headings, body             |
+| `text-muted`    | `#52525B` | Secondary copy             |
+| `text-subtle`   | `#71717A` | Non-essential only         |
+| `accent`        | `#A96A00` | Links, primary button      |
+| `accent-hover`  | `#8A5600` | Accent hover               |
+| `accent-quiet`  | `#FDF3E2` | Tag backgrounds            |
+| `success`       | `#15803D` | Status OK                  |
+| `danger`        | `#B91C1C` | Errors                     |
 
 Amber must darken in light mode — `#E8A33D` on white is ~1.9:1 and fails outright. This is the single most common light-mode mistake.
 
@@ -163,26 +164,26 @@ Amber must darken in light mode — `#E8A33D` on white is ~1.9:1 and fails outri
 
 ### 4.4 Typography
 
-| Role | Family | Notes |
-| --- | --- | --- |
-| Text + UI | **Geist Sans** | Self-hosted, subset latin |
-| Mono | **Geist Mono** | Code, tags, command palette, metrics |
-| Display (optional) | **Instrument Serif** | Hero line only, nothing else |
+| Role               | Family               | Notes                                |
+| ------------------ | -------------------- | ------------------------------------ |
+| Text + UI          | **Geist Sans**       | Self-hosted, subset latin            |
+| Mono               | **Geist Mono**       | Code, tags, command palette, metrics |
+| Display (optional) | **Instrument Serif** | Hero line only, nothing else         |
 
 Using a serif for exactly one line and nowhere else is a strong, cheap aesthetic signal. If it doesn't land in your first pass, drop it — do not spread it around.
 
 **Scale** — 1.25 ratio from 16px base:
 
-| Token | Size | Line height | Use |
-| --- | --- | --- | --- |
-| `xs` | 13px | 1.5 | Tags, meta, captions |
-| `sm` | 14px | 1.6 | Secondary copy, nav |
-| `base` | 16px | 1.65 | Body |
-| `lg` | 20px | 1.5 | Lead paragraph, card titles |
-| `xl` | 25px | 1.35 | Section headings |
-| `2xl` | 31px | 1.25 | Page titles |
-| `3xl` | 39px | 1.15 | Hero, mobile |
-| `4xl` | 49px | 1.1 | Hero, desktop |
+| Token  | Size | Line height | Use                         |
+| ------ | ---- | ----------- | --------------------------- |
+| `xs`   | 13px | 1.5         | Tags, meta, captions        |
+| `sm`   | 14px | 1.6         | Secondary copy, nav         |
+| `base` | 16px | 1.65        | Body                        |
+| `lg`   | 20px | 1.5         | Lead paragraph, card titles |
+| `xl`   | 25px | 1.35        | Section headings            |
+| `2xl`  | 31px | 1.25        | Page titles                 |
+| `3xl`  | 39px | 1.15        | Hero, mobile                |
+| `4xl`  | 49px | 1.1         | Hero, desktop               |
 
 Rules: body 16-18px minimum, never smaller. Measure capped at **65-75 characters** — this alone separates polished from amateur. Only two weights in use (400 and 600). Headings get `letter-spacing: -0.02em`; body gets none.
 
@@ -190,26 +191,26 @@ Rules: body 16-18px minimum, never smaller. Measure capped at **65-75 characters
 
 4px base unit. Permitted values only: `4, 8, 12, 16, 24, 32, 48, 64, 96, 128`. Nothing else, ever.
 
-| Context | Value |
-| --- | --- |
-| Inside a tag/chip | 4 / 8 |
-| Inside a button | 12 / 24 |
-| Inside a card | 24 |
-| Between elements in a block | 16 |
-| Between blocks in a section | 32 |
-| Between sections, mobile | 64 |
-| Between sections, desktop | 96 |
+| Context                     | Value   |
+| --------------------------- | ------- |
+| Inside a tag/chip           | 4 / 8   |
+| Inside a button             | 12 / 24 |
+| Inside a card               | 24      |
+| Between elements in a block | 16      |
+| Between blocks in a section | 32      |
+| Between sections, mobile    | 64      |
+| Between sections, desktop   | 96      |
 
 Inconsistent vertical rhythm is the number one source of an "amateur" verdict. Consistency here matters more than the specific numbers.
 
 ### 4.6 Layout
 
-| Token | Value |
-| --- | --- |
-| Page max-width | 1080px |
-| Prose max-width | 720px |
-| Gutter, mobile | 20px |
-| Gutter, desktop | 32px |
+| Token           | Value  |
+| --------------- | ------ |
+| Page max-width  | 1080px |
+| Prose max-width | 720px  |
+| Gutter, mobile  | 20px   |
+| Gutter, desktop | 32px   |
 
 **Single content column.** Resist multi-column grids — they read as busy at laptop widths, which is where most reviewers sit. Project cards may be a 2-up grid at ≥1024px; nothing else grids.
 
@@ -225,11 +226,11 @@ Borders are always 1px, always `border`, except focus.
 
 ### 4.8 Motion
 
-| Token | Duration | Easing | Use |
-| --- | --- | --- | --- |
-| `micro` | 150ms | `cubic-bezier(0.4, 0, 0.2, 1)` | Hover, color, opacity |
-| `standard` | 200ms | `cubic-bezier(0.4, 0, 0.2, 1)` | Toggles, expand/collapse |
-| `entrance` | 320ms | `cubic-bezier(0.22, 1, 0.36, 1)` | Section reveal, modal |
+| Token      | Duration | Easing                           | Use                      |
+| ---------- | -------- | -------------------------------- | ------------------------ |
+| `micro`    | 150ms    | `cubic-bezier(0.4, 0, 0.2, 1)`   | Hover, color, opacity    |
+| `standard` | 200ms    | `cubic-bezier(0.4, 0, 0.2, 1)`   | Toggles, expand/collapse |
+| `entrance` | 320ms    | `cubic-bezier(0.22, 1, 0.36, 1)` | Section reveal, modal    |
 
 One entrance pattern for the entire site: fade in + 8px upward translate, staggered 40ms between siblings, triggered once on intersection, never replayed.
 
@@ -257,25 +258,25 @@ Images: every project needs a cover at 1200×630, same crop and treatment across
 
 ### 5.1 Routes
 
-| Route | Purpose | Render |
-| --- | --- | --- |
-| `/` | Scan surface — everything essential in one screen + short scroll | Static |
-| `/projects` | All projects, filterable by stack | Static |
-| `/projects/[slug]` | Case study | Static |
-| `/about` | Long-form bio, full experience, full skill matrix | Static |
-| `/blog` | All posts | Static |
-| `/blog/[slug]` | Post + view count | ISR |
-| `/uses` | Tools, hardware, editor, setup | Static |
-| `/resume` | Inline PDF viewer + download | Static |
-| `/guestbook` | Signed-in guestbook | Dynamic |
-| `/styleguide` | Token + component reference (noindex) | Static |
-| `/404` | Routes back into the site | Static |
+| Route              | Purpose                                                          | Render  |
+| ------------------ | ---------------------------------------------------------------- | ------- |
+| `/`                | Scan surface — everything essential in one screen + short scroll | Static  |
+| `/projects`        | All projects, filterable by stack                                | Static  |
+| `/projects/[slug]` | Case study                                                       | Static  |
+| `/about`           | Long-form bio, full experience, full skill matrix                | Static  |
+| `/blog`            | All posts                                                        | Static  |
+| `/blog/[slug]`     | Post + view count                                                | ISR     |
+| `/uses`            | Tools, hardware, editor, setup                                   | Static  |
+| `/resume`          | Inline PDF viewer + download                                     | Static  |
+| `/guestbook`       | Signed-in guestbook                                              | Dynamic |
+| `/styleguide`      | Token + component reference (noindex)                            | Static  |
+| `/404`             | Routes back into the site                                        | Static  |
 
 Nav: `Work · About · Blog · Contact` + theme toggle + a small `⌘K` hint. Four items maximum. Sticky, height 56px, background blur, hairline bottom border on scroll.
 
 ### 5.2 Above-the-fold contract
 
-All of the following visible **without scrolling** at 1366×768 *and* at 390×844:
+All of the following visible **without scrolling** at 1366×768 _and_ at 390×844:
 
 1. Name
 2. One-line positioning
@@ -288,15 +289,15 @@ If a recruiter must scroll or hover to learn what you do, Hireability caps at 6-
 
 ### 5.3 Homepage, section by section
 
-| # | Section | Content | Notes |
-| --- | --- | --- | --- |
-| 1 | Hero | Photo, name, positioning line, proof line, resume + contact buttons, socials | The whole contract above |
-| 2 | Featured work | Exactly 3 project cards | Title, one-line problem, stack tags, one metric, live + source links |
-| 3 | Experience | Condensed timeline, 4-5 most recent | Company, role, dates, one line each, stack tags. Full detail on `/about` |
-| 4 | Skills | 4-6 grouped clusters | Languages / Backend / Frontend / Data / Infra / Tooling. No percentage bars, ever |
-| 5 | Writing | 2-3 most recent posts | Title, date, tags, view count |
-| 6 | Contact | Email (one-click copy), form, socials, availability status | State plainly whether you're open to work |
-| 7 | Footer | Nav repeat, socials, last-deployed timestamp, source link | Last-deployed timestamp is a quiet, effective engineering signal |
+| #   | Section       | Content                                                                      | Notes                                                                             |
+| --- | ------------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| 1   | Hero          | Photo, name, positioning line, proof line, resume + contact buttons, socials | The whole contract above                                                          |
+| 2   | Featured work | Exactly 3 project cards                                                      | Title, one-line problem, stack tags, one metric, live + source links              |
+| 3   | Experience    | Condensed timeline, 4-5 most recent                                          | Company, role, dates, one line each, stack tags. Full detail on `/about`          |
+| 4   | Skills        | 4-6 grouped clusters                                                         | Languages / Backend / Frontend / Data / Infra / Tooling. No percentage bars, ever |
+| 5   | Writing       | 2-3 most recent posts                                                        | Title, date, tags, view count                                                     |
+| 6   | Contact       | Email (one-click copy), form, socials, availability status                   | State plainly whether you're open to work                                         |
+| 7   | Footer        | Nav repeat, socials, last-deployed timestamp, source link                    | Last-deployed timestamp is a quiet, effective engineering signal                  |
 
 **Never ship: skill percentage bars, a "years of experience" counter that animates, testimonial carousels, a hero that types itself.** Every one of these is a recognised template tell.
 
@@ -310,7 +311,7 @@ Fixed order, identical for every project:
 4. Cover image
 5. **Problem** — 2-3 sentences, plain language
 6. **Approach** — what you built, with an architecture diagram
-7. **Hard decision** — the tradeoff you took and why you rejected the alternative. *This is the section that gets you hired.*
+7. **Hard decision** — the tradeoff you took and why you rejected the alternative. _This is the section that gets you hired._
 8. **Outcome** — measurable results as `MetricBadge` row
 9. **Stack** — tags, grouped
 10. **What I'd change** — one honest paragraph. Reads as senior; almost nobody does it
@@ -324,26 +325,26 @@ Every shape defined once in `packages/schema` with Zod, consumed by the CLI, the
 
 ### 6.1 `content/projects/<slug>.mdx`
 
-| Field | Type | Required | Notes |
-| --- | --- | --- | --- |
-| `title` | string | yes | |
-| `slug` | string | yes | Must match filename |
-| `summary` | string ≤140 | yes | One-line problem statement |
-| `role` | string | yes | Your specific role |
-| `startDate` | ISO date | yes | |
-| `endDate` | ISO date \| `"present"` | yes | |
-| `teamSize` | number | no | |
-| `status` | `live` \| `archived` \| `wip` | yes | |
-| `featured` | boolean | yes | Max 3 true |
-| `order` | number | yes | Manual sort |
-| `stack` | string[] | yes | Must exist in `skills.json` |
-| `links.live` | url | no | |
-| `links.repo` | url | no | |
-| `links.writeup` | url | no | |
-| `metrics` | `{label, value, detail?}[]` | no | Rendered as MetricBadge row |
-| `cover` | path | yes | 1200×630 |
-| `coverAlt` | string | yes | |
-| `draft` | boolean | yes | Excluded from build when true |
+| Field           | Type                          | Required | Notes                         |
+| --------------- | ----------------------------- | -------- | ----------------------------- |
+| `title`         | string                        | yes      |                               |
+| `slug`          | string                        | yes      | Must match filename           |
+| `summary`       | string ≤140                   | yes      | One-line problem statement    |
+| `role`          | string                        | yes      | Your specific role            |
+| `startDate`     | ISO date                      | yes      |                               |
+| `endDate`       | ISO date \| `"present"`       | yes      |                               |
+| `teamSize`      | number                        | no       |                               |
+| `status`        | `live` \| `archived` \| `wip` | yes      |                               |
+| `featured`      | boolean                       | yes      | Max 3 true                    |
+| `order`         | number                        | yes      | Manual sort                   |
+| `stack`         | string[]                      | yes      | Must exist in `skills.json`   |
+| `links.live`    | url                           | no       |                               |
+| `links.repo`    | url                           | no       |                               |
+| `links.writeup` | url                           | no       |                               |
+| `metrics`       | `{label, value, detail?}[]`   | no       | Rendered as MetricBadge row   |
+| `cover`         | path                          | yes      | 1200×630                      |
+| `coverAlt`      | string                        | yes      |                               |
+| `draft`         | boolean                       | yes      | Excluded from build when true |
 
 Body sections use MDX headings matching §5.4.
 
@@ -441,48 +442,48 @@ Dynamic data only. Never page content.
 
 **`views`**
 
-| Field | Type | Notes |
-| --- | --- | --- |
-| `_id` | string | The slug — natural key, no extra index needed |
-| `count` | int | Atomic `$inc` |
-| `updatedAt` | date | |
+| Field       | Type   | Notes                                         |
+| ----------- | ------ | --------------------------------------------- |
+| `_id`       | string | The slug — natural key, no extra index needed |
+| `count`     | int    | Atomic `$inc`                                 |
+| `updatedAt` | date   |                                               |
 
 **`guestbook`**
 
-| Field | Type | Notes |
-| --- | --- | --- |
-| `_id` | ObjectId | |
-| `provider` | string | `github` |
-| `providerUserId` | string | |
-| `handle`, `avatarUrl` | string | |
-| `message` | string ≤280 | |
-| `createdAt` | date | |
-| `hidden` | boolean | Soft moderation, never hard delete |
+| Field                 | Type        | Notes                              |
+| --------------------- | ----------- | ---------------------------------- |
+| `_id`                 | ObjectId    |                                    |
+| `provider`            | string      | `github`                           |
+| `providerUserId`      | string      |                                    |
+| `handle`, `avatarUrl` | string      |                                    |
+| `message`             | string ≤280 |                                    |
+| `createdAt`           | date        |                                    |
+| `hidden`              | boolean     | Soft moderation, never hard delete |
 
 Indexes: `{createdAt: -1}`, `{providerUserId: 1, createdAt: -1}`
 
 **`contact_messages`**
 
-| Field | Type | Notes |
-| --- | --- | --- |
-| `_id` | ObjectId | |
-| `name`, `email`, `message` | string | |
-| `ipHash` | string | Hashed, never raw IP |
-| `userAgent` | string | |
-| `createdAt` | date | |
-| `status` | enum | `new` / `read` / `replied` / `spam` |
+| Field                      | Type     | Notes                               |
+| -------------------------- | -------- | ----------------------------------- |
+| `_id`                      | ObjectId |                                     |
+| `name`, `email`, `message` | string   |                                     |
+| `ipHash`                   | string   | Hashed, never raw IP                |
+| `userAgent`                | string   |                                     |
+| `createdAt`                | date     |                                     |
+| `status`                   | enum     | `new` / `read` / `replied` / `spam` |
 
 Index: `{createdAt: -1}`
 
 **`cli_audit`**
 
-| Field | Type | Notes |
-| --- | --- | --- |
-| `_id` | ObjectId | |
-| `command`, `args` | string / object | |
-| `result` | enum | `ok` / `error` |
-| `durationMs` | int | |
-| `createdAt` | date | |
+| Field             | Type            | Notes          |
+| ----------------- | --------------- | -------------- |
+| `_id`             | ObjectId        |                |
+| `command`, `args` | string / object |                |
+| `result`          | enum            | `ok` / `error` |
+| `durationMs`      | int             |                |
+| `createdAt`       | date            |                |
 
 Indexes: `{createdAt: -1}`, TTL 90 days
 
@@ -503,18 +504,18 @@ Indexes: `{createdAt: -1}`, TTL 90 days
 
 ## 9. API surface
 
-| Method | Route | Auth | Rate limit | Notes |
-| --- | --- | --- | --- | --- |
-| `GET` | `/api/views/[slug]` | none | 60/min/IP | Read count |
-| `POST` | `/api/views/[slug]` | none | 1/slug/session | Increment, debounced client-side |
-| `GET` | `/api/guestbook` | none | 60/min/IP | Paginated, `hidden` excluded |
-| `POST` | `/api/guestbook` | GitHub OAuth | 3/hour/user | Zod-validated, ≤280 chars |
-| `DELETE` | `/api/guestbook/[id]` | owner or admin | 10/hour | Soft delete |
-| `POST` | `/api/contact` | none | 3/hour/IP | Honeypot + Zod + email dispatch |
-| `GET` | `/api/health` | none | 30/min/IP | DB ping + latency, feeds `status` command |
-| `POST` | `/api/cli/publish` | bearer token | 30/hour | Triggers deploy |
-| `GET` | `/api/cli/stats` | bearer token | 60/hour | Aggregated counts |
-| `GET` | `/api/cli/backup` | bearer token | 5/day | Full collection export |
+| Method   | Route                 | Auth           | Rate limit     | Notes                                     |
+| -------- | --------------------- | -------------- | -------------- | ----------------------------------------- |
+| `GET`    | `/api/views/[slug]`   | none           | 60/min/IP      | Read count                                |
+| `POST`   | `/api/views/[slug]`   | none           | 1/slug/session | Increment, debounced client-side          |
+| `GET`    | `/api/guestbook`      | none           | 60/min/IP      | Paginated, `hidden` excluded              |
+| `POST`   | `/api/guestbook`      | GitHub OAuth   | 3/hour/user    | Zod-validated, ≤280 chars                 |
+| `DELETE` | `/api/guestbook/[id]` | owner or admin | 10/hour        | Soft delete                               |
+| `POST`   | `/api/contact`        | none           | 3/hour/IP      | Honeypot + Zod + email dispatch           |
+| `GET`    | `/api/health`         | none           | 30/min/IP      | DB ping + latency, feeds `status` command |
+| `POST`   | `/api/cli/publish`    | bearer token   | 30/hour        | Triggers deploy                           |
+| `GET`    | `/api/cli/stats`      | bearer token   | 60/hour        | Aggregated counts                         |
+| `GET`    | `/api/cli/backup`     | bearer token   | 5/day          | Full collection export                    |
 
 ### 9.1 Standards applied to every route
 
@@ -534,20 +535,20 @@ Node + TypeScript. Repo bin, documented in the README with a recorded demo GIF a
 
 ### 10.1 Commands
 
-| Command | Flags | Behaviour |
-| --- | --- | --- |
-| `ausaf new project` | `--title --slug --no-interactive` | Prompts, writes valid frontmatter, scaffolds image dir, opens `$EDITOR` |
-| `ausaf new post` | same | As above for posts |
-| `ausaf new experience` | same | As above |
-| `ausaf list [type]` | `--json --drafts --featured` | Table output, or JSON when piped |
-| `ausaf edit <slug>` | | Resolves slug across types, opens editor |
-| `ausaf validate` | `--fix` | Zod over all content. Same call CI runs. `--fix` repairs formatting only |
-| `ausaf publish <slug>` | `--message --no-push` | Clears `draft`, commits, pushes, triggers deploy |
-| `ausaf unpublish <slug>` | | Sets `draft: true`, commits |
-| `ausaf deploy --status` | `--watch` | Polls Vercel deployments API |
-| `ausaf stats` | `--json --since` | Views, guestbook, contact counts from your own API |
-| `ausaf backup` | `--out` | Exports Mongo collections to timestamped JSON |
-| `ausaf doctor` | | Checks env, git state, API reachability, schema version |
+| Command                  | Flags                             | Behaviour                                                                |
+| ------------------------ | --------------------------------- | ------------------------------------------------------------------------ |
+| `ausaf new project`      | `--title --slug --no-interactive` | Prompts, writes valid frontmatter, scaffolds image dir, opens `$EDITOR`  |
+| `ausaf new post`         | same                              | As above for posts                                                       |
+| `ausaf new experience`   | same                              | As above                                                                 |
+| `ausaf list [type]`      | `--json --drafts --featured`      | Table output, or JSON when piped                                         |
+| `ausaf edit <slug>`      |                                   | Resolves slug across types, opens editor                                 |
+| `ausaf validate`         | `--fix`                           | Zod over all content. Same call CI runs. `--fix` repairs formatting only |
+| `ausaf publish <slug>`   | `--message --no-push`             | Clears `draft`, commits, pushes, triggers deploy                         |
+| `ausaf unpublish <slug>` |                                   | Sets `draft: true`, commits                                              |
+| `ausaf deploy --status`  | `--watch`                         | Polls Vercel deployments API                                             |
+| `ausaf stats`            | `--json --since`                  | Views, guestbook, contact counts from your own API                       |
+| `ausaf backup`           | `--out`                           | Exports Mongo collections to timestamped JSON                            |
+| `ausaf doctor`           |                                   | Checks env, git state, API reachability, schema version                  |
 
 ### 10.2 Build notes
 
@@ -582,19 +583,19 @@ This is why the sheet's balance pattern holds: it adds Creativity without subtra
 
 ### 11.2 Commands
 
-| Input | Result |
-| --- | --- |
-| `whoami` | Positioning line, current role, location, availability |
-| `projects` | List, arrow-navigable |
-| `open <slug>` | Navigate to that project |
-| `resume` | Open resume |
-| `contact` | Copy email, or open form |
-| `blog` | Recent posts |
-| `theme [dark\|light]` | Toggle |
-| `status` | **Live** — hits `/api/health`, prints real DB latency in ms |
-| `stack` | Skills grouped, as the CLI prints them |
-| `source` | Open the repo |
-| `help` | Command list |
+| Input                 | Result                                                      |
+| --------------------- | ----------------------------------------------------------- |
+| `whoami`              | Positioning line, current role, location, availability      |
+| `projects`            | List, arrow-navigable                                       |
+| `open <slug>`         | Navigate to that project                                    |
+| `resume`              | Open resume                                                 |
+| `contact`             | Copy email, or open form                                    |
+| `blog`                | Recent posts                                                |
+| `theme [dark\|light]` | Toggle                                                      |
+| `status`              | **Live** — hits `/api/health`, prints real DB latency in ms |
+| `stack`               | Skills grouped, as the CLI prints them                      |
+| `source`              | Open the repo                                               |
+| `help`                | Command list                                                |
 
 `status` is the detail that sells it — a real network call to a real backend, returning a real number, rendered in mono. It proves the backend exists in a way no static badge can.
 
@@ -616,16 +617,16 @@ If you want something more visual: a live architecture diagram of this very site
 
 ## 12. Performance budget
 
-| Metric | Target | Ceiling |
-| --- | --- | --- |
-| Lighthouse Performance (mobile) | 100 | ≥95 |
-| Lighthouse A11y / Best Practices / SEO | 100 | ≥95 |
-| LCP | <1.5s | 2.0s |
-| CLS | 0 | 0.05 |
-| INP | <100ms | 200ms |
-| JS on `/`, gzipped | <120KB | 150KB |
-| Total page weight on `/` | <500KB | 800KB |
-| Fonts | 2 families, subset | 4 files max |
+| Metric                                 | Target             | Ceiling     |
+| -------------------------------------- | ------------------ | ----------- |
+| Lighthouse Performance (mobile)        | 100                | ≥95         |
+| Lighthouse A11y / Best Practices / SEO | 100                | ≥95         |
+| LCP                                    | <1.5s              | 2.0s        |
+| CLS                                    | 0                  | 0.05        |
+| INP                                    | <100ms             | 200ms       |
+| JS on `/`, gzipped                     | <120KB             | 150KB       |
+| Total page weight on `/`               | <500KB             | 800KB       |
+| Fonts                                  | 2 families, subset | 4 files max |
 
 Enforcement:
 
@@ -740,7 +741,7 @@ Copy carries more of the Hireability score than layout does.
 2. Lead every experience bullet with an action verb and include a number wherever one exists.
 3. Cut every adjective that isn't load-bearing. "Passionate," "hardworking," "detail-oriented" are noise — every candidate claims them.
 4. Name specific technologies, versions where it matters. Specificity reads as competence.
-5. Project summaries describe the *problem*, not the stack. The stack is in the tags already.
+5. Project summaries describe the _problem_, not the stack. The stack is in the tags already.
 6. State availability plainly: "Open to backend and full-stack roles — remote or Karachi."
 7. Proofread everything. Typos read as carelessness and cost points on all three factors simultaneously.
 8. Write the "What I'd change" section on each case study honestly. Almost nobody does it, and it reads as senior.
@@ -788,17 +789,17 @@ Copy carries more of the Hireability score than layout does.
 
 ## 20. Sequencing
 
-| Phase | Work | Effort |
-| --- | --- | --- |
-| 0 | Positioning, resume, project selection, domain, photo | 1-2 days, **no code** |
-| 1 | Theme tokens + `/styleguide` | 2-3 days |
-| 2 | IA + `packages/schema` + content model | 2 days |
-| 3 | Site build with real content, all pages | 5-7 days |
-| 4 | Responsive + a11y + SEO passes | 2 days |
-| 5 | Mongo + API routes | 3-4 days |
-| 6 | CLI | 3-4 days |
-| 7 | Command palette | 2-3 days |
-| 8 | Perf, testing, launch checklist | 3-4 days |
+| Phase | Work                                                  | Effort                |
+| ----- | ----------------------------------------------------- | --------------------- |
+| 0     | Positioning, resume, project selection, domain, photo | 1-2 days, **no code** |
+| 1     | Theme tokens + `/styleguide`                          | 2-3 days              |
+| 2     | IA + `packages/schema` + content model                | 2 days                |
+| 3     | Site build with real content, all pages               | 5-7 days              |
+| 4     | Responsive + a11y + SEO passes                        | 2 days                |
+| 5     | Mongo + API routes                                    | 3-4 days              |
+| 6     | CLI                                                   | 3-4 days              |
+| 7     | Command palette                                       | 2-3 days              |
+| 8     | Perf, testing, launch checklist                       | 3-4 days              |
 
 Roughly 4-5 weeks part-time.
 
