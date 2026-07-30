@@ -162,16 +162,58 @@ ausaf publish <slug>        # clears draft, commits, pushes, triggers deploy
 A post committed by hand without `ausaf validate` passing is the one case that will break
 the production build.
 
+## Dependencies & the lockfile (Windows trap)
+
+`package-lock.json` must contain `@emnapi/core`, `@emnapi/runtime`, and
+`@emnapi/wasi-threads` at the root. `@rolldown/binding-wasm32-wasi` (via Vite, which Vitest
+pulls in) and `@napi-rs/wasm-runtime` declare them as _optional_ dependencies. They are
+never installed on Windows, so an `npm install` run there against a populated
+`node_modules` **reconciles the lock against the local tree and deletes those entries** —
+after which CI's `npm ci` on Linux fails with `Missing: @emnapi/core@… from lock file`.
+
+- `npm install --package-lock-only` does **not** repair it; it re-derives the same pruned
+  tree.
+- The only fix is a clean resolve: `rm -rf node_modules package-lock.json && npm install`.
+- After any dependency change on Windows, check before committing:
+
+  ```bash
+  node -e "const l=require('./package-lock.json');console.log(Object.keys(l.packages).filter(k=>k.includes('@emnapi')))"
+  ```
+
+  Three root entries (`core`, `runtime`, `wasi-threads`) is correct; fewer means the lock is
+  pruned.
+
+- `npm version` runs an install as a side effect, so it prunes too — bump versions by
+  editing `package.json` and the lock's `version` fields directly.
+
+## Version pins that look wrong but aren't
+
+Two dependencies are deliberately held back. Do not "upgrade" them without checking peers.
+
+- **TypeScript stays on 6.x.** `typescript-eslint@8` peers `typescript >=4.8.4 <6.1.0`;
+  TypeScript 7 breaks linting entirely.
+- **ESLint stays on 9.x.** `eslint-plugin-react@7.37.5` peers `eslint <=9.7` and has no
+  ESLint 10 build. This is also why `npm audit` reports transitive `brace-expansion`
+  advisories through the lint toolchain. They are dev-only and never reach the browser
+  bundle; `npm audit fix --force` would force ESLint 10 and break the config. Revisit when
+  that plugin ships ESLint 10 support.
+
 ## Local checks before a PR
 
 ```bash
 npm run lint              # eslint + prettier (formatting is a lint error)
 npm run lint:fix          # autofix, including formatting
 npm run typecheck         # site + packages + cli
-npm run content:validate  # Zod over all MDX and JSON content
+npm run content:validate  # Zod over all MDX and JSON content — Phase 6 onward
 npm test                  # vitest
 npm run build             # the real production build
 ```
 
-CI runs all of these on every PR into `main`/`develop`, plus Lighthouse against the preview
-deployment. A score below 95 in any category fails the build.
+CI runs these on every PR into `main`/`develop`. Two gates are staged rather than active:
+
+- **`content:validate`** is commented out in `.github/workflows/ci.yml` until Phase 6.
+  `ausaf validate` is still a stub that exits non-zero on purpose, so enabling it now would
+  block every PR on a command that cannot pass. Re-enable it in the same PR that implements
+  the command.
+- **Lighthouse CI** against the preview deployment lands once there are pages to measure. A
+  score below 95 in any category must fail the build (`PLAN.md` §12).

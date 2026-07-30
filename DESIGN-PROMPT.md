@@ -5,11 +5,11 @@ Derived from `PLAN.md` §4 (theme) and §5 (information architecture).
 
 ## How to use
 
-| Tool | How |
-| --- | --- |
-| **Google Stitch** | One screen per prompt. Each block below is self-contained — paste one, generate, then move to the next. Do not paste two screens at once. |
-| **Figma Make / Figma AI** | Paste the Style Contract first, then the screen prompt, in the same message. |
-| **v0 / Lovable / Bolt** | Paste Style Contract + screen prompt. Add "React + Tailwind, no external UI library." |
+| Tool                      | How                                                                                                                                       |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **Google Stitch**         | One screen per prompt. Each block below is self-contained — paste one, generate, then move to the next. Do not paste two screens at once. |
+| **Figma Make / Figma AI** | Paste the Style Contract first, then the screen prompt, in the same message.                                                              |
+| **v0 / Lovable / Bolt**   | Paste Style Contract + screen prompt. Add "React + Tailwind, no external UI library."                                                     |
 
 Generate in this order: Homepage desktop → Homepage mobile → Case study → Projects index → Blog → Command palette → About. Each later screen inherits decisions from the first, so fix the homepage before moving on.
 
@@ -60,6 +60,21 @@ Shape: border-radius 6px on tags and inputs, 12px on cards and buttons,
 
 Icons: Lucide, 16px inline / 20px standalone, stroke in currentColor.
 
+ACCENT BUDGET — the strictest rule in this contract.
+  Amber is a spotlight, not a paint. At most THREE amber elements are visible in
+  any one screenful. If a fourth appears, the design is wrong.
+
+  Amber is ALLOWED on: the primary button, links and hover states, the active
+  nav item, tag text, metric values, timeline dots, and status dots.
+
+  Amber is FORBIDDEN on: section headings, the hero name, the hero tagline,
+  body copy, skill list items, dates, labels, and card titles. All of those are
+  #EDEDEF (primary) or #A1A1AA (secondary).
+
+  Section headings in particular are #EDEDEF, weight 600 — never amber. A page
+  whose every heading is accented reads decorative, not deliberate; hierarchy
+  comes from size and weight, not from color.
+
 BANNED — do not generate any of these:
   gradient backgrounds, glassmorphism, glow effects, neon, purple or blue accents,
   drop shadows, skill percentage bars, animated counters, testimonial carousels,
@@ -89,6 +104,12 @@ Spacing: only 4, 8, 12, 16, 24, 32, 48, 64, 96, 128. Card padding 24. Section ga
 Layout: content max-width 1080px centred, 32px gutters, single column.
 Shape: radius 6 on tags, 12 on cards and buttons. 1px #26262B borders. NO shadows.
 Icons: Lucide, stroke only.
+ACCENT BUDGET — the strictest rule here. At most THREE amber elements visible in
+one screenful. Amber is ALLOWED on: primary button, links and hover states, active
+nav item, tag text, metric values, timeline and status dots. Amber is FORBIDDEN on:
+section headings, the hero name, the hero tagline, body copy, skill items, dates,
+labels, card titles — those are #EDEDEF or #A1A1AA. Section headings are #EDEDEF
+weight 600, NEVER amber; hierarchy comes from size and weight, not color.
 BANNED: gradients, glassmorphism, glow, neon, purple/blue accents, shadows,
 skill percentage bars, animated counters, carousels, 3D shapes, stock photos,
 emoji icons, more than one accent, more than two font weights.
@@ -115,7 +136,8 @@ SCREEN STRUCTURE, top to bottom:
      - a row of three 20px Lucide icons — GitHub, LinkedIn, Mail — in #A1A1AA
    RIGHT COLUMN: a square photo, 320x320, 12px radius, 1px border, no shadow.
 
-3. Section "Selected work". Section heading 25px weight 600, with a 14px #A1A1AA
+3. Section "Selected work". Section heading 25px weight 600 in #EDEDEF — NOT amber,
+   and the same goes for every section heading below — with a 14px #A1A1AA
    line under it, then 32px gap, then THREE cards in a 2-column grid (third card
    spans full width). Each card: #141416 fill, 1px #26262B border, 12px radius,
    24px padding, 16px gaps inside:
@@ -358,6 +380,9 @@ STRUCTURE:
 
 Reject and regenerate if you see any of these:
 
+- **More than three amber elements in one screenful** — count them; this is the
+  failure that actually happens
+- An amber section heading, hero name, hero tagline, or skill list item
 - More than one accent color, or purple/blue anywhere
 - Any drop shadow or gradient
 - A skill bar, percentage, or star rating

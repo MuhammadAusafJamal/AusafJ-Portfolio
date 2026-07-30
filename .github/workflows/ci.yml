@@ -1,7 +1,8 @@
 name: ci
 
-# Gate every PR (and pushes to long-lived branches) on lint + typecheck + content
-# validation + tests + build.
+# Gate every PR (and pushes to long-lived branches) on lint + typecheck + tests +
+# build. Content validation joins this list in Phase 6, once the CLI exists — see
+# the note on the disabled step below.
 on:
   pull_request:
     branches: [main, develop]
@@ -29,9 +30,13 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
-      # The same Zod pass the CLI runs. A bad frontmatter field fails here, not in prod.
-      - name: Validate content
-        run: npm run content:validate
+      # The same Zod pass the CLI runs — a bad frontmatter field should fail here,
+      # not in prod. Disabled until Phase 6: `ausaf validate` is still a stub that
+      # exits non-zero on purpose, so enabling this now would gate every PR on a
+      # command that cannot pass. Re-enable in the same PR that implements it.
+      #
+      # - name: Validate content
+      #   run: npm run content:validate
 
       - name: Test
         run: npm test
