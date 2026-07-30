@@ -9,6 +9,7 @@
  * tokens, so every route inherits them.
  */
 import type { Metadata } from 'next';
+import { ThemeProvider } from '@/components/theme-provider';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
@@ -27,7 +28,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   // suppresses attribute diffs on this element, not anything React renders inside.
   return (
     <html lang="en" suppressHydrationWarning>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }

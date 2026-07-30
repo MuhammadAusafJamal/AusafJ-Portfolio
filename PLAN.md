@@ -246,7 +246,7 @@ Banned: parallax, scroll-jacking, cursor-following blobs, auto-playing carousels
 
 ### 4.9 Component inventory
 
-Build only these. Every one appears on `/styleguide`.
+Build only these. Every one appears on `/style-guide`.
 
 `Button` (primary / secondary / ghost) · `Link` (inline / external with icon) · `Tag` · `Card` · `Section` (title + optional description + children) · `Prose` (MDX wrapper) · `Timeline` + `TimelineItem` · `ProjectCard` · `PostCard` · `MetricBadge` · `ThemeToggle` · `Nav` · `Footer` · `CommandPalette` · `Callout` · `CodeBlock` (with copy) · `Avatar` · `StatusDot`
 
@@ -275,7 +275,7 @@ Images: every project needs a cover at 1200×630, same crop and treatment across
 | `/uses`            | Tools, hardware, editor, setup                                   | Static  |
 | `/resume`          | Inline PDF viewer + download                                     | Static  |
 | `/guestbook`       | Signed-in guestbook                                              | Dynamic |
-| `/styleguide`      | Token + component reference (noindex)                            | Static  |
+| `/style-guide`     | Token + component reference (noindex)                            | Static  |
 | `/404`             | Routes back into the site                                        | Static  |
 
 Nav: `Work · About · Blog · Contact` + theme toggle + a small `⌘K` hint. Four items maximum. Sticky, height 56px, background blur, hairline bottom border on scroll.
@@ -670,7 +670,7 @@ Non-negotiable, and it is also free Lighthouse points.
 2. Dynamically generated OG images per project and post — title, your name, accent bar. Consistent template.
 3. `JSON-LD Person` schema on `/` with `name`, `jobTitle`, `url`, `sameAs[]`, `knowsAbout[]`.
 4. `JSON-LD BlogPosting` on each post.
-5. `sitemap.xml` and `robots.txt` generated at build. `/styleguide` excluded and `noindex`.
+5. `sitemap.xml` and `robots.txt` generated at build. `/style-guide` excluded and `noindex`.
 6. RSS feed for the blog.
 7. Canonical URLs everywhere.
 8. Verify every OG card in the real Twitter/X, LinkedIn, and Discord preview tools before launch — a broken preview when someone shares your site is a silent, expensive loss.
@@ -798,7 +798,7 @@ Copy carries more of the Hireability score than layout does.
 | Phase | Work                                                  | Effort                |
 | ----- | ----------------------------------------------------- | --------------------- |
 | 0     | Positioning, resume, project selection, domain, photo | 1-2 days, **no code** |
-| 1     | Theme tokens + `/styleguide`                          | 2-3 days              |
+| 1     | Theme tokens + `/style-guide`                         | 2-3 days              |
 | 2     | IA + `packages/schema` + content model                | 2 days                |
 | 3     | Site build with real content, all pages               | 5-7 days              |
 | 4     | Responsive + a11y + SEO passes                        | 2 days                |

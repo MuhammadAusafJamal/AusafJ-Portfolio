@@ -26,14 +26,14 @@ change that invalidates existing MDX; **minor** — a new page, section, or CLI 
 
 - Minimal app shell — `app/layout.tsx` and `app/page.tsx`. Not the real design; it renders
   the tokens so the dev server and the Vercel pipeline have something to serve.
-- `DESIGN-PROMPT.md`: an explicit **accent budget** — at most three amber elements per
-  screenful, and section headings, the hero name, the hero tagline, and skill items are
-  never accented. Generated designs put amber on everything, which reads decorative rather
-  than deliberate.
-
-- `/styleguide` — the living token reference from `PLAN.md` §4. Colour, typography, spacing,
-  shape, motion, and the component primitives, each rendered from its own token rather than
-  a hardcoded literal, so the page breaks the moment a token breaks. `noindex`.
+- `/style-guide` — the living token reference from `PLAN.md` §4. Colour, typography,
+  spacing, shape, motion, and the component primitives, each rendered from its own token
+  rather than a hardcoded literal, so the page breaks the moment a token breaks. `noindex`.
+- Theme provider and toggle. `next-themes` writes the theme class onto `<html>`, and a
+  `@custom-variant` points Tailwind's `dark:` at that class instead of
+  `prefers-color-scheme` — the toggle has to beat the OS preference, not follow it. The
+  toggle renders both icons and lets CSS pick, so there is no mounted-state flash and no
+  layout shift.
 
 ### Changed
 

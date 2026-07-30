@@ -122,7 +122,7 @@ you check a diff against.
   and dark.
 - **One entrance animation, one duration, one curve**, and `prefers-reduced-motion` is
   honoured everywhere.
-- **Every new component appears on `/styleguide`.** If it is not on that page, it does not
+- **Every new component appears on `/style-guide`.** If it is not on that page, it does not
   exist.
 - **Accessibility is not a follow-up ticket.** Keyboard reachable, visible focus ring, real
   labels, semantic landmarks — in the same PR as the component.

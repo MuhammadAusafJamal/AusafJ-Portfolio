@@ -1,5 +1,5 @@
 /**
- * `/styleguide` — the living reference for PLAN.md §4.
+ * `/style-guide` — the living reference for PLAN.md §4.
  *
  * Every token the design system defines is rendered here from the token itself,
  * never from a hardcoded value, so this page breaks the moment a token breaks.
@@ -9,9 +9,10 @@
  * a recruiter should land on.
  */
 import type { Metadata } from 'next';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 export const metadata: Metadata = {
-  title: 'Styleguide',
+  title: 'Style guide',
   robots: { index: false, follow: false },
 };
 
@@ -89,8 +90,11 @@ export default function Styleguide() {
   return (
     <main className="mx-auto max-w-page px-5 py-24 md:px-8">
       <header className="pb-12">
-        <p className="font-mono text-xs text-muted">PLAN.md §4</p>
-        <h1 className="mt-4 text-3xl font-semibold">Styleguide</h1>
+        <div className="flex items-start justify-between gap-4">
+          <p className="font-mono text-xs text-muted">PLAN.md §4</p>
+          <ThemeToggle />
+        </div>
+        <h1 className="mt-4 text-3xl font-semibold">Style guide</h1>
         <p className="mt-4 text-muted">
           Every value below is rendered from its token, never from a hardcoded literal — so this
           page breaks the moment a token breaks. No component ships until it appears here.

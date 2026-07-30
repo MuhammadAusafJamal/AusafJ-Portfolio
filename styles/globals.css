@@ -13,6 +13,11 @@
  */
 @import 'tailwindcss';
 
+/* Tailwind v4 keys `dark:` off prefers-color-scheme by default. next-themes writes
+ * the theme onto <html> as a class, so point the variant at that instead — the
+ * toggle must win over the OS preference, not follow it. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ---- Dark (default) ---- */
 :root {
   --palette-bg: #0b0b0c;
