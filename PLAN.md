@@ -91,10 +91,13 @@ Nothing is dropped. Depth is opt-in. Flat-everything is precisely what capped th
 
 ## 3. Phase 0 — Positioning (before any code)
 
-Hireability is decided here, not in the codebase. Produce `content/positioning.md` by hand.
+Hireability is decided here, not in the codebase. **Done — see [`content/positioning.md`](./content/positioning.md).** The steps below are what produced it; the open items at the end of that file are what remains.
 
 1. **One sentence:** `<role> who builds <thing> for <who>, using <stack>.` This exact string goes in the hero, `<meta description>`, the OG image, and your LinkedIn headline. Test: read it to someone who doesn't know you; they should be able to name a job req you fit.
 2. **Seniority signal you can prove** — years, scale numbers (requests/day, users, data volume), notable employer, or shipped product. One line, above the fold.
+
+   This assumes a senior engineer. At around two years the honest substitute is **evidence of craft and range** — shipped projects, clean repositories, a real workflow. A scale metric you cannot defend in a technical screen is worse than no metric at all, so do not manufacture one.
+
 3. **Three flagship projects.** Each needs, in writing, before you build anything:
    - the problem, in one sentence a non-engineer understands
    - your specific contribution (not the team's)

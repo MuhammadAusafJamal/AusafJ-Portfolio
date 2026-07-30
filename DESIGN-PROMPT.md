@@ -87,8 +87,7 @@ BANNED — do not generate any of these:
 ## 1. Homepage — desktop
 
 ```text
-Design a desktop portfolio homepage (1440px wide) for a backend / full-stack
-software engineer.
+Design a desktop portfolio homepage (1440px wide) for a software engineer.
 
 STYLE CONTRACT — apply to every element, no exceptions.
 Theme: dark mode, near-black canvas, single warm amber accent, generous whitespace,
@@ -126,10 +125,10 @@ SCREEN STRUCTURE, top to bottom:
      - a 13px mono line in #A1A1AA reading "Karachi, Pakistan · Open to work"
        with a 6px #4ADE80 dot before it
      - "Muhammad Ausaf Jamal" at 49px, weight 600
-     - one sentence at 20px in #A1A1AA: "Backend engineer building APIs and data
-       systems that stay up." Max 2 lines.
-     - a 16px line: "5 years shipping production services. Node, TypeScript,
-       MongoDB, AWS."
+     - one sentence at 20px in #A1A1AA: "Software engineer building full-stack
+       products with React, Next.js, and Node." Max 2 lines.
+     - a 16px line: "2 years at Technyx Systems. BS Computer Science, University
+       of Karachi."
      - a button row with 12px gap, 24px top margin: primary button "View resume"
        (amber #E8A33D fill, #0B0B0C text, 12px radius, 12px/24px padding) and
        secondary button "Get in touch" (transparent, 1px #26262B border, #EDEDEF text)
