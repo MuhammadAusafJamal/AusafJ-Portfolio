@@ -31,7 +31,17 @@ change that invalidates existing MDX; **minor** — a new page, section, or CLI 
   never accented. Generated designs put amber on everything, which reads decorative rather
   than deliberate.
 
+- `/styleguide` — the living token reference from `PLAN.md` §4. Colour, typography, spacing,
+  shape, motion, and the component primitives, each rendered from its own token rather than
+  a hardcoded literal, so the page breaks the moment a token breaks. `noindex`.
+
 ### Changed
+
+- **The palette is now monochrome.** The amber accent is gone; `accent` is white on dark and
+  near-black on light, marking the primary button and active state only. Hierarchy comes
+  from size, weight, and contrast. The single exception is a 6px green status dot —
+  functional signal, not decoration.
+- Links are underlined by default. Without a hue that is the only affordance a link has.
 
 - CI no longer runs `content:validate`. `ausaf validate` is a stub that exits non-zero by
   design, so the step gated every PR on a command that could not pass. It is commented out

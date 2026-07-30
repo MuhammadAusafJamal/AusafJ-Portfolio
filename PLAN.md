@@ -116,29 +116,35 @@ Build this before components exist. "Overwhelming" is the explicit failure mode 
 
 ### 4.1 Concept
 
-**Near-black canvas, warm amber accent, generous whitespace, one column.**
+**Monochrome. Near-black canvas, no accent hue, generous whitespace, one column.**
 
-Rationale: the overwhelming majority of dev portfolios use blue or violet on dark. Warm amber on near-black is instantly differentiated at zero risk, reads as deliberate rather than templated, and survives light mode with a darkened variant.
+Rationale: the overwhelming majority of dev portfolios use blue or violet on dark, and a coloured accent is the thing generated designs immediately overuse — heading, tagline, tags, metrics, all accented, which reads decorative rather than deliberate. Removing the hue removes the failure mode. Hierarchy then comes from size, weight, and contrast, which is where it should come from anyway.
+
+The "accent" token still exists, but it is white on dark and near-black on light. It marks the primary button and interactive state; nothing else.
+
+**One exception:** the status dot stays green. It is functional signal, not decoration — a health indicator that reads at a glance, used at 6px and nowhere else. Colour that carries meaning is not a violation of a monochrome palette; colour that carries emphasis is.
+
+Since there is no hue to distinguish links, **links are underlined.** Without colour, the underline is the only affordance left, so it is not optional.
 
 ### 4.2 Color tokens — dark (default)
 
-| Token           | Hex       | Use                                  |
-| --------------- | --------- | ------------------------------------ |
-| `bg`            | `#0B0B0C` | Page background                      |
-| `surface`       | `#141416` | Cards, panels                        |
-| `surface-2`     | `#1C1C20` | Hover, raised, code blocks           |
-| `border`        | `#26262B` | Hairlines, card outlines             |
-| `border-strong` | `#3A3A42` | Focus outlines, active borders       |
-| `text`          | `#EDEDEF` | Headings, body                       |
-| `text-muted`    | `#A1A1AA` | Secondary copy, meta                 |
-| `text-subtle`   | `#71717A` | Timestamps, non-essential only       |
-| `accent`        | `#E8A33D` | Links, primary button, active states |
-| `accent-hover`  | `#F5B85A` | Accent hover                         |
-| `accent-quiet`  | `#3A2E17` | Accent-tinted fills, tag backgrounds |
-| `success`       | `#4ADE80` | Health/status OK                     |
-| `danger`        | `#F87171` | Errors, destructive                  |
+| Token           | Hex       | Use                                 |
+| --------------- | --------- | ----------------------------------- |
+| `bg`            | `#0B0B0C` | Page background                     |
+| `surface`       | `#141416` | Cards, panels                       |
+| `surface-2`     | `#1C1C20` | Hover, raised, code blocks          |
+| `border`        | `#26262B` | Hairlines, card outlines            |
+| `border-strong` | `#3A3A42` | Focus outlines, active borders      |
+| `text`          | `#EDEDEF` | Headings, body                      |
+| `text-muted`    | `#A1A1AA` | Secondary copy, meta                |
+| `text-subtle`   | `#71717A` | Timestamps, non-essential only      |
+| `accent`        | `#FAFAFA` | Primary button fill, active state   |
+| `accent-hover`  | `#FFFFFF` | Accent hover                        |
+| `accent-quiet`  | `#1F1F23` | Tag backgrounds, subtle fills       |
+| `success`       | `#4ADE80` | Status dot only — 6px, nowhere else |
+| `danger`        | `#F87171` | Errors, destructive                 |
 
-Contrast check: `text` on `bg` ≈ 17:1, `text-muted` ≈ 8:1, `accent` ≈ 9:1. All pass AA comfortably. `text-subtle` ≈ 4.6:1 — **never use it for information a recruiter needs.**
+Contrast check: `text` on `bg` ≈ 17:1, `text-muted` ≈ 8:1, `accent` ≈ 18:1. All pass AA comfortably. `text-subtle` ≈ 4.6:1 — **never use it for information a recruiter needs.**
 
 ### 4.3 Color tokens — light
 
@@ -152,15 +158,15 @@ Contrast check: `text` on `bg` ≈ 17:1, `text-muted` ≈ 8:1, `accent` ≈ 9:1.
 | `text`          | `#18181B` | Headings, body             |
 | `text-muted`    | `#52525B` | Secondary copy             |
 | `text-subtle`   | `#71717A` | Non-essential only         |
-| `accent`        | `#A96A00` | Links, primary button      |
-| `accent-hover`  | `#8A5600` | Accent hover               |
-| `accent-quiet`  | `#FDF3E2` | Tag backgrounds            |
-| `success`       | `#15803D` | Status OK                  |
+| `accent`        | `#0A0A0B` | Primary button fill        |
+| `accent-hover`  | `#000000` | Accent hover               |
+| `accent-quiet`  | `#EFEFED` | Tag backgrounds            |
+| `success`       | `#15803D` | Status dot only            |
 | `danger`        | `#B91C1C` | Errors                     |
 
-Amber must darken in light mode — `#E8A33D` on white is ~1.9:1 and fails outright. This is the single most common light-mode mistake.
+The accent **inverts** between themes: white on dark, near-black on light. A primary button is therefore always maximum contrast against its page, in both themes — which is the whole reason a monochrome palette can carry a call to action at all.
 
-**Alternate accents** if amber isn't yours — swap one pair, change nothing else: cool teal `#3FBFB0` / `#0D7A6E`, or signal lime `#A3E635` / `#4D7C0F`.
+**If you later want a hue back**, swap the `accent` / `accent-hover` pair and change nothing else: cool teal `#2DD4BF` / `#0F766E`, terminal lime `#A3E635` / `#4D7C0F`, or signal rose `#FB7185` / `#BE123C`. Whatever you pick must darken in light mode — a mid-tone on white fails contrast outright, and that is the most common light-mode mistake.
 
 ### 4.4 Typography
 
