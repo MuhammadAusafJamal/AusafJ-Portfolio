@@ -1,0 +1,40 @@
+name: ci
+
+# Gate every PR (and pushes to long-lived branches) on lint + typecheck + content
+# validation + tests + build.
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main, develop]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # Formatting is a lint error (eslint-plugin-prettier), so this covers both.
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      # The same Zod pass the CLI runs. A bad frontmatter field fails here, not in prod.
+      - name: Validate content
+        run: npm run content:validate
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build

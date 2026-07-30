@@ -1,0 +1,38 @@
+# dependencies
+node_modules/
+
+# secrets — base .env plus every per-environment override (.env.local, .env.production, …);
+# only the committed example stub is kept.
+.env
+.env.*
+!.env.example
+
+# next.js
+.next/
+out/
+next-env.d.ts
+
+# build output
+dist/
+build/
+*.tsbuildinfo
+
+# test output
+coverage/
+
+# logs
+*.log
+npm-debug.log*
+
+# CLI local state — the token and machine-local config never leave the machine.
+.ausafrc.local
+cli-backups/
+
+# vercel
+.vercel
+
+# editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
