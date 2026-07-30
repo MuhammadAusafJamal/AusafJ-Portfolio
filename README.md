@@ -72,7 +72,7 @@ Only `MONGODB_URI` is needed for the dynamic features; the site builds and runs 
 | `npm run lint`             | ESLint + Prettier (formatting is a lint error) |
 | `npm run lint:fix`         | Autofix, including formatting                  |
 | `npm run typecheck`        | Site, packages, and CLI                        |
-| `npm run content:validate` | Zod over all MDX and JSON                      |
+| `npm run content:validate` | Zod over all MDX and JSON (Phase 6 onward)     |
 | `npm test`                 | Vitest                                         |
 
 ## The CLI

@@ -204,10 +204,16 @@ Two dependencies are deliberately held back. Do not "upgrade" them without check
 npm run lint              # eslint + prettier (formatting is a lint error)
 npm run lint:fix          # autofix, including formatting
 npm run typecheck         # site + packages + cli
-npm run content:validate  # Zod over all MDX and JSON content
+npm run content:validate  # Zod over all MDX and JSON content — Phase 6 onward
 npm test                  # vitest
 npm run build             # the real production build
 ```
 
-CI runs all of these on every PR into `main`/`develop`, plus Lighthouse against the preview
-deployment. A score below 95 in any category fails the build.
+CI runs these on every PR into `main`/`develop`. Two gates are staged rather than active:
+
+- **`content:validate`** is commented out in `.github/workflows/ci.yml` until Phase 6.
+  `ausaf validate` is still a stub that exits non-zero on purpose, so enabling it now would
+  block every PR on a command that cannot pass. Re-enable it in the same PR that implements
+  the command.
+- **Lighthouse CI** against the preview deployment lands once there are pages to measure. A
+  score below 95 in any category must fail the build (`PLAN.md` §12).

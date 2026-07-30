@@ -24,6 +24,12 @@ change that invalidates existing MDX; **minor** — a new page, section, or CLI 
 - `styles/globals.css` — the design tokens from `PLAN.md` §4 as Tailwind v4 `@theme`
   variables, with light/dark palettes and a `prefers-reduced-motion` override.
 
+### Changed
+
+- CI no longer runs `content:validate`. `ausaf validate` is a stub that exits non-zero by
+  design, so the step gated every PR on a command that could not pass. It is commented out
+  in the workflow and re-enabled in the same PR that implements the command.
+
 ### Notes
 
 - TypeScript is pinned to the 6.x line, not 7.x: `typescript-eslint@8` peers
