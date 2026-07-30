@@ -24,6 +24,13 @@ change that invalidates existing MDX; **minor** — a new page, section, or CLI 
 - `styles/globals.css` — the design tokens from `PLAN.md` §4 as Tailwind v4 `@theme`
   variables, with light/dark palettes and a `prefers-reduced-motion` override.
 
+- Minimal app shell — `app/layout.tsx` and `app/page.tsx`. Not the real design; it renders
+  the tokens so the dev server and the Vercel pipeline have something to serve.
+- `DESIGN-PROMPT.md`: an explicit **accent budget** — at most three amber elements per
+  screenful, and section headings, the hero name, the hero tagline, and skill items are
+  never accented. Generated designs put amber on everything, which reads decorative rather
+  than deliberate.
+
 ### Changed
 
 - CI no longer runs `content:validate`. `ausaf validate` is a stub that exits non-zero by
