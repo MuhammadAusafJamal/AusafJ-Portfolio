@@ -3,10 +3,10 @@
 Personal site for Muhammad Ausaf Jamal. Static content in git, a real backend off the
 critical path, and a CLI that manages both.
 
-> **Status: scaffold.** Directory skeleton and repo conventions only — no application code
-> yet. `package.json`, `tsconfig.json`, and the ESLint config arrive with `create-next-app`
-> (see [Getting started](#getting-started)) so they are deliberately absent rather than
-> pre-written and immediately overwritten.
+> **Status: scaffold.** The toolchain is wired and the full gate is green — lint, typecheck,
+> format, test, and production build all pass. The design tokens in `styles/globals.css` are
+> real. There are no pages, no components, no schemas, and no CLI commands yet; those arrive
+> with Phases 2-7 of [`PLAN.md`](./PLAN.md).
 
 ## What this is
 

@@ -5,11 +5,11 @@ Derived from `PLAN.md` §4 (theme) and §5 (information architecture).
 
 ## How to use
 
-| Tool | How |
-| --- | --- |
-| **Google Stitch** | One screen per prompt. Each block below is self-contained — paste one, generate, then move to the next. Do not paste two screens at once. |
-| **Figma Make / Figma AI** | Paste the Style Contract first, then the screen prompt, in the same message. |
-| **v0 / Lovable / Bolt** | Paste Style Contract + screen prompt. Add "React + Tailwind, no external UI library." |
+| Tool                      | How                                                                                                                                       |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **Google Stitch**         | One screen per prompt. Each block below is self-contained — paste one, generate, then move to the next. Do not paste two screens at once. |
+| **Figma Make / Figma AI** | Paste the Style Contract first, then the screen prompt, in the same message.                                                              |
+| **v0 / Lovable / Bolt**   | Paste Style Contract + screen prompt. Add "React + Tailwind, no external UI library."                                                     |
 
 Generate in this order: Homepage desktop → Homepage mobile → Case study → Projects index → Blog → Command palette → About. Each later screen inherits decisions from the first, so fix the homepage before moving on.
 
