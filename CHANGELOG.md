@@ -26,12 +26,22 @@ change that invalidates existing MDX; **minor** — a new page, section, or CLI 
 
 - Minimal app shell — `app/layout.tsx` and `app/page.tsx`. Not the real design; it renders
   the tokens so the dev server and the Vercel pipeline have something to serve.
-- `DESIGN-PROMPT.md`: an explicit **accent budget** — at most three amber elements per
-  screenful, and section headings, the hero name, the hero tagline, and skill items are
-  never accented. Generated designs put amber on everything, which reads decorative rather
-  than deliberate.
+- `/style-guide` — the living token reference from `PLAN.md` §4. Colour, typography,
+  spacing, shape, motion, and the component primitives, each rendered from its own token
+  rather than a hardcoded literal, so the page breaks the moment a token breaks. `noindex`.
+- Theme provider and toggle. `next-themes` writes the theme class onto `<html>`, and a
+  `@custom-variant` points Tailwind's `dark:` at that class instead of
+  `prefers-color-scheme` — the toggle has to beat the OS preference, not follow it. The
+  toggle renders both icons and lets CSS pick, so there is no mounted-state flash and no
+  layout shift.
 
 ### Changed
+
+- **The palette is now monochrome.** The amber accent is gone; `accent` is white on dark and
+  near-black on light, marking the primary button and active state only. Hierarchy comes
+  from size, weight, and contrast. The single exception is a 6px green status dot —
+  functional signal, not decoration.
+- Links are underlined by default. Without a hue that is the only affordance a link has.
 
 - CI no longer runs `content:validate`. `ausaf validate` is a stub that exits non-zero by
   design, so the step gated every PR on a command that could not pass. It is commented out
