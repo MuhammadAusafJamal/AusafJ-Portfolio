@@ -91,10 +91,13 @@ Nothing is dropped. Depth is opt-in. Flat-everything is precisely what capped th
 
 ## 3. Phase 0 — Positioning (before any code)
 
-Hireability is decided here, not in the codebase. Produce `content/positioning.md` by hand.
+Hireability is decided here, not in the codebase. **Done — see [`content/positioning.md`](./content/positioning.md).** The steps below are what produced it; the open items at the end of that file are what remains.
 
 1. **One sentence:** `<role> who builds <thing> for <who>, using <stack>.` This exact string goes in the hero, `<meta description>`, the OG image, and your LinkedIn headline. Test: read it to someone who doesn't know you; they should be able to name a job req you fit.
 2. **Seniority signal you can prove** — years, scale numbers (requests/day, users, data volume), notable employer, or shipped product. One line, above the fold.
+
+   This assumes a senior engineer. At around two years the honest substitute is **evidence of craft and range** — shipped projects, clean repositories, a real workflow. A scale metric you cannot defend in a technical screen is worse than no metric at all, so do not manufacture one.
+
 3. **Three flagship projects.** Each needs, in writing, before you build anything:
    - the problem, in one sentence a non-engineer understands
    - your specific contribution (not the team's)
@@ -116,29 +119,35 @@ Build this before components exist. "Overwhelming" is the explicit failure mode 
 
 ### 4.1 Concept
 
-**Near-black canvas, warm amber accent, generous whitespace, one column.**
+**Monochrome. Near-black canvas, no accent hue, generous whitespace, one column.**
 
-Rationale: the overwhelming majority of dev portfolios use blue or violet on dark. Warm amber on near-black is instantly differentiated at zero risk, reads as deliberate rather than templated, and survives light mode with a darkened variant.
+Rationale: the overwhelming majority of dev portfolios use blue or violet on dark, and a coloured accent is the thing generated designs immediately overuse — heading, tagline, tags, metrics, all accented, which reads decorative rather than deliberate. Removing the hue removes the failure mode. Hierarchy then comes from size, weight, and contrast, which is where it should come from anyway.
+
+The "accent" token still exists, but it is white on dark and near-black on light. It marks the primary button and interactive state; nothing else.
+
+**One exception:** the status dot stays green. It is functional signal, not decoration — a health indicator that reads at a glance, used at 6px and nowhere else. Colour that carries meaning is not a violation of a monochrome palette; colour that carries emphasis is.
+
+Since there is no hue to distinguish links, **links are underlined.** Without colour, the underline is the only affordance left, so it is not optional.
 
 ### 4.2 Color tokens — dark (default)
 
-| Token           | Hex       | Use                                  |
-| --------------- | --------- | ------------------------------------ |
-| `bg`            | `#0B0B0C` | Page background                      |
-| `surface`       | `#141416` | Cards, panels                        |
-| `surface-2`     | `#1C1C20` | Hover, raised, code blocks           |
-| `border`        | `#26262B` | Hairlines, card outlines             |
-| `border-strong` | `#3A3A42` | Focus outlines, active borders       |
-| `text`          | `#EDEDEF` | Headings, body                       |
-| `text-muted`    | `#A1A1AA` | Secondary copy, meta                 |
-| `text-subtle`   | `#71717A` | Timestamps, non-essential only       |
-| `accent`        | `#E8A33D` | Links, primary button, active states |
-| `accent-hover`  | `#F5B85A` | Accent hover                         |
-| `accent-quiet`  | `#3A2E17` | Accent-tinted fills, tag backgrounds |
-| `success`       | `#4ADE80` | Health/status OK                     |
-| `danger`        | `#F87171` | Errors, destructive                  |
+| Token           | Hex       | Use                                 |
+| --------------- | --------- | ----------------------------------- |
+| `bg`            | `#0B0B0C` | Page background                     |
+| `surface`       | `#141416` | Cards, panels                       |
+| `surface-2`     | `#1C1C20` | Hover, raised, code blocks          |
+| `border`        | `#26262B` | Hairlines, card outlines            |
+| `border-strong` | `#3A3A42` | Focus outlines, active borders      |
+| `text`          | `#EDEDEF` | Headings, body                      |
+| `text-muted`    | `#A1A1AA` | Secondary copy, meta                |
+| `text-subtle`   | `#71717A` | Timestamps, non-essential only      |
+| `accent`        | `#FAFAFA` | Primary button fill, active state   |
+| `accent-hover`  | `#FFFFFF` | Accent hover                        |
+| `accent-quiet`  | `#1F1F23` | Tag backgrounds, subtle fills       |
+| `success`       | `#4ADE80` | Status dot only — 6px, nowhere else |
+| `danger`        | `#F87171` | Errors, destructive                 |
 
-Contrast check: `text` on `bg` ≈ 17:1, `text-muted` ≈ 8:1, `accent` ≈ 9:1. All pass AA comfortably. `text-subtle` ≈ 4.6:1 — **never use it for information a recruiter needs.**
+Contrast check: `text` on `bg` ≈ 17:1, `text-muted` ≈ 8:1, `accent` ≈ 18:1. All pass AA comfortably. `text-subtle` ≈ 4.6:1 — **never use it for information a recruiter needs.**
 
 ### 4.3 Color tokens — light
 
@@ -152,15 +161,15 @@ Contrast check: `text` on `bg` ≈ 17:1, `text-muted` ≈ 8:1, `accent` ≈ 9:1.
 | `text`          | `#18181B` | Headings, body             |
 | `text-muted`    | `#52525B` | Secondary copy             |
 | `text-subtle`   | `#71717A` | Non-essential only         |
-| `accent`        | `#A96A00` | Links, primary button      |
-| `accent-hover`  | `#8A5600` | Accent hover               |
-| `accent-quiet`  | `#FDF3E2` | Tag backgrounds            |
-| `success`       | `#15803D` | Status OK                  |
+| `accent`        | `#0A0A0B` | Primary button fill        |
+| `accent-hover`  | `#000000` | Accent hover               |
+| `accent-quiet`  | `#EFEFED` | Tag backgrounds            |
+| `success`       | `#15803D` | Status dot only            |
 | `danger`        | `#B91C1C` | Errors                     |
 
-Amber must darken in light mode — `#E8A33D` on white is ~1.9:1 and fails outright. This is the single most common light-mode mistake.
+The accent **inverts** between themes: white on dark, near-black on light. A primary button is therefore always maximum contrast against its page, in both themes — which is the whole reason a monochrome palette can carry a call to action at all.
 
-**Alternate accents** if amber isn't yours — swap one pair, change nothing else: cool teal `#3FBFB0` / `#0D7A6E`, or signal lime `#A3E635` / `#4D7C0F`.
+**If you later want a hue back**, swap the `accent` / `accent-hover` pair and change nothing else: cool teal `#2DD4BF` / `#0F766E`, terminal lime `#A3E635` / `#4D7C0F`, or signal rose `#FB7185` / `#BE123C`. Whatever you pick must darken in light mode — a mid-tone on white fails contrast outright, and that is the most common light-mode mistake.
 
 ### 4.4 Typography
 
@@ -240,7 +249,7 @@ Banned: parallax, scroll-jacking, cursor-following blobs, auto-playing carousels
 
 ### 4.9 Component inventory
 
-Build only these. Every one appears on `/styleguide`.
+Build only these. Every one appears on `/style-guide`.
 
 `Button` (primary / secondary / ghost) · `Link` (inline / external with icon) · `Tag` · `Card` · `Section` (title + optional description + children) · `Prose` (MDX wrapper) · `Timeline` + `TimelineItem` · `ProjectCard` · `PostCard` · `MetricBadge` · `ThemeToggle` · `Nav` · `Footer` · `CommandPalette` · `Callout` · `CodeBlock` (with copy) · `Avatar` · `StatusDot`
 
@@ -269,7 +278,7 @@ Images: every project needs a cover at 1200×630, same crop and treatment across
 | `/uses`            | Tools, hardware, editor, setup                                   | Static  |
 | `/resume`          | Inline PDF viewer + download                                     | Static  |
 | `/guestbook`       | Signed-in guestbook                                              | Dynamic |
-| `/styleguide`      | Token + component reference (noindex)                            | Static  |
+| `/style-guide`     | Token + component reference (noindex)                            | Static  |
 | `/404`             | Routes back into the site                                        | Static  |
 
 Nav: `Work · About · Blog · Contact` + theme toggle + a small `⌘K` hint. Four items maximum. Sticky, height 56px, background blur, hairline bottom border on scroll.
@@ -664,7 +673,7 @@ Non-negotiable, and it is also free Lighthouse points.
 2. Dynamically generated OG images per project and post — title, your name, accent bar. Consistent template.
 3. `JSON-LD Person` schema on `/` with `name`, `jobTitle`, `url`, `sameAs[]`, `knowsAbout[]`.
 4. `JSON-LD BlogPosting` on each post.
-5. `sitemap.xml` and `robots.txt` generated at build. `/styleguide` excluded and `noindex`.
+5. `sitemap.xml` and `robots.txt` generated at build. `/style-guide` excluded and `noindex`.
 6. RSS feed for the blog.
 7. Canonical URLs everywhere.
 8. Verify every OG card in the real Twitter/X, LinkedIn, and Discord preview tools before launch — a broken preview when someone shares your site is a silent, expensive loss.
@@ -792,7 +801,7 @@ Copy carries more of the Hireability score than layout does.
 | Phase | Work                                                  | Effort                |
 | ----- | ----------------------------------------------------- | --------------------- |
 | 0     | Positioning, resume, project selection, domain, photo | 1-2 days, **no code** |
-| 1     | Theme tokens + `/styleguide`                          | 2-3 days              |
+| 1     | Theme tokens + `/style-guide`                         | 2-3 days              |
 | 2     | IA + `packages/schema` + content model                | 2 days                |
 | 3     | Site build with real content, all pages               | 5-7 days              |
 | 4     | Responsive + a11y + SEO passes                        | 2 days                |

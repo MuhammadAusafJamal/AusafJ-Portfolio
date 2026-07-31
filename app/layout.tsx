@@ -9,12 +9,14 @@
  * tokens, so every route inherits them.
  */
 import type { Metadata } from 'next';
+import { ThemeProvider } from '@/components/theme-provider';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'Muhammad Ausaf Jamal',
-  // Replaced by the positioning line from PLAN.md §3 once it is written.
-  description: 'Backend engineer. Portfolio in progress.',
+  // The positioning line, verbatim from content/positioning.md. It must stay in
+  // sync with the hero and the OG image — one sentence, three places.
+  description: 'Software engineer building full-stack products with React, Next.js, and Node.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -27,7 +29,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   // suppresses attribute diffs on this element, not anything React renders inside.
   return (
     <html lang="en" suppressHydrationWarning>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }

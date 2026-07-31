@@ -24,7 +24,7 @@ The shared block. Every screen prompt below already includes it, so you only nee
 ```text
 STYLE CONTRACT — apply to every element, no exceptions.
 
-Theme: dark mode default, near-black canvas, single warm amber accent, generous
+Theme: dark mode default, near-black canvas, no accent hue at all, generous
 whitespace, one centred content column. Calm and editorial, not flashy. It should
 read like a senior engineer's personal site, not a SaaS landing page.
 
@@ -35,9 +35,9 @@ Colors (dark):
   border            #26262B
   text primary      #EDEDEF
   text secondary    #A1A1AA
-  accent            #E8A33D
-  accent hover      #F5B85A
-  accent tint fill  #3A2E17
+  accent            #FAFAFA
+  accent hover      #FFFFFF
+  accent tint fill  #1F1F23
   success           #4ADE80
 
 Typography:
@@ -60,26 +60,30 @@ Shape: border-radius 6px on tags and inputs, 12px on cards and buttons,
 
 Icons: Lucide, 16px inline / 20px standalone, stroke in currentColor.
 
-ACCENT BUDGET — the strictest rule in this contract.
-  Amber is a spotlight, not a paint. At most THREE amber elements are visible in
-  any one screenful. If a fourth appears, the design is wrong.
+MONOCHROME — the strictest rule in this contract.
+  There is NO accent hue. The entire page is built from #0B0B0C, #141416,
+  #1C1C20, #26262B, #71717A, #A1A1AA, #EDEDEF and #FAFAFA. Nothing else.
 
-  Amber is ALLOWED on: the primary button, links and hover states, the active
-  nav item, tag text, metric values, timeline dots, and status dots.
+  Hierarchy comes from SIZE, WEIGHT and CONTRAST — never from color. A heading
+  is bigger and heavier, not tinted. An emphasized number is larger and
+  brighter, not colored.
 
-  Amber is FORBIDDEN on: section headings, the hero name, the hero tagline,
-  body copy, skill list items, dates, labels, and card titles. All of those are
-  #EDEDEF (primary) or #A1A1AA (secondary).
+  The primary button is a solid #FAFAFA fill with #0B0B0C text — an inversion,
+  which is what makes it read as the loudest element on the page without any
+  hue. The secondary button is transparent with a 1px #26262B border.
 
-  Section headings in particular are #EDEDEF, weight 600 — never amber. A page
-  whose every heading is accented reads decorative, not deliberate; hierarchy
-  comes from size and weight, not from color.
+  Links are UNDERLINED, 1px, 3px offset, in the same color as their surrounding
+  text. Without a hue the underline is the only affordance a link has, so it is
+  never optional.
+
+  The ONLY colored pixel permitted anywhere is a 6px #4ADE80 status dot —
+  functional signal, not decoration. One per screen at most.
 
 BANNED — do not generate any of these:
   gradient backgrounds, glassmorphism, glow effects, neon, purple or blue accents,
   drop shadows, skill percentage bars, animated counters, testimonial carousels,
-  hero images of abstract 3D shapes, stock photos, emoji as icons, more than one
-  accent color, more than two font weights, centre-aligned body paragraphs.
+  hero images of abstract 3D shapes, stock photos, emoji as icons, ANY accent color,
+  colored headings or tags, more than two font weights, centre-aligned body paragraphs.
 ```
 
 ---
@@ -87,16 +91,15 @@ BANNED — do not generate any of these:
 ## 1. Homepage — desktop
 
 ```text
-Design a desktop portfolio homepage (1440px wide) for a backend / full-stack
-software engineer.
+Design a desktop portfolio homepage (1440px wide) for a software engineer.
 
 STYLE CONTRACT — apply to every element, no exceptions.
-Theme: dark mode, near-black canvas, single warm amber accent, generous whitespace,
+Theme: dark mode, near-black canvas, no accent hue at all, generous whitespace,
 one centred column. Calm and editorial, like a senior engineer's personal site —
 not a SaaS landing page.
 Colors: background #0B0B0C, card surface #141416, raised #1C1C20, border #26262B,
-text #EDEDEF, secondary text #A1A1AA, accent #E8A33D, accent hover #F5B85A,
-accent tint #3A2E17, success #4ADE80.
+text #EDEDEF, secondary text #A1A1AA, accent #FAFAFA, accent hover #FFFFFF,
+accent tint #1F1F23, success #4ADE80.
 Type: Geist Sans (fallback Inter), weights 400 and 600 only. Geist Mono for tags,
 metrics and timestamps. Sizes 13/14/16/20/25/31/39/49px only. Body 16px at 1.65
 line-height. Headings -0.02em letter-spacing. Paragraphs max 70 characters wide.
@@ -104,21 +107,22 @@ Spacing: only 4, 8, 12, 16, 24, 32, 48, 64, 96, 128. Card padding 24. Section ga
 Layout: content max-width 1080px centred, 32px gutters, single column.
 Shape: radius 6 on tags, 12 on cards and buttons. 1px #26262B borders. NO shadows.
 Icons: Lucide, stroke only.
-ACCENT BUDGET — the strictest rule here. At most THREE amber elements visible in
-one screenful. Amber is ALLOWED on: primary button, links and hover states, active
-nav item, tag text, metric values, timeline and status dots. Amber is FORBIDDEN on:
-section headings, the hero name, the hero tagline, body copy, skill items, dates,
-labels, card titles — those are #EDEDEF or #A1A1AA. Section headings are #EDEDEF
-weight 600, NEVER amber; hierarchy comes from size and weight, not color.
+MONOCHROME — the strictest rule here. There is NO accent hue. The whole page uses
+only #0B0B0C, #141416, #1C1C20, #26262B, #71717A, #A1A1AA, #EDEDEF, #FAFAFA.
+Hierarchy comes from SIZE, WEIGHT and CONTRAST, never from color — a heading is
+bigger and heavier, not tinted. The primary button is a solid #FAFAFA fill with
+#0B0B0C text; the secondary is transparent with a 1px #26262B border. Links are
+underlined 1px at 3px offset in their surrounding text color. The ONLY colored
+pixel allowed on the page is a single 6px #4ADE80 status dot.
 BANNED: gradients, glassmorphism, glow, neon, purple/blue accents, shadows,
 skill percentage bars, animated counters, carousels, 3D shapes, stock photos,
-emoji icons, more than one accent, more than two font weights.
+emoji icons, ANY accent color, colored headings or tags, more than two font weights.
 
 SCREEN STRUCTURE, top to bottom:
 
 1. Sticky nav, 56px tall, background #0B0B0C at 80% with blur, 1px bottom border.
    Left: monogram "AJ" in mono. Right: text links Work, About, Blog, Contact
-   (14px, #A1A1AA, amber on hover), then a sun/moon theme toggle icon, then a
+   (14px, #A1A1AA, #EDEDEF on hover), then a sun/moon theme toggle icon, then a
    small pill reading "⌘K" in 13px mono with a 1px border.
 
 2. Hero, 96px top padding. Two elements side by side, text left 60% / photo right 40%:
@@ -126,24 +130,23 @@ SCREEN STRUCTURE, top to bottom:
      - a 13px mono line in #A1A1AA reading "Karachi, Pakistan · Open to work"
        with a 6px #4ADE80 dot before it
      - "Muhammad Ausaf Jamal" at 49px, weight 600
-     - one sentence at 20px in #A1A1AA: "Backend engineer building APIs and data
-       systems that stay up." Max 2 lines.
-     - a 16px line: "5 years shipping production services. Node, TypeScript,
-       MongoDB, AWS."
+     - one sentence at 20px in #A1A1AA: "Software engineer building full-stack
+       products with React, Next.js, and Node." Max 2 lines.
+     - a 16px line: "2 years at Technyx Systems. BS Computer Science, University
+       of Karachi."
      - a button row with 12px gap, 24px top margin: primary button "View resume"
-       (amber #E8A33D fill, #0B0B0C text, 12px radius, 12px/24px padding) and
+       (solid #FAFAFA fill, #0B0B0C text, 12px radius, 12px/24px padding) and
        secondary button "Get in touch" (transparent, 1px #26262B border, #EDEDEF text)
      - a row of three 20px Lucide icons — GitHub, LinkedIn, Mail — in #A1A1AA
    RIGHT COLUMN: a square photo, 320x320, 12px radius, 1px border, no shadow.
 
-3. Section "Selected work". Section heading 25px weight 600 in #EDEDEF — NOT amber,
-   and the same goes for every section heading below — with a 14px #A1A1AA
+3. Section "Selected work". Section heading 25px weight 600 in #EDEDEF — with a 14px #A1A1AA
    line under it, then 32px gap, then THREE cards in a 2-column grid (third card
    spans full width). Each card: #141416 fill, 1px #26262B border, 12px radius,
    24px padding, 16px gaps inside:
      - project title 20px weight 600
      - one-line problem statement 16px #A1A1AA, max 2 lines
-     - a row of 3-4 stack tags: 13px mono, #3A2E17 fill, #E8A33D text, 6px radius,
+     - a row of 3-4 stack tags: 13px mono, #1F1F23 fill, #FAFAFA text, 6px radius,
        4px/8px padding
      - one metric shown as 25px mono in #EDEDEF with a 13px #A1A1AA label under it,
        e.g. "120ms" / "p95 latency"
@@ -151,7 +154,7 @@ SCREEN STRUCTURE, top to bottom:
        "Live site" (external-link icon) and "Source" (github icon)
 
 4. Section "Experience". Heading, then a vertical timeline: a 1px #26262B line down
-   the left with 8px amber dots on it, entries indented 32px. Each entry has
+   the left with 8px #FAFAFA dots on it, entries indented 32px. Each entry has
    company name 16px weight 600, role and dates 14px #A1A1AA on one line, one
    sentence 16px, and a row of small stack tags. Show 4 entries.
 
@@ -183,7 +186,7 @@ the contact card and the footer.
 Design the mobile version (390px wide) of the same portfolio homepage.
 
 Reuse the exact style contract: background #0B0B0C, cards #141416, border #26262B,
-text #EDEDEF, secondary #A1A1AA, accent #E8A33D. Geist Sans 400/600, Geist Mono for
+text #EDEDEF, secondary #A1A1AA, accent #FAFAFA. Geist Sans 400/600, Geist Mono for
 tags and metrics. Spacing only 4/8/12/16/24/32/48/64. 20px side gutters. Radius 6 on
 tags, 12 on cards. NO shadows, NO gradients, NO glow, one accent only.
 
@@ -213,7 +216,7 @@ experience timeline, skills, writing, contact card, footer.
 Design a desktop project case-study page (1440px) for an engineering portfolio.
 
 Style contract: background #0B0B0C, card #141416, border #26262B, text #EDEDEF,
-secondary #A1A1AA, accent #E8A33D, accent tint #3A2E17, success #4ADE80.
+secondary #A1A1AA, accent #FAFAFA, accent tint #1F1F23, success #4ADE80.
 Geist Sans weights 400/600, Geist Mono for tags, metrics, dates. Sizes
 13/14/16/20/25/31/39px only. Body 16px / 1.65. Spacing only 4/8/12/16/24/32/48/64/96.
 Radius 6 on tags, 12 on cards. 1px borders. NO shadows, NO gradients, NO glow.
@@ -225,8 +228,8 @@ STRUCTURE:
 3. Title at 39px weight 600.
 4. One-line summary at 20px in #A1A1AA.
 5. A meta row of 13px mono items separated by a "·" — Role, 2024–2025, Team of 4,
-   and a "Live" pill in #3A2E17 with #E8A33D text.
-6. A links row: two buttons, "Visit site" (amber fill) and "View source"
+   and a "Live" pill in #1F1F23 with #EDEDEF text.
+6. A links row: two buttons, "Visit site" (solid #FAFAFA fill, #0B0B0C text) and "View source"
    (bordered), each with a 16px Lucide icon.
 7. A cover image, full 720px width, 16:9, 12px radius, 1px border.
 8. Body sections, each with a 25px weight-600 heading and 16px paragraphs:
@@ -234,10 +237,10 @@ STRUCTURE:
 9. Inside "Approach", a system architecture diagram: labelled rounded boxes on
    #141416 with 1px #26262B borders, connected by thin #A1A1AA arrows, all labels
    in 13px mono. Flat and technical — no isometric 3D, no illustration.
-10. Inside "Outcome", a row of 3 metric cards: value at 31px mono in #E8A33D,
+10. Inside "Outcome", a row of 3 metric cards: value at 31px mono in #EDEDEF,
     label at 13px #A1A1AA under it, on #141416 with a 1px border and 24px padding.
 11. A "Stack" block: tags grouped under 13px #A1A1AA labels, tags in 13px mono on
-    #3A2E17 with #E8A33D text.
+    #1F1F23 with #EDEDEF text.
 12. A bottom row with previous/next project links, separated by a 1px top border.
 13. Same footer as the homepage.
 ```
@@ -250,7 +253,7 @@ STRUCTURE:
 Design a desktop "All projects" index page (1440px) for an engineering portfolio.
 
 Style contract: background #0B0B0C, card #141416, border #26262B, text #EDEDEF,
-secondary #A1A1AA, accent #E8A33D, accent tint #3A2E17. Geist Sans 400/600, Geist
+secondary #A1A1AA, accent #FAFAFA, accent tint #1F1F23. Geist Sans 400/600, Geist
 Mono for tags. Sizes 13/14/16/20/25/31/39px. Spacing only 4/8/12/16/24/32/48/96.
 Content max-width 1080px centred. Radius 6 on tags, 12 on cards. 1px borders.
 NO shadows, NO gradients, one accent only.
@@ -261,13 +264,13 @@ STRUCTURE:
    built, and what I learned building them."
 3. A filter row: horizontally scrollable pills for All, Node, TypeScript, MongoDB,
    AWS, Python. Inactive pill = transparent with 1px #26262B border and #A1A1AA
-   text. Active pill = #3A2E17 fill with #E8A33D text. 6px radius.
+   text. Active pill = #FAFAFA fill with #0B0B0C text. 6px radius.
 4. A 2-column card grid, 24px gap. Each card: #141416, 1px border, 12px radius,
    with a 16:9 cover image flush to the top edge (radius on top corners only), then
    24px padding containing: title 20px weight 600, one-line summary 16px #A1A1AA,
    a row of stack tags in 13px mono, and a footer row with a 13px mono date and two
    icon links.
-   On hover the card border becomes #3A3A42 and the title turns #E8A33D.
+   On hover the card border becomes #3A3A42 and the title stays #EDEDEF and the border brightens.
 5. Show 6 cards.
 6. Same footer as the homepage.
 ```
@@ -280,7 +283,7 @@ STRUCTURE:
 Design two desktop screens for an engineering portfolio blog (1440px wide).
 
 Style contract: background #0B0B0C, surface #141416, raised #1C1C20, border #26262B,
-text #EDEDEF, secondary #A1A1AA, accent #E8A33D, accent tint #3A2E17. Geist Sans
+text #EDEDEF, secondary #A1A1AA, accent #FAFAFA, accent tint #1F1F23. Geist Sans
 400/600, Geist Mono for dates, tags, code. Sizes 13/14/16/18/20/25/31/39px.
 Spacing only 4/8/12/16/24/32/48/96. Radius 6 on tags, 12 on cards. 1px borders.
 NO shadows, NO gradients, one accent.
@@ -297,7 +300,7 @@ SCREEN B — Blog post. Content max-width 720px centred.
   date · 8 min read · eye icon with view count. A row of tags. Then long-form body
   at 18px with 1.7 line-height, h2 headings at 25px with 48px top margin, a code
   block on #1C1C20 with a 1px border, 12px radius, 14px mono text and a copy icon
-  in the top right, and a blockquote with a 2px left border in #E8A33D and #A1A1AA
+  in the top right, and a blockquote with a 2px left border in #3A3A42 and #A1A1AA
   italic text. End with a 1px-bordered footer holding previous/next post links.
 ```
 
@@ -317,17 +320,17 @@ Panel background #141416, 1px #26262B border, 12px radius. NO drop shadow — th
 dimmed backdrop provides the separation.
 
 Fonts: Geist Mono throughout — this is a terminal, everything is monospace.
-Colors: text #EDEDEF, secondary #A1A1AA, accent #E8A33D, accent tint #3A2E17,
+Colors: text #EDEDEF, secondary #A1A1AA, accent #FAFAFA, accent tint #1F1F23,
 success #4ADE80, border #26262B.
 
 PANEL STRUCTURE, top to bottom:
-1. Input row, 56px tall, 16px horizontal padding, 1px bottom border. An amber "❯"
+1. Input row, 56px tall, 16px horizontal padding, 1px bottom border. A #FAFAFA "❯"
    prompt character, then the typed text "stat" at 16px mono, then a blinking
-   1px amber caret. On the far right, a small bordered "esc" pill in 13px mono.
+   1px #FAFAFA caret. On the far right, a small bordered "esc" pill in 13px mono.
 2. A results list. Each row is 44px tall with 16px horizontal padding and holds a
    16px Lucide icon, then the command name in 14px mono #EDEDEF, then the
    description in 14px mono #A1A1AA on the right. The selected row has a #1C1C20
-   background and a 2px amber left border.
+   background and a 2px #FAFAFA left border.
    Rows:
      status    — ping the API, show live latency        (selected)
      stack     — list skills by group
@@ -353,7 +356,7 @@ Do not add rounded search-bar styling, magnifying glass icons, gradients, or glo
 Design a desktop "About" page (1440px) for an engineering portfolio.
 
 Style contract: background #0B0B0C, card #141416, border #26262B, text #EDEDEF,
-secondary #A1A1AA, accent #E8A33D, accent tint #3A2E17. Geist Sans 400/600, Geist
+secondary #A1A1AA, accent #FAFAFA, accent tint #1F1F23. Geist Sans 400/600, Geist
 Mono for tags, dates, metrics. Sizes 13/14/16/18/20/25/31/39px. Spacing only
 4/8/12/16/24/32/48/96. Prose column 720px centred. Radius 6 on tags, 12 on cards.
 1px borders. NO shadows, NO gradients, one accent.
@@ -364,13 +367,13 @@ STRUCTURE:
 3. A 200x200 photo with 12px radius, left-aligned, with three 18px paragraphs of
    first-person bio wrapping beside and below it.
 4. Section "Experience" at 25px: a full timeline of 6 roles. Each entry has a 1px
-   #26262B left rule with an 8px amber dot, company at 16px weight 600, role and
+   #26262B left rule with an 8px #FAFAFA dot, company at 16px weight 600, role and
    dates at 14px #A1A1AA, 3 bullet points at 16px, and a row of stack tags.
 5. Section "Skills" at 25px: 6 groups, each with a 14px #A1A1AA label and rows of
-   13px mono tags on #3A2E17 with #E8A33D text. Absolutely no bars or ratings.
+   13px mono tags on #1F1F23 with #EDEDEF text. Absolutely no bars or ratings.
 6. Section "Beyond code" at 25px: two short 18px paragraphs.
 7. A closing card on #141416 with 24px padding: 20px heading "Want the short
-   version?", a 16px #A1A1AA line, and an amber "Download resume" button.
+   version?", a 16px #A1A1AA line, and a solid #FAFAFA "Download resume" button.
 8. Same footer as the homepage.
 ```
 
@@ -380,10 +383,10 @@ STRUCTURE:
 
 Reject and regenerate if you see any of these:
 
-- **More than three amber elements in one screenful** — count them; this is the
-  failure that actually happens
-- An amber section heading, hero name, hero tagline, or skill list item
-- More than one accent color, or purple/blue anywhere
+- **Any colored pixel other than the single 6px #4ADE80 status dot** — the palette
+  is monochrome; this is the failure that actually happens
+- A tinted heading, hero name, tagline, tag, or metric
+- Links without an underline — with no hue, that is the only affordance left
 - Any drop shadow or gradient
 - A skill bar, percentage, or star rating
 - Body text below 16px
