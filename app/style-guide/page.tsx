@@ -91,10 +91,9 @@ export default function Styleguide() {
     <main className="mx-auto max-w-page px-5 py-24 md:px-8">
       <header className="pb-12">
         <div className="flex items-start justify-between gap-4">
-          <p className="font-mono text-xs text-muted">PLAN.md §4</p>
+          <h1 className="text-3xl font-semibold">Style guide</h1>
           <ThemeToggle />
         </div>
-        <h1 className="mt-4 text-3xl font-semibold">Style guide</h1>
         <p className="mt-4 text-muted">
           Every value below is rendered from its token, never from a hardcoded literal — so this
           page breaks the moment a token breaks. No component ships until it appears here.
@@ -218,7 +217,7 @@ export default function Styleguide() {
         <Section
           id="components"
           title="Components"
-          intro="The inventory from PLAN.md §4.9. Each one lands here as it is built; these are the primitives that exist so far."
+          intro="Each primitive lands here as it is built. These are the ones that exist so far."
         >
           <div className="flex flex-col gap-12">
             <div>
