@@ -13,6 +13,11 @@
  */
 @import 'tailwindcss';
 
+/* Tailwind v4 keys `dark:` off prefers-color-scheme by default. next-themes writes
+ * the theme onto <html> as a class, so point the variant at that instead — the
+ * toggle must win over the OS preference, not follow it. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ---- Dark (default) ---- */
 :root {
   --palette-bg: #0b0b0c;
@@ -23,9 +28,9 @@
   --palette-text: #ededef;
   --palette-text-muted: #a1a1aa;
   --palette-text-subtle: #71717a;
-  --palette-accent: #e8a33d;
-  --palette-accent-hover: #f5b85a;
-  --palette-accent-quiet: #3a2e17;
+  --palette-accent: #fafafa;
+  --palette-accent-hover: #ffffff;
+  --palette-accent-quiet: #1f1f23;
   --palette-success: #4ade80;
   --palette-danger: #f87171;
 
@@ -33,8 +38,8 @@
 }
 
 /* ---- Light ----
- * The accent MUST darken here. #E8A33D on white is ~1.9:1 and fails outright —
- * the most common light-mode mistake in PLAN.md §4.3.
+ * The accent INVERTS rather than darkening: white on dark, near-black on light.
+ * A primary button is therefore always maximum contrast against its own page.
  */
 .light {
   --palette-bg: #fafaf9;
@@ -45,9 +50,9 @@
   --palette-text: #18181b;
   --palette-text-muted: #52525b;
   --palette-text-subtle: #71717a;
-  --palette-accent: #a96a00;
-  --palette-accent-hover: #8a5600;
-  --palette-accent-quiet: #fdf3e2;
+  --palette-accent: #0a0a0b;
+  --palette-accent-hover: #000000;
+  --palette-accent-quiet: #efefed;
   --palette-success: #15803d;
   --palette-danger: #b91c1c;
 
@@ -56,6 +61,11 @@
 
 @theme {
   /* ---- Color ----
+   * The palette is monochrome. `accent` is white on dark and near-black on light —
+   * it marks the primary button and active state, nothing else. `success` is the
+   * single exception and is functional signal only: a 6px status dot. Colour that
+   * carries meaning is fine; colour that carries emphasis is what we removed.
+   *
    * `text-subtle` is deliberately last: it sits at ~4.6:1 on dark and must never
    * carry information a recruiter needs.
    */
@@ -161,6 +171,22 @@
   p {
     max-width: 70ch;
     text-wrap: pretty;
+  }
+
+  /* Without a hue, the underline is the only affordance a link has left, so it is
+   * not optional. Offset and thinned so body copy still reads cleanly. Navigation
+   * and button-styled links opt out with `no-underline`.
+   */
+  a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--color-border-strong);
+    transition: text-decoration-color var(--duration-micro) var(--ease-standard);
+  }
+
+  a:hover {
+    text-decoration-color: currentColor;
   }
 
   /* Every interactive element gets the same visible ring. Never `outline: none`
