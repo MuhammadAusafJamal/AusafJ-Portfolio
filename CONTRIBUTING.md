@@ -1,6 +1,6 @@
 # Contributing
 
-This is a solo repo, but it runs a real workflow — tagged releases, a changelog, protected
+This is a solo repo, but it runs a real workflow—tagged releases, a changelog, protected
 branches. The point is partly the portfolio itself and partly that the git history is a
 work sample.
 
@@ -18,12 +18,12 @@ work sample.
   deleted after merge.
 - Open a PR into `develop` (or `main` for hotfixes); no direct pushes to protected branches.
 - Content-only changes (a new post, a project write-up) go through `feature/content-<slug>`
-  and are published with the CLI — see [Publishing content](#publishing-content).
+  and are published with the CLI—see [Publishing content](#publishing-content).
 
 ## Commits
 
 [Conventional Commits](https://www.conventionalcommits.org/): `feat:`, `fix:`, `chore:`,
-`docs:`, `refactor:`, `test:`, `perf:`, `ci:`, `style:` — plus `!` or a `BREAKING CHANGE:`
+`docs:`, `refactor:`, `test:`, `perf:`, `ci:`, `style:`—plus `!` or a `BREAKING CHANGE:`
 footer for breaking changes. The type drives the version bump.
 
 Scopes match the top-level areas: `site`, `cli`, `api`, `schema`, `content`, `theme`.
@@ -35,7 +35,7 @@ Example: `feat(cli): add ausaf doctor`.
 
 ## Versioning & releases ([SemVer](https://semver.org/))
 
-`MAJOR.MINOR.PATCH` — breaking / feature / fix.
+`MAJOR.MINOR.PATCH`—breaking / feature / fix.
 
 For a portfolio, read the numbers as: **major** = a redesign or a content-model change that
 invalidates existing MDX; **minor** = a new page, section, or CLI command; **patch** = copy
@@ -49,17 +49,22 @@ edits, a new post, a bug fix.
 
 ## Coding conventions
 
-The house rules. See `PLAN.md` for the full specification — this section is the short form
-you check a diff against.
+The house rules. This is the short form you check a diff against.
 
 ### Architecture
 
-- **Content is git, dynamic data is Mongo.** Page content lives in `content/` as MDX and is
-  the single source of truth. MongoDB holds only view counts, guestbook entries, contact
-  messages, rate-limit state, and the CLI audit log. Never move a page field into the
-  database.
+- **Content is git, dynamic data is MongoDB.** Page content lives in `content/` as MDX and
+  is the single source of truth. The database holds only view counts, guestbook entries,
+  contact messages, rate-limit state, and the CLI audit log. Never move a page field into
+  the database.
+- **Mongoose owns every query.** Models live in `lib/db/models/`, one file per collection,
+  and no route talks to the driver directly. `strict: true` and `strictQuery: true` stay on,
+  so a typo'd field is an error rather than a silent no-op.
+- **One cached connection.** `mongoose.connect()` is called once and the promise is held on
+  `globalThis`, because a serverless function that connects per request will exhaust the
+  Atlas pool the first time anything gets traffic.
 - **The homepage must render with the database down.** Nothing on the critical render path
-  may await Mongo. Dynamic values (view counts, status) degrade silently to nothing — no
+  may await a query. Dynamic values (view counts, status) degrade silently to nothing—no
   error UI, no layout shift, no console noise.
 - **One schema, three consumers.** `packages/schema` is imported by the CLI (validates
   authoring input), the build (fails on invalid content), and the API (validates request
@@ -75,10 +80,10 @@ you check a diff against.
 
 - **Types live in `types/`, never in the implementation file.** Every package has
   `src/types/`; no `export interface` / `export type` appears outside it.
-  - `shared.types.ts` — the package's cross-module vocabulary. Every package has one.
-  - `<module>.types.ts` — types scoped to one module, named after it. A module imports its
+  - `shared.types.ts`—the package's cross-module vocabulary. Every package has one.
+  - `<module>.types.ts`—types scoped to one module, named after it. A module imports its
     own file directly (`./types/store.types`), not the barrel.
-  - `index.ts` — an `export type *` barrel, re-exported from `package.json` as `./types`.
+  - `index.ts`—an `export type *` barrel, re-exported from `package.json` as `./types`.
 
   A type that never leaves the file may stay inline **unexported**; the moment it appears in
   an exported signature it moves to `types/`. The exception is the Zod schema files, where
@@ -86,8 +91,8 @@ you check a diff against.
   re-exports it.
 
 - **`./types` subpaths are runtime-free.** They contain nothing but `export type`, so the
-  browser bundle never pulls in the Mongo driver. Never add a value export to a
-  `.types.ts` file — put it in `constants.ts`.
+  browser bundle never pulls in Mongoose. Never add a value export to a
+  `.types.ts` file—put it in `constants.ts`.
 - **Zod is the single source of truth.** Change the schema first; domain types are
   `z.infer`-ed from it, never hand-written.
 - **Parse at the boundary, don't cast.** Every route param, query string, and request body
@@ -117,7 +122,7 @@ you check a diff against.
 
 - **Tokens only.** Colors, spacing, type sizes, radii, and durations come from the Tailwind
   config. An arbitrary value (`p-[13px]`, `text-[#ccc]`) in a component is a review comment.
-  The permitted values are in `PLAN.md` §4.
+  The permitted values are the ones rendered on `/style-guide`.
 - **Both themes, every time.** A component is not done until it has been checked in light
   and dark.
 - **One entrance animation, one duration, one curve**, and `prefers-reduced-motion` is
@@ -125,7 +130,7 @@ you check a diff against.
 - **Every new component appears on `/style-guide`.** If it is not on that page, it does not
   exist.
 - **Accessibility is not a follow-up ticket.** Keyboard reachable, visible focus ring, real
-  labels, semantic landmarks — in the same PR as the component.
+  labels, semantic landmarks—in the same PR as the component.
 
 ### Code style
 
@@ -138,16 +143,17 @@ you check a diff against.
   in `types/components.types.ts`. Pages own state and pass it down.
 - **Document the _why_.** Every module and non-trivial function carries a `/** */`
   explaining intent and trade-offs, not just mechanics.
-- **Import across packages through the barrel** — never a deep `src/` path. Inside a
+- **Import across packages through the barrel**—never a deep `src/` path. Inside a
   package, relative imports go to the module, not the barrel, so there are no cycles.
 
 ### Testing
 
 - **Test the pure units.** Schema validation, frontmatter parsing, slug resolution, the
   command parser, and rate-limit key derivation are pure and carry the high-value tests.
-- **Route tests assert the envelope**, not just the happy path — a 429 and a 400 are part
+- **Route tests assert the envelope**, not just the happy path—a 429 and a 400 are part
   of the contract.
-- **The design system is verified by eye, not by test.** Use the checklist in `PLAN.md` §19.
+- **The design system is verified by eye, not by test.** Open `/style-guide` in both themes
+  and at 390px before you call a component done.
 
 ## Publishing content
 
@@ -168,7 +174,7 @@ the production build.
 `@emnapi/wasi-threads` at the root. `@rolldown/binding-wasm32-wasi` (via Vite, which Vitest
 pulls in) and `@napi-rs/wasm-runtime` declare them as _optional_ dependencies. They are
 never installed on Windows, so an `npm install` run there against a populated
-`node_modules` **reconciles the lock against the local tree and deletes those entries** —
+`node_modules` **reconciles the lock against the local tree and deletes those entries**—
 after which CI's `npm ci` on Linux fails with `Missing: @emnapi/core@… from lock file`.
 
 - `npm install --package-lock-only` does **not** repair it; it re-derives the same pruned
@@ -183,7 +189,7 @@ after which CI's `npm ci` on Linux fails with `Missing: @emnapi/core@… from lo
   Three root entries (`core`, `runtime`, `wasi-threads`) is correct; fewer means the lock is
   pruned.
 
-- `npm version` runs an install as a side effect, so it prunes too — bump versions by
+- `npm version` runs an install as a side effect, so it prunes too—bump versions by
   editing `package.json` and the lock's `version` fields directly.
 
 ## Version pins that look wrong but aren't
@@ -204,16 +210,15 @@ Two dependencies are deliberately held back. Do not "upgrade" them without check
 npm run lint              # eslint + prettier (formatting is a lint error)
 npm run lint:fix          # autofix, including formatting
 npm run typecheck         # site + packages + cli
-npm run content:validate  # Zod over all MDX and JSON content — Phase 6 onward
+npm run content:validate  # Zod over all MDX and JSON content—Phase 6 onward
 npm test                  # vitest
 npm run build             # the real production build
 ```
 
 CI runs these on every PR into `main`/`develop`. Two gates are staged rather than active:
 
-- **`content:validate`** is commented out in `.github/workflows/ci.yml` until Phase 6.
-  `ausaf validate` is still a stub that exits non-zero on purpose, so enabling it now would
-  block every PR on a command that cannot pass. Re-enable it in the same PR that implements
-  the command.
+- **`content:validate`** is commented out in `.github/workflows/ci.yml`. `ausaf validate` is
+  still a stub that exits non-zero on purpose, so enabling it now would block every PR on a
+  command that cannot pass. Re-enable it in the same PR that implements the command.
 - **Lighthouse CI** against the preview deployment lands once there are pages to measure. A
-  score below 95 in any category must fail the build (`PLAN.md` §12).
+  score below 95 in any category must fail the build.

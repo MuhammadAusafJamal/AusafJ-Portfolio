@@ -1,0 +1,44 @@
+---
+title: IoT Sensor Data Management System
+slug: iot-sensor-ddb
+summary: A distributed store for sensor readings, with the partitioning logic written in PL/pgSQL.
+role: Solo build
+startDate: '2025-02-01'
+endDate: '2025-05-01'
+status: live
+featured: false
+order: 3
+stack:
+  - PostgreSQL
+  - PL/pgSQL
+  - JavaScript
+links:
+  repo: https://github.com/MuhammadAusafJamal/IOT-Sensor-DDB
+cover: /content/projects/iot-sensor-ddb/cover.png
+coverAlt: The schema diagram for the distributed sensor database.
+draft: false
+---
+
+## Problem
+
+Sensor readings arrive constantly and are almost always queried by device and by time range.
+A single table answers that badly once it grows, so the interesting part of the problem is
+where the data physically lives.
+
+## Approach
+
+A distributed schema with the routing and aggregation logic in PL/pgSQL rather than in the
+application, so a client issues one query and the database decides which partition answers
+it.
+
+## Hard decision
+
+Putting the distribution logic in stored procedures instead of the Node layer. It costs
+portability and it is harder to test, and it means the read path does not depend on the
+application getting the routing right.
+
+## What I'd change
+
+There is no diagram of the distribution model, which is the first thing anyone reading this
+would want. It also needs one number attached to it: rows handled, query time, or node
+count.

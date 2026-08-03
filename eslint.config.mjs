@@ -3,7 +3,7 @@
  *
  * The rule set is shared with the `Component-Usage-Explorer` repo so both
  * codebases read the same. The difference here is that this project *is* a Next
- * app, so the Next layer (`eslint-config-next` — the `@next/next` rules that
+ * app, so the Next layer (`eslint-config-next`—the `@next/next` rules that
  * catch the image/font/script mistakes that cost Lighthouse points) is kept
  * rather than dropped. Formatting is owned by `.prettierrc` and reported as a
  * lint error, so `npm run lint` covers it and CI gates on it.
@@ -21,7 +21,7 @@ import prettierRecommended from 'eslint-plugin-prettier/recommended';
 
 export default tseslint.config(
   {
-    // Generated/vendored output — never linted.
+    // Generated/vendored output—never linted.
     ignores: [
       '**/node_modules/**',
       '**/.next/**',

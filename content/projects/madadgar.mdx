@@ -1,0 +1,57 @@
+---
+title: Madadgar
+slug: madadgar
+summary: Turns a spoken request for a home service into a matched, booked provider.
+role: Full-stack engineer
+startDate: '2025-11-01'
+endDate: present
+status: live
+featured: true
+order: 1
+stack:
+  - TypeScript
+  - React Native
+  - Expo
+  - Node.js
+  - Express
+  - Firestore
+links:
+  repo: https://github.com/MuhammadAusafJamal/Madadgar
+metrics:
+  - label: agents in the pipeline
+    value: '8'
+    detail: Intake, extraction, matching, ranking, booking, and confirmation.
+  - label: languages parsed
+    value: '3'
+    detail: English, Roman Urdu, and Urdu, in one intake path.
+cover: /content/projects/madadgar/cover.png
+coverAlt: The Madadgar booking screen showing a matched service provider.
+draft: false
+---
+
+## Problem
+
+Finding a plumber or an AC technician in Karachi is a phone-call problem. You describe what
+you need, in whatever mix of English and Urdu you speak, and someone on the other end works
+out who to send. A form with dropdowns throws most of that away in the first field.
+
+## Approach
+
+A React Native app on Expo, an Express backend, and an eight-agent pipeline that takes the
+raw message and walks it through intake, intent extraction, provider matching, ranking, and
+booking. Auth and storage sit on Firebase.
+
+The intake handles English, Roman Urdu, and Urdu. _"Mujhe kal subah G-13 mein AC technician
+chahiye"_ comes out the other side as a service type, an area, and a time window.
+
+## Hard decision
+
+Provider ranking is a weighted blend of rating, availability, and distance rather than a
+single sort key. A pure rating sort starves new providers and a pure distance sort ignores
+whether anyone is actually free.
+
+## What I'd change
+
+The whole thing landed as one commit under hackathon pressure, so the history shows none of
+the reasoning. The ranking weights also need to be validated against real bookings rather
+than judgment.

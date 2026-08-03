@@ -5,4 +5,4 @@
  * `*.types.ts` file, so the browser bundle never pulls in a server dependency.
  * A value belongs in `constants.ts` or the module.
  */
-export {};
+export type * from './shared.types';
