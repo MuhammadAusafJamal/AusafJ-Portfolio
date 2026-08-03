@@ -1,5 +1,5 @@
 /**
- * Vitest. Per CONTRIBUTING, the high-value tests are the pure units — schema
+ * Vitest. Per CONTRIBUTING, the high-value tests are the pure units—schema
  * validation, frontmatter parsing, slug resolution, the command parser, and
  * rate-limit key derivation. Everything runs from TypeScript via esbuild; there
  * is no build step.
