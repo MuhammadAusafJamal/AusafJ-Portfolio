@@ -1,0 +1,52 @@
+---
+title: Experience Abu Dhabi
+slug: experience-abu-dhabi
+summary: Moved a live React 16 tourism platform onto Next.js without a freeze window.
+role: Software Engineer, Technyx Systems
+startDate: '2024-12-01'
+endDate: present
+status: live
+featured: true
+order: 2
+stack:
+  - React
+  - Next.js
+  - TypeScript
+  - Redux
+  - REST APIs
+metrics:
+  - label: REST endpoints integrated
+    value: '4+'
+    detail: Each one hardened with defensive validation and error handling.
+  - label: downtime
+    value: None
+    detail: The legacy app kept serving traffic through every step.
+cover: /content/projects/experience-abu-dhabi/cover.png
+coverAlt: The Experience Abu Dhabi site rendered on desktop and mobile.
+draft: false
+---
+
+## Problem
+
+A tourism platform running on React 16 with real users on it. The stack was old enough to be
+holding back both performance and hiring, and there was no window to stop shipping.
+
+## Approach
+
+Incremental migration rather than a rewrite. Routes moved to Next.js one at a time behind
+the same domain, so the legacy app kept serving everything that had not moved yet. Shared
+components were ported first, because every route needed them.
+
+## Hard decision
+
+Rewrite versus incremental. A rewrite is faster to reason about and produces a cleaner
+result, and it also means running two products until the day you cut over. On a live
+commercial site with a small team, the migration path that never has a big-bang cutover wins
+even though it takes longer.
+
+## What I'd change
+
+The before-and-after was never measured properly. Load time and bundle size across the
+migration would have made the case in one line instead of a paragraph.
+
+{/* Client work: confirm what may be shown publicly before adding a live URL or repo link. */}

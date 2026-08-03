@@ -1,0 +1,16 @@
+[
+  {
+    "platform": "GitHub",
+    "url": "https://github.com/MuhammadAusafJamal",
+    "handle": "MuhammadAusafJamal",
+    "icon": "github",
+    "showInHero": true
+  },
+  {
+    "platform": "LinkedIn",
+    "url": "https://linkedin.com/in/muhammadausafjamal",
+    "handle": "muhammadausafjamal",
+    "icon": "linkedin",
+    "showInHero": true
+  }
+]
