@@ -1,0 +1,56 @@
+[
+  {
+    "group": "Languages",
+    "items": [
+      { "name": "TypeScript", "level": "core" },
+      { "name": "JavaScript", "level": "core" },
+      { "name": "SQL", "level": "working" }
+    ]
+  },
+  {
+    "group": "Frontend",
+    "items": [
+      { "name": "React", "level": "core" },
+      { "name": "Next.js", "level": "core" },
+      { "name": "Redux", "level": "working" },
+      { "name": "Tailwind CSS", "level": "working" },
+      { "name": "Material UI", "level": "working" },
+      { "name": "SCSS", "level": "working" }
+    ]
+  },
+  {
+    "group": "Mobile",
+    "items": [
+      { "name": "React Native", "level": "working" },
+      { "name": "Expo", "level": "working" }
+    ]
+  },
+  {
+    "group": "Backend",
+    "items": [
+      { "name": "Node.js", "level": "core" },
+      { "name": "Express", "level": "working" },
+      { "name": "REST APIs", "level": "core" },
+      { "name": "Zod", "level": "working" }
+    ]
+  },
+  {
+    "group": "Data",
+    "items": [
+      { "name": "MongoDB", "level": "working" },
+      { "name": "Mongoose", "level": "working" },
+      { "name": "PostgreSQL", "level": "working" },
+      { "name": "PL/pgSQL", "level": "familiar" },
+      { "name": "Firestore", "level": "working" }
+    ]
+  },
+  {
+    "group": "Tooling",
+    "items": [
+      { "name": "Git", "level": "core" },
+      { "name": "GitHub Actions", "level": "working" },
+      { "name": "Vercel", "level": "working" },
+      { "name": "Netlify", "level": "familiar" }
+    ]
+  }
+]

@@ -1,14 +1,16 @@
 /**
- * `/style-guide` — the living reference for PLAN.md §4.
+ * `/style-guide`—the living reference for the design system.
  *
  * Every token the design system defines is rendered here from the token itself,
  * never from a hardcoded value, so this page breaks the moment a token breaks.
  * Per CONTRIBUTING, no component ships until it appears on this page.
  *
- * Excluded from the sitemap and marked noindex — it is a working tool, not a page
+ * Excluded from the sitemap and marked noindex—it is a working tool, not a page
  * a recruiter should land on.
  */
 import type { Metadata } from 'next';
+import { Avatar } from '@/components/ui/avatar';
+import { StatusDot } from '@/components/ui/status-dot';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 export const metadata: Metadata = {
@@ -24,11 +26,11 @@ const COLORS = [
   { name: 'border-strong', cls: 'bg-border-strong', note: 'Focus outlines, active borders' },
   { name: 'text', cls: 'bg-text', note: 'Headings, body' },
   { name: 'muted', cls: 'bg-muted', note: 'Secondary copy, meta' },
-  { name: 'subtle', cls: 'bg-subtle', note: 'Non-essential only — never load-bearing' },
+  { name: 'subtle', cls: 'bg-subtle', note: 'Non-essential only—never load-bearing' },
   { name: 'accent', cls: 'bg-accent', note: 'Primary button, active state' },
   { name: 'accent-hover', cls: 'bg-accent-hover', note: 'Accent hover' },
   { name: 'accent-quiet', cls: 'bg-accent-quiet', note: 'Tag backgrounds, subtle fills' },
-  { name: 'success', cls: 'bg-success', note: 'Status dot only — 6px, nowhere else' },
+  { name: 'success', cls: 'bg-success', note: 'Status dot only—6px, nowhere else' },
   { name: 'danger', cls: 'bg-danger', note: 'Errors, destructive' },
 ];
 
@@ -38,7 +40,7 @@ const TYPE = [
   { token: 'text-2xl', cls: 'text-2xl', px: '31px', use: 'Page titles' },
   { token: 'text-xl', cls: 'text-xl', px: '25px', use: 'Section headings' },
   { token: 'text-lg', cls: 'text-lg', px: '20px', use: 'Lead paragraph, card titles' },
-  { token: 'text-base', cls: 'text-base', px: '16px', use: 'Body — never smaller' },
+  { token: 'text-base', cls: 'text-base', px: '16px', use: 'Body—never smaller' },
   { token: 'text-sm', cls: 'text-sm', px: '14px', use: 'Secondary copy, nav' },
   { token: 'text-xs', cls: 'text-xs', px: '13px', use: 'Tags, meta, captions' },
 ];
@@ -95,8 +97,8 @@ export default function Styleguide() {
           <ThemeToggle />
         </div>
         <p className="mt-4 text-muted">
-          Every value below is rendered from its token, never from a hardcoded literal — so this
-          page breaks the moment a token breaks. No component ships until it appears here.
+          Every value below is rendered from its token, never from a hardcoded literal—so this page
+          breaks the moment a token breaks. No component ships until it appears here.
         </p>
         <p className="mt-4 text-sm text-muted">
           The palette is monochrome. Hierarchy comes from size, weight, and contrast; the only
@@ -149,7 +151,7 @@ export default function Styleguide() {
               costs nothing to get right.
             </p>
             <p className="font-mono text-sm">
-              Monospace — used for tags, metrics, dates, and the command palette.
+              Monospace—used for tags, metrics, dates, and the command palette.
             </p>
             <p className="text-sm text-muted">Secondary copy, for meta and supporting lines.</p>
           </div>
@@ -158,7 +160,7 @@ export default function Styleguide() {
         <Section
           id="spacing"
           title="Spacing"
-          intro="4px base. These ten values are the entire permitted set — anything else is a review comment."
+          intro="4px base. These ten values are the entire permitted set—anything else is a review comment."
         >
           <div className="flex flex-col">
             {SPACING.map((s) => (
@@ -178,7 +180,7 @@ export default function Styleguide() {
         <Section
           id="shape"
           title="Shape & elevation"
-          intro="Two radii plus full. In dark mode, surfaces are separated by border and background shift — never by shadow."
+          intro="Two radii plus full. In dark mode, surfaces are separated by border and background shift—never by shadow."
         >
           <div className="flex flex-wrap gap-6">
             <div className="rounded-tag border border-border bg-surface px-6 py-4">
@@ -221,6 +223,19 @@ export default function Styleguide() {
         >
           <div className="flex flex-col gap-12">
             <div>
+              <p className="font-mono text-xs text-muted">Avatar</p>
+              <div className="mt-4">
+                <Avatar src="/me.png" alt="Muhammad Ausaf Jamal, smiling, in a dark blazer." />
+              </div>
+              <p className="mt-3 text-sm text-muted">
+                160px, and the source is decoded at twice that so a retina screen has pixels to use.
+                The image ships pre-masked to a circle with transparent corners, so the dark
+                backdrop belongs to the photo rather than to the page, and the same file works on
+                both themes.
+              </p>
+            </div>
+
+            <div>
               <p className="font-mono text-xs text-muted">Buttons</p>
               <div className="mt-4 flex flex-wrap items-center gap-3">
                 <button className="rounded-card bg-accent px-6 py-3 text-sm font-semibold text-bg transition-colors duration-micro ease-standard hover:bg-accent-hover">
@@ -234,7 +249,7 @@ export default function Styleguide() {
                 </button>
               </div>
               <p className="mt-3 text-sm text-muted">
-                The primary button is an inversion — solid foreground, background-coloured text.
+                The primary button is an inversion—solid foreground, background-coloured text.
                 Without a hue, that is what makes it the loudest element on the page.
               </p>
             </div>
@@ -255,15 +270,17 @@ export default function Styleguide() {
 
             <div>
               <p className="font-mono text-xs text-muted">Status dot</p>
-              <div className="mt-4 flex items-center gap-2">
-                <span className="size-1.5 rounded-full bg-success" aria-hidden />
-                <span className="font-mono text-xs text-muted">
-                  Karachi, Pakistan · Open to work
-                </span>
+              <div className="mt-4 flex flex-col gap-2">
+                <StatusDot availability="open" label="Karachi, Pakistan · Open to work" />
+                <StatusDot availability="selective" label="Selective — listening, not looking" />
+                <StatusDot availability="closed" label="Not currently open to roles" />
               </div>
               <p className="mt-3 text-sm text-muted">
                 The single exception to the monochrome rule. Colour that carries meaning is fine;
-                colour that carries emphasis is what was removed.
+                colour that carries emphasis is what was removed. The halo pulses only while the
+                status is open, runs for two seconds, and stops dead under{' '}
+                <code className="font-mono text-xs">prefers-reduced-motion</code>. It is the only
+                looping animation anywhere on the site.
               </p>
             </div>
 
@@ -295,7 +312,7 @@ export default function Styleguide() {
             <div>
               <p className="font-mono text-xs text-muted">Links</p>
               <p className="mt-4">
-                Links are <a href="#color">underlined by default</a> — with no accent hue, the
+                Links are <a href="#color">underlined by default</a>—with no accent hue, the
                 underline is the only affordance a link has left, so it is never optional. Nav items
                 and button-styled links opt out.
               </p>

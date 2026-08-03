@@ -1,20 +1,20 @@
 /**
- * Design tokens — the single source of truth for PLAN.md §4.
+ * Design tokens. The single source of truth for the whole design system.
  *
  * Tailwind v4 is CSS-first: there is no `tailwind.config.js`. Every token below
  * becomes a utility (`bg-bg`, `text-muted`, `text-2xl`, `duration-standard`), and
  * a component that reaches for an arbitrary value (`p-[13px]`, `text-[#ccc]`)
  * instead of one of these is a review comment.
  *
- * Theme switching: the palette is declared twice as plain custom properties —
- * dark on `:root`, light under `.light` — and `@theme` maps the Tailwind tokens
+ * Theme switching: the palette is declared twice as plain custom properties—
+ * dark on `:root`, light under `.light`—and `@theme` maps the Tailwind tokens
  * onto those variables. next-themes toggles the class on <html>, so utilities
  * follow the theme without a single `dark:` prefix in component code.
  */
 @import 'tailwindcss';
 
 /* Tailwind v4 keys `dark:` off prefers-color-scheme by default. next-themes writes
- * the theme onto <html> as a class, so point the variant at that instead — the
+ * the theme onto <html> as a class, so point the variant at that instead—the
  * toggle must win over the OS preference, not follow it. */
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -61,7 +61,7 @@
 
 @theme {
   /* ---- Color ----
-   * The palette is monochrome. `accent` is white on dark and near-black on light —
+   * The palette is monochrome. `accent` is white on dark and near-black on light—
    * it marks the primary button and active state, nothing else. `success` is the
    * single exception and is functional signal only: a 6px status dot. Colour that
    * carries meaning is fine; colour that carries emphasis is what we removed.
@@ -86,15 +86,19 @@
   /* ---- Typography ----
    * Two families. Two weights (400/600). No other size than the eight below.
    */
-  --font-sans: 'Geist Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', 'JetBrains Mono', monospace;
+  /* The two variables are set by `next/font` in the root layout, which self-hosts
+   * and subsets both faces. The stacks after them cover the render before the
+   * layout mounts and the case where a face fails to load at all. */
+  --font-sans:
+    var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, 'SF Mono', 'JetBrains Mono', monospace;
   --font-display: 'Instrument Serif', ui-serif, Georgia, serif;
 
   --text-xs: 0.8125rem; /* 13px */
   --text-xs--line-height: 1.5;
   --text-sm: 0.875rem; /* 14px */
   --text-sm--line-height: 1.6;
-  --text-base: 1rem; /* 16px — never smaller for body copy */
+  --text-base: 1rem; /* 16px—never smaller for body copy */
   --text-base--line-height: 1.65;
   --text-lg: 1.25rem; /* 20px */
   --text-lg--line-height: 1.5;
@@ -119,12 +123,17 @@
   --container-page: 67.5rem; /* 1080px */
   --container-prose: 45rem; /* 720px */
 
+  /* The hero portrait. A named size rather than a spacing step, because 160px is
+   * an image dimension chosen to read as a face and not a rhythm value chosen to
+   * sit on the 4px grid. `size-avatar` is the only place it is used. */
+  --spacing-avatar: 10rem; /* 160px */
+
   /* ---- Shape ----
-   * Two radii plus full. In dark mode, elevate with border + surface shift —
+   * Two radii plus full. In dark mode, elevate with border + surface shift—
    * shadows on near-black read as smudge, so there is no shadow token.
    */
-  --radius-tag: 0.375rem; /* 6px  — tags, inputs */
-  --radius-card: 0.75rem; /* 12px — cards, buttons */
+  --radius-tag: 0.375rem; /* 6px—tags, inputs */
+  --radius-card: 0.75rem; /* 12px—cards, buttons */
 
   /* ---- Motion ----
    * One entrance pattern for the whole site. Durations are overridden to 0 under
@@ -135,6 +144,24 @@
   --duration-micro: 150ms;
   --duration-standard: 200ms;
   --duration-entrance: 320ms;
+
+  /* The only looping animation on the site: a halo expanding out of the status
+   * dot. Two seconds is slow enough to read as a heartbeat rather than a blink,
+   * and the halo carries the motion so the dot itself never moves or flickers.
+   * The reduced-motion block at the end of this file stops it outright. */
+  --animate-status-pulse: status-pulse 2s var(--ease-entrance) infinite;
+
+  @keyframes status-pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    70%,
+    100% {
+      transform: scale(2.6);
+      opacity: 0;
+    }
+  }
 
   /* ---- Breakpoints ---- */
   --breakpoint-sm: 40rem; /* 640 */
@@ -194,6 +221,60 @@
   :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
+  }
+}
+
+/* Long-form MDX. Scoped to a single class so a case study needs no per-element
+ * markup, and so the vertical rhythm of a body of text is decided in one place
+ * rather than drifting across whichever page was written most recently. */
+@layer components {
+  .prose {
+    max-width: var(--container-prose);
+  }
+
+  .prose > * + * {
+    margin-top: calc(var(--spacing) * 6);
+  }
+
+  .prose h2 {
+    margin-top: calc(var(--spacing) * 16);
+    font-size: var(--text-xl);
+    line-height: var(--text-xl--line-height);
+    font-weight: 600;
+  }
+
+  .prose h3 {
+    margin-top: calc(var(--spacing) * 12);
+    font-size: var(--text-lg);
+    line-height: var(--text-lg--line-height);
+    font-weight: 600;
+  }
+
+  .prose ul,
+  .prose ol {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+    padding-left: calc(var(--spacing) * 5);
+    color: var(--color-muted);
+  }
+
+  .prose li {
+    list-style: disc;
+  }
+
+  .prose code {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    background-color: var(--color-surface-2);
+    border-radius: var(--radius-tag);
+    padding: 0.125rem 0.375rem;
+  }
+
+  .prose blockquote {
+    border-left: 1px solid var(--color-border-strong);
+    padding-left: calc(var(--spacing) * 4);
+    color: var(--color-muted);
   }
 }
 

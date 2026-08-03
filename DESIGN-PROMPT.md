@@ -1,15 +1,15 @@
 # Design Prompts
 
 Paste-ready prompts for Figma Make / Figma AI, Google Stitch, v0, Lovable, or any text-to-UI tool.
-Derived from `PLAN.md` §4 (theme) and §5 (information architecture).
+The style contract below is the same one `styles/globals.css` implements.
 
 ## How to use
 
-| Tool                      | How                                                                                                                                       |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **Google Stitch**         | One screen per prompt. Each block below is self-contained — paste one, generate, then move to the next. Do not paste two screens at once. |
-| **Figma Make / Figma AI** | Paste the Style Contract first, then the screen prompt, in the same message.                                                              |
-| **v0 / Lovable / Bolt**   | Paste Style Contract + screen prompt. Add "React + Tailwind, no external UI library."                                                     |
+| Tool                      | How                                                                                                                                     |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| **Google Stitch**         | One screen per prompt. Each block below is self-contained—paste one, generate, then move to the next. Do not paste two screens at once. |
+| **Figma Make / Figma AI** | Paste the Style Contract first, then the screen prompt, in the same message.                                                            |
+| **v0 / Lovable / Bolt**   | Paste Style Contract + screen prompt. Add "React + Tailwind, no external UI library."                                                   |
 
 Generate in this order: Homepage desktop → Homepage mobile → Case study → Projects index → Blog → Command palette → About. Each later screen inherits decisions from the first, so fix the homepage before moving on.
 
@@ -22,7 +22,7 @@ Generate in this order: Homepage desktop → Homepage mobile → Case study → 
 The shared block. Every screen prompt below already includes it, so you only need this separately if you are writing your own prompt.
 
 ```text
-STYLE CONTRACT — apply to every element, no exceptions.
+STYLE CONTRACT—apply to every element, no exceptions.
 
 Theme: dark mode default, near-black canvas, no accent hue at all, generous
 whitespace, one centred content column. Calm and editorial, not flashy. It should
@@ -52,23 +52,23 @@ Spacing: 4px base. Use ONLY 4, 8, 12, 16, 24, 32, 48, 64, 96, 128.
   Between page sections 96 desktop / 64 mobile.
 
 Layout: page max-width 1080px, centred. Prose max-width 720px.
-  Gutters 32 desktop / 20 mobile. SINGLE COLUMN — no sidebars, no split heroes.
+  Gutters 32 desktop / 20 mobile. SINGLE COLUMN—no sidebars, no split heroes.
 
 Shape: border-radius 6px on tags and inputs, 12px on cards and buttons,
   fully round on avatars. Borders always 1px #26262B.
-  NO drop shadows anywhere — separate surfaces with border + background shift only.
+  NO drop shadows anywhere—separate surfaces with border + background shift only.
 
 Icons: Lucide, 16px inline / 20px standalone, stroke in currentColor.
 
-MONOCHROME — the strictest rule in this contract.
+MONOCHROME—the strictest rule in this contract.
   There is NO accent hue. The entire page is built from #0B0B0C, #141416,
   #1C1C20, #26262B, #71717A, #A1A1AA, #EDEDEF and #FAFAFA. Nothing else.
 
-  Hierarchy comes from SIZE, WEIGHT and CONTRAST — never from color. A heading
+  Hierarchy comes from SIZE, WEIGHT and CONTRAST—never from color. A heading
   is bigger and heavier, not tinted. An emphasized number is larger and
   brighter, not colored.
 
-  The primary button is a solid #FAFAFA fill with #0B0B0C text — an inversion,
+  The primary button is a solid #FAFAFA fill with #0B0B0C text—an inversion,
   which is what makes it read as the loudest element on the page without any
   hue. The secondary button is transparent with a 1px #26262B border.
 
@@ -76,10 +76,10 @@ MONOCHROME — the strictest rule in this contract.
   text. Without a hue the underline is the only affordance a link has, so it is
   never optional.
 
-  The ONLY colored pixel permitted anywhere is a 6px #4ADE80 status dot —
+  The ONLY colored pixel permitted anywhere is a 6px #4ADE80 status dot—
   functional signal, not decoration. One per screen at most.
 
-BANNED — do not generate any of these:
+BANNED—do not generate any of these:
   gradient backgrounds, glassmorphism, glow effects, neon, purple or blue accents,
   drop shadows, skill percentage bars, animated counters, testimonial carousels,
   hero images of abstract 3D shapes, stock photos, emoji as icons, ANY accent color,
@@ -88,14 +88,14 @@ BANNED — do not generate any of these:
 
 ---
 
-## 1. Homepage — desktop
+## 1. Homepage—desktop
 
 ```text
 Design a desktop portfolio homepage (1440px wide) for a software engineer.
 
-STYLE CONTRACT — apply to every element, no exceptions.
+STYLE CONTRACT—apply to every element, no exceptions.
 Theme: dark mode, near-black canvas, no accent hue at all, generous whitespace,
-one centred column. Calm and editorial, like a senior engineer's personal site —
+one centred column. Calm and editorial, like a senior engineer's personal site—
 not a SaaS landing page.
 Colors: background #0B0B0C, card surface #141416, raised #1C1C20, border #26262B,
 text #EDEDEF, secondary text #A1A1AA, accent #FAFAFA, accent hover #FFFFFF,
@@ -107,9 +107,9 @@ Spacing: only 4, 8, 12, 16, 24, 32, 48, 64, 96, 128. Card padding 24. Section ga
 Layout: content max-width 1080px centred, 32px gutters, single column.
 Shape: radius 6 on tags, 12 on cards and buttons. 1px #26262B borders. NO shadows.
 Icons: Lucide, stroke only.
-MONOCHROME — the strictest rule here. There is NO accent hue. The whole page uses
+MONOCHROME—the strictest rule here. There is NO accent hue. The whole page uses
 only #0B0B0C, #141416, #1C1C20, #26262B, #71717A, #A1A1AA, #EDEDEF, #FAFAFA.
-Hierarchy comes from SIZE, WEIGHT and CONTRAST, never from color — a heading is
+Hierarchy comes from SIZE, WEIGHT and CONTRAST, never from color—a heading is
 bigger and heavier, not tinted. The primary button is a solid #FAFAFA fill with
 #0B0B0C text; the secondary is transparent with a 1px #26262B border. Links are
 underlined 1px at 3px offset in their surrounding text color. The ONLY colored
@@ -137,10 +137,10 @@ SCREEN STRUCTURE, top to bottom:
      - a button row with 12px gap, 24px top margin: primary button "View resume"
        (solid #FAFAFA fill, #0B0B0C text, 12px radius, 12px/24px padding) and
        secondary button "Get in touch" (transparent, 1px #26262B border, #EDEDEF text)
-     - a row of three 20px Lucide icons — GitHub, LinkedIn, Mail — in #A1A1AA
+     - a row of three 20px Lucide icons—GitHub, LinkedIn, Mail—in #A1A1AA
    RIGHT COLUMN: a square photo, 320x320, 12px radius, 1px border, no shadow.
 
-3. Section "Selected work". Section heading 25px weight 600 in #EDEDEF — with a 14px #A1A1AA
+3. Section "Selected work". Section heading 25px weight 600 in #EDEDEF—with a 14px #A1A1AA
    line under it, then 32px gap, then THREE cards in a 2-column grid (third card
    spans full width). Each card: #141416 fill, 1px #26262B border, 12px radius,
    24px padding, 16px gaps inside:
@@ -180,7 +180,7 @@ the contact card and the footer.
 
 ---
 
-## 2. Homepage — mobile
+## 2. Homepage—mobile
 
 ```text
 Design the mobile version (390px wide) of the same portfolio homepage.
@@ -202,7 +202,7 @@ MOBILE-SPECIFIC RULES:
 - Section gaps drop from 96px to 64px.
 - Skill groups stack vertically instead of sitting in a row.
 - Every tappable target is at least 44x44px.
-- Body text stays 16px — never shrink it.
+- Body text stays 16px—never shrink it.
 
 Show the full page top to bottom: nav, hero, selected work (3 stacked cards),
 experience timeline, skills, writing, contact card, footer.
@@ -227,7 +227,7 @@ STRUCTURE:
 2. A 14px "← Back to work" link in #A1A1AA, 48px below the nav.
 3. Title at 39px weight 600.
 4. One-line summary at 20px in #A1A1AA.
-5. A meta row of 13px mono items separated by a "·" — Role, 2024–2025, Team of 4,
+5. A meta row of 13px mono items separated by a "·"—Role, 2024–2025, Team of 4,
    and a "Live" pill in #1F1F23 with #EDEDEF text.
 6. A links row: two buttons, "Visit site" (solid #FAFAFA fill, #0B0B0C text) and "View source"
    (bordered), each with a 16px Lucide icon.
@@ -236,7 +236,7 @@ STRUCTURE:
    "Problem", "Approach", "The hard decision", "Outcome", "What I'd change".
 9. Inside "Approach", a system architecture diagram: labelled rounded boxes on
    #141416 with 1px #26262B borders, connected by thin #A1A1AA arrows, all labels
-   in 13px mono. Flat and technical — no isometric 3D, no illustration.
+   in 13px mono. Flat and technical—no isometric 3D, no illustration.
 10. Inside "Outcome", a row of 3 metric cards: value at 31px mono in #EDEDEF,
     label at 13px #A1A1AA under it, on #141416 with a 1px border and 24px padding.
 11. A "Stack" block: tags grouped under 13px #A1A1AA labels, tags in 13px mono on
@@ -288,14 +288,14 @@ text #EDEDEF, secondary #A1A1AA, accent #FAFAFA, accent tint #1F1F23. Geist Sans
 Spacing only 4/8/12/16/24/32/48/96. Radius 6 on tags, 12 on cards. 1px borders.
 NO shadows, NO gradients, one accent.
 
-SCREEN A — Blog index. Content max-width 720px centred.
+SCREEN A—Blog index. Content max-width 720px centred.
   Sticky 56px nav. Title "Writing" at 39px, with a 16px #A1A1AA subtitle.
   Then a list of 6 posts, each separated by a 1px #26262B line, 24px vertical
   padding: title 20px weight 600, one-line summary 16px #A1A1AA, then a meta row of
-  13px mono — date, a "·", reading time, a "·", an eye icon with a view count —
+  13px mono—date, a "·", reading time, a "·", an eye icon with a view count—
   and 2 small tags. Whole row background shifts to #141416 on hover.
 
-SCREEN B — Blog post. Content max-width 720px centred.
+SCREEN B—Blog post. Content max-width 720px centred.
   Sticky nav, then a 14px "← All writing" link. Title at 39px. A 13px mono meta row:
   date · 8 min read · eye icon with view count. A row of tags. Then long-form body
   at 18px with 1.7 line-height, h2 headings at 25px with 48px top margin, a code
@@ -316,10 +316,10 @@ homepage (1440px wide desktop).
 
 Style: page behind is dimmed with rgba(0,0,0,0.6) and a 4px blur. The palette is a
 640px-wide panel, horizontally centred, positioned 120px from the top of the screen.
-Panel background #141416, 1px #26262B border, 12px radius. NO drop shadow — the
+Panel background #141416, 1px #26262B border, 12px radius. NO drop shadow—the
 dimmed backdrop provides the separation.
 
-Fonts: Geist Mono throughout — this is a terminal, everything is monospace.
+Fonts: Geist Mono throughout—this is a terminal, everything is monospace.
 Colors: text #EDEDEF, secondary #A1A1AA, accent #FAFAFA, accent tint #1F1F23,
 success #4ADE80, border #26262B.
 
@@ -332,9 +332,9 @@ PANEL STRUCTURE, top to bottom:
    description in 14px mono #A1A1AA on the right. The selected row has a #1C1C20
    background and a 2px #FAFAFA left border.
    Rows:
-     status    — ping the API, show live latency        (selected)
-     stack     — list skills by group
-     whoami    — who I am, in one line
+     status—ping the API, show live latency        (selected)
+     stack—list skills by group
+     whoami—who I am, in one line
 3. Below the list, a result output block on #0B0B0C with a 1px top border and 16px
    padding, showing terminal output in 13px mono:
      ❯ status
@@ -383,10 +383,10 @@ STRUCTURE:
 
 Reject and regenerate if you see any of these:
 
-- **Any colored pixel other than the single 6px #4ADE80 status dot** — the palette
+- **Any colored pixel other than the single 6px #4ADE80 status dot**—the palette
   is monochrome; this is the failure that actually happens
 - A tinted heading, hero name, tagline, tag, or metric
-- Links without an underline — with no hue, that is the only affordance left
+- Links without an underline—with no hue, that is the only affordance left
 - Any drop shadow or gradient
 - A skill bar, percentage, or star rating
 - Body text below 16px
@@ -396,6 +396,6 @@ Reject and regenerate if you see any of these:
 - Stock photography or abstract 3D shapes
 - More than two font weights
 
-Once a screen is right, export the tokens — not the markup. These tools produce
+Once a screen is right, export the tokens—not the markup. These tools produce
 throwaway code; the value is the visual decision, which you then rebuild against
-`PLAN.md` §4.
+the tokens in `styles/globals.css`.

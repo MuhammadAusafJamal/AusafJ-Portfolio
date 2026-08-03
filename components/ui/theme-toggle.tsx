@@ -6,12 +6,13 @@
  * Both icons render and CSS picks which is visible, keyed off the theme class
  * next-themes writes onto <html>. That avoids the usual mounted-state dance
  * entirely: there is no server/client icon mismatch to guard against, no flash
- * on first paint, and no layout shift — the budget in PLAN.md §12 allows none.
+ * on first paint, and no layout shift—the performance budget allows none.
  *
  * `resolvedTheme` is only read inside the click handler, by which point it is
  * always defined, so nothing about the render depends on it.
  *
- * One of the three client components PLAN.md §12 permits.
+ * One of the three client components the performance budget permits—this, the
+ * theme provider, and the command palette.
  */
 import { useTheme } from 'next-themes';
 import { Moon, Sun } from 'lucide-react';

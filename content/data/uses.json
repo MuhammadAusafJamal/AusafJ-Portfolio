@@ -1,0 +1,26 @@
+[
+  {
+    "category": "Editor",
+    "items": [
+      { "name": "VS Code", "url": "https://code.visualstudio.com/" },
+      { "name": "Geist Mono", "note": "Editor and site both." }
+    ]
+  },
+  {
+    "category": "Stack",
+    "items": [
+      { "name": "Next.js", "url": "https://nextjs.org/" },
+      { "name": "TypeScript", "url": "https://www.typescriptlang.org/" },
+      { "name": "Tailwind CSS", "url": "https://tailwindcss.com/" },
+      { "name": "Zod", "url": "https://zod.dev/", "note": "Every content file and request body." }
+    ]
+  },
+  {
+    "category": "Infrastructure",
+    "items": [
+      { "name": "Vercel", "url": "https://vercel.com/" },
+      { "name": "MongoDB Atlas", "url": "https://www.mongodb.com/atlas" },
+      { "name": "GitHub Actions", "url": "https://github.com/features/actions" }
+    ]
+  }
+]

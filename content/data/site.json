@@ -1,0 +1,12 @@
+{
+  "name": "Muhammad Ausaf Jamal",
+  "positioning": "Software engineer building full-stack products with React, Next.js, and Node.",
+  "proof": "2 years at Technyx Systems. BS Computer Science, University of Karachi.",
+  "email": "ausaffarooqui17@gmail.com",
+  "location": "Karachi, Pakistan",
+  "availability": "open",
+  "availabilityLabel": "Open to software engineering roles, Karachi or remote",
+  "resumePath": "/resume.pdf",
+  "ogImage": "/me.png",
+  "url": "https://mausafjamal.dev"
+}
