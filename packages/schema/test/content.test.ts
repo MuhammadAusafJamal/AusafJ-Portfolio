@@ -65,7 +65,7 @@ const bundle = {
     availabilityLabel: 'Open to software engineering roles—Karachi or remote.',
     resumePath: '/resume.pdf',
     ogImage: '/og/default.png',
-    url: 'https://ausafj-portfolio.vercel.app',
+    url: 'https://mausafjamal.dev',
   },
   skills: [
     {

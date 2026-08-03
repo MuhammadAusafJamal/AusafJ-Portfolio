@@ -9,7 +9,6 @@
  * Section order is the reading order a recruiter actually uses: who, what I
  * shipped, where I have worked, what I know, how to reach me.
  */
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
   getCompanyHistory,
@@ -26,20 +25,6 @@ import { Hero } from '@/components/sections/hero';
 import { Skills } from '@/components/sections/skills';
 import { ProjectCard } from '@/components/ui/project-card';
 import { Section } from '@/components/ui/section';
-
-export async function generateMetadata(): Promise<Metadata> {
-  const site = await getSite();
-
-  return {
-    description: site.positioning,
-    openGraph: {
-      title: site.name,
-      description: site.positioning,
-      url: site.url,
-      type: 'profile',
-    },
-  };
-}
 
 export default async function Home() {
   const [site, socials, projects, history, skills] = await Promise.all([

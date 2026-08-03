@@ -11,6 +11,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
+import { getSite } from '@/lib/content';
 import '@/styles/globals.css';
 
 const sans = Geist({
@@ -25,15 +26,38 @@ const mono = Geist_Mono({
   display: 'swap',
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: 'Muhammad Ausaf Jamal',
-    template: '%s · Muhammad Ausaf Jamal',
-  },
-  // The positioning line, verbatim from content/data/site.json. It has to stay in
-  // sync with the hero and the OG image: one sentence, three places.
-  description: 'Software engineer building full-stack products with React, Next.js, and Node.',
-};
+/**
+ * Read from `content/data/site.json` rather than written out here, so the name,
+ * the positioning line, and the domain have exactly one source. `metadataBase` is
+ * what turns every relative OG image and canonical path elsewhere in the app into
+ * an absolute URL; without it a share preview resolves against nothing.
+ */
+export async function generateMetadata(): Promise<Metadata> {
+  const site = await getSite();
+
+  return {
+    metadataBase: new URL(site.url),
+    title: {
+      default: site.name,
+      template: `%s · ${site.name}`,
+    },
+    description: site.positioning,
+    alternates: { canonical: '/' },
+    openGraph: {
+      type: 'profile',
+      siteName: site.name,
+      title: site.name,
+      description: site.positioning,
+      url: site.url,
+      images: [site.ogImage],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: site.name,
+      description: site.positioning,
+    },
+  };
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   // `suppressHydrationWarning` on <html> is required once next-themes writes the
