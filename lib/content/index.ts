@@ -7,7 +7,7 @@
  */
 import { loadContent } from './load';
 import type { Entry } from './load';
-import type { Experience, Project } from '@ausaf/schema/types';
+import type { Experience, Project, Testimonial } from '@ausaf/schema/types';
 
 export type { Content, Entry } from './load';
 
@@ -25,6 +25,16 @@ export async function getSocials() {
 
 export async function getUses() {
   return (await loadContent()).uses;
+}
+
+/**
+ * `undefined` while the quote is a draft, which is the same contract every other
+ * draft in this module has. The homepage renders nothing rather than rendering a
+ * placeholder attributed to a real person.
+ */
+export async function getTestimonial(): Promise<Testimonial | undefined> {
+  const { testimonial } = await loadContent();
+  return testimonial.draft ? undefined : testimonial;
 }
 
 /** Drafts never leave this module. Nothing downstream has to remember to filter. */

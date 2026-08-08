@@ -26,6 +26,7 @@ export type Content = {
   site: ContentBundle['site'];
   skills: ContentBundle['skills'];
   socials: ContentBundle['socials'];
+  testimonial: ContentBundle['testimonial'];
   uses: ContentBundle['uses'];
   projects: Entry<ContentBundle['projects'][number]['data']>[];
   experience: Entry<ContentBundle['experience'][number]['data']>[];
@@ -68,20 +69,24 @@ async function readMdxDir(dir: string): Promise<{ file: string; data: unknown; b
 }
 
 async function read(): Promise<Content> {
-  const [site, skills, socials, uses, projects, experience, posts] = await Promise.all([
-    readJson('site.json'),
-    readJson('skills.json'),
-    readJson('socials.json'),
-    readJson('uses.json'),
-    readMdxDir('projects'),
-    readMdxDir('experience'),
-    readMdxDir('posts'),
-  ]);
+  const [site, skills, socials, testimonial, uses, projects, experience, posts] = await Promise.all(
+    [
+      readJson('site.json'),
+      readJson('skills.json'),
+      readJson('socials.json'),
+      readJson('testimonial.json'),
+      readJson('uses.json'),
+      readMdxDir('projects'),
+      readMdxDir('experience'),
+      readMdxDir('posts'),
+    ]
+  );
 
   const result = contentBundleSchema.safeParse({
     site,
     skills,
     socials,
+    testimonial,
     uses,
     projects: projects.map(({ file, data }) => ({ file, data })),
     experience: experience.map(({ file, data }) => ({ file, data })),
@@ -104,6 +109,7 @@ async function read(): Promise<Content> {
     site: result.data.site,
     skills: result.data.skills,
     socials: result.data.socials,
+    testimonial: result.data.testimonial,
     uses: result.data.uses,
     projects: withBodies(result.data.projects, projects),
     experience: withBodies(result.data.experience, experience),

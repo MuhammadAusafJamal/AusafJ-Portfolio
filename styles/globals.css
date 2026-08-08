@@ -172,8 +172,20 @@
 }
 
 @layer base {
+  /* Every in-page jump on the site glides instead of cutting. `scroll-padding-top`
+   * belongs on the scroll container rather than on each target, so one number here
+   * keeps the sticky nav off the heading it just scrolled to—anchors added later
+   * inherit it without anyone remembering to. 96px is the 56px nav plus a gap.
+   *
+   * Next's router overrides `scroll-behavior` to `auto` while it scrolls after a
+   * navigation, so a route change still jumps to the top rather than animating the
+   * whole document. The reduced-motion block at the end of the file turns the
+   * smoothing off outright.
+   */
   html {
     -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--spacing) * 24);
   }
 
   body {

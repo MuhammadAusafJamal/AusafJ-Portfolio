@@ -33,10 +33,22 @@ export async function generateMetadata({
 
   if (project === undefined) return {};
 
+  const { title, summary } = project.data;
+
   return {
-    title: project.data.title,
-    description: project.data.summary,
-    openGraph: { title: project.data.title, description: project.data.summary },
+    title,
+    description: summary,
+    // Its own canonical, not the layout's. Inheriting one would tell a crawler the
+    // homepage is the real version of this case study.
+    alternates: { canonical: `/projects/${slug}` },
+    // `openGraph` replaces the parent's rather than merging into it, so the url is
+    // restated here. The image comes from `opengraph-image.tsx` beside this file.
+    openGraph: {
+      type: 'article',
+      title,
+      description: summary,
+      url: `/projects/${slug}`,
+    },
   };
 }
 

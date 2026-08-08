@@ -26,6 +26,7 @@ export type {
   SkillGroup,
   SkillLevel,
   Social,
+  Testimonial,
   UsesCategory,
   UsesItem,
 } from '../data';

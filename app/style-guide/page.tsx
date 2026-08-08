@@ -9,7 +9,9 @@
  * a recruiter should land on.
  */
 import type { Metadata } from 'next';
+import type { Testimonial } from '@ausaf/schema/types';
 import { Avatar } from '@/components/ui/avatar';
+import { Quote } from '@/components/ui/quote';
 import { StatusDot } from '@/components/ui/status-dot';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 
@@ -57,6 +59,22 @@ const SPACING = [
   { token: '24', px: '96px', use: 'Between sections, desktop' },
   { token: '32', px: '128px', use: 'Page top/bottom' },
 ];
+
+/**
+ * Invented, like the Ledger API card further down. The real quote lives in
+ * `content/data/testimonial.json` and is deliberately not used here: this page
+ * exists to be looked at while a layout is in flux, and a named colleague's words
+ * are not sample data.
+ */
+const SAMPLE_TESTIMONIAL: Testimonial = {
+  quote:
+    'Took over the ledger migration three weeks after it went late and shipped it without asking me for anything. The postmortem is still the one I hand to new hires.',
+  name: 'Priya Raman',
+  role: 'Engineering Manager',
+  company: 'Acme',
+  relationship: 'Ran the platform team',
+  draft: false,
+};
 
 const MOTION = [
   { token: 'duration-micro', ms: '150ms', use: 'Hover, color, opacity' },
@@ -214,6 +232,16 @@ export default function Styleguide() {
             Easings: <code className="font-mono text-xs">ease-standard</code> for state changes,{' '}
             <code className="font-mono text-xs">ease-entrance</code> for reveals.
           </p>
+          <p className="mt-4 text-sm text-muted">
+            In-page jumps glide. <code className="font-mono text-xs">scroll-behavior: smooth</code>{' '}
+            and a 96px <code className="font-mono text-xs">scroll-padding-top</code> both sit on{' '}
+            <code className="font-mono text-xs">&lt;html&gt;</code>, so one number keeps the 56px
+            nav off whatever heading a <code className="font-mono text-xs">/#work</code> link lands
+            on, and an anchor added later inherits it without anyone remembering to. Next overrides
+            the behaviour to <code className="font-mono text-xs">auto</code> while it scrolls after
+            a navigation, so a route change still jumps to the top instead of animating the whole
+            document.
+          </p>
         </Section>
 
         <Section
@@ -307,6 +335,22 @@ export default function Styleguide() {
                   <p className="font-mono text-xs text-muted">p95 latency</p>
                 </div>
               </div>
+            </div>
+
+            <div>
+              <p className="font-mono text-xs text-muted">Quote</p>
+              <div className="mt-4">
+                <Quote testimonial={SAMPLE_TESTIMONIAL} />
+              </div>
+              <p className="mt-3 text-sm text-muted">
+                No portrait, no quotation-mark glyph, no card—a hairline and a name are enough to
+                show where the sentence stops being mine. It renders under the experience timeline
+                rather than in a section of its own, since it is corroboration for the dates above
+                it, and one line of praise cannot carry a whole section. The relationship line
+                carries the weight here: the same words from a manager and from a peer are not worth
+                the same, so it is set at the same size as the role rather than demoted to{' '}
+                <code className="font-mono text-xs">text-subtle</code>.
+              </p>
             </div>
 
             <div>
