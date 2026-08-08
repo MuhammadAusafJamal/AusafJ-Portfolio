@@ -12,6 +12,50 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 Nothing yet.
 
+## [0.2.0]—2026-08-09
+
+Everything a link to this site produces: the canonical it claims, the card that appears
+when it is shared, and the icon in the tab. None of the three were right.
+
+### Added
+
+- **A sitemap and a robots.txt.** Neither existed, so nothing told a crawler the case
+  studies were there. The sitemap is built from `getProjects()` rather than written by
+  hand, so a new `.mdx` file appears in it on the next deploy. It carries no
+  `lastModified`: a project's `endDate` is when the work stopped rather than when the
+  page changed, and file mtimes on Vercel are all checkout time.
+- **Generated share cards.** One layout in `lib/og/card.tsx` behind the homepage,
+  `/projects`, and every case study, drawn at build from content that already exists.
+  Replaces `/me.png`—a portrait doing duty as a 1200×630 card—on every route.
+- **A favicon and an iOS icon.** `app/icon.tsx` draws the mark as a filled tile so it
+  needs no theme, with the letter as stroked paths rather than text, because an icon
+  file cannot load a font. `apple-icon.tsx` rasterises the same mark at 180px.
+- **A quote from a former manager**, inside the Experience section as evidence for the
+  timeline rather than beside it. One object rather than a list, with `relationship`
+  required—the same sentence from a manager and from a peer are not worth the same.
+  It ships as a draft and renders nowhere until the words are his.
+
+### Fixed
+
+- **Every page canonicalised to the homepage.** The root layout set
+  `alternates.canonical`, metadata is inherited, and so each case study was declaring
+  the homepage as its real version—a request to deindex it. Each route declares its own
+  now, and the host is `www`, which is where the apex 308s.
+- **`/projects/[slug]` shipped with no og:image.** `openGraph` replaces the parent's
+  object rather than merging into it, so setting a title on a project page silently
+  dropped the inherited url and image.
+- **In-page links cut to their target instead of moving to it.** `scroll-behavior` and
+  `scroll-padding-top` sit on `<html>`, so one number covers every anchor rather than
+  each new target needing a class copied onto it. Route changes are unaffected, and
+  reduced-motion turns it off outright.
+- **The Madadgar source link 404'd.** The repository is
+  `Madadgar-AI-Service-Orchestrator`.
+
+### Removed
+
+- `site.ogImage`. Share cards are drawn from the fields already in `site.json`, so a
+  path to a static one was a setting that looked live and changed nothing.
+
 ## [0.1.0]—2026-08-03
 
 First release. The site is live with real content on it.
@@ -91,5 +135,6 @@ API routes behind them.
   off the homepage until it has one, and the schema refuses to mark a project featured
   without a metric.
 
-[unreleased]: https://github.com/MuhammadAusafJamal/AusafJ-Portfolio/compare/v0.1.0...HEAD
+[unreleased]: https://github.com/MuhammadAusafJamal/AusafJ-Portfolio/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/MuhammadAusafJamal/AusafJ-Portfolio/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/MuhammadAusafJamal/AusafJ-Portfolio/releases/tag/v0.1.0

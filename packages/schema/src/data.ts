@@ -67,8 +67,39 @@ export const siteSchema = z.strictObject({
   /** Rendered verbatim beside the status dot. Ambiguity here costs you for free. */
   availabilityLabel: nonEmptyString.max(80),
   resumePath: publicPathSchema,
-  ogImage: publicPathSchema,
+  /**
+   * No `ogImage`. Share cards are drawn at build time by `app/opengraph-image.tsx`
+   * from the fields already here, so a path to a static one would be a setting that
+   * looks live and changes nothing.
+   */
   url: httpUrlSchema,
+});
+
+/* ----------------------------------------------------------- testimonial.json */
+
+/**
+ * One quote, from one person who managed the work.
+ *
+ * A quote from someone you reported to is worth more than three from peers, which
+ * is why this is a single object rather than a list—a carousel of praise reads as
+ * marketing and nobody finishes the second one.
+ *
+ * `draft` exists because this field puts sentences in a named person's mouth.
+ * Placeholder copy is normal while a layout is being built, but placeholder copy
+ * attributed to a real colleague is a different thing, so it stays out of the
+ * build until the words are theirs and they have seen where they will appear.
+ */
+export const testimonialSchema = z.strictObject({
+  /** Two or three sentences. Longer than that and it gets skimmed past. */
+  quote: nonEmptyString.max(400),
+  name: nonEmptyString.max(60),
+  role: nonEmptyString.max(80),
+  company: nonEmptyString.max(60),
+  /** How they know the work. "Reported to him" outweighs "worked alongside". */
+  relationship: nonEmptyString.max(80),
+  /** Their LinkedIn, so a reader can confirm the person exists. */
+  url: httpUrlSchema.optional(),
+  draft: z.boolean(),
 });
 
 /* ------------------------------------------------------------------ uses.json */
@@ -92,5 +123,6 @@ export type Skill = z.infer<typeof skillSchema>;
 export type SkillLevel = z.infer<typeof skillLevelSchema>;
 export type SkillGroup = z.infer<typeof skillGroupSchema>;
 export type Social = z.infer<typeof socialSchema>;
+export type Testimonial = z.infer<typeof testimonialSchema>;
 export type UsesItem = z.infer<typeof usesItemSchema>;
 export type UsesCategory = z.infer<typeof usesCategorySchema>;

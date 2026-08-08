@@ -13,7 +13,13 @@ import { z } from 'zod';
 import { experienceFrontmatterSchema } from './experience';
 import { postFrontmatterSchema } from './post';
 import { MAX_FEATURED_PROJECTS, projectFrontmatterSchema } from './project';
-import { siteSchema, skillsFileSchema, socialsFileSchema, usesFileSchema } from './data';
+import {
+  siteSchema,
+  skillsFileSchema,
+  socialsFileSchema,
+  testimonialSchema,
+  usesFileSchema,
+} from './data';
 
 /** Wraps a parsed file with the path it came from. */
 const sourced = <T extends z.ZodType>(data: T) =>
@@ -97,6 +103,7 @@ export const contentBundleSchema = z
     site: siteSchema,
     skills: skillsFileSchema,
     socials: socialsFileSchema,
+    testimonial: testimonialSchema,
     uses: usesFileSchema,
     projects: z.array(sourcedProjectSchema),
     experience: z.array(sourcedExperienceSchema),

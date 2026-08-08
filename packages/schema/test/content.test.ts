@@ -64,8 +64,7 @@ const bundle = {
     availability: 'open',
     availabilityLabel: 'Open to software engineering roles—Karachi or remote.',
     resumePath: '/resume.pdf',
-    ogImage: '/og/default.png',
-    url: 'https://mausafjamal.dev',
+    url: 'https://www.mausafjamal.dev',
   },
   skills: [
     {
@@ -85,6 +84,14 @@ const bundle = {
       showInHero: true,
     },
   ],
+  testimonial: {
+    quote: 'Hand over a ticket and it comes back with the thing next to it fixed.',
+    name: 'Muhammad Abuzar Thanvi',
+    role: 'Engineering Manager',
+    company: 'Technyx Systems',
+    relationship: 'Ausaf reported to him',
+    draft: true,
+  },
   uses: [{ category: 'Editor', items: [{ name: 'VS Code' }] }],
   projects: [{ file: 'content/projects/madadgar.mdx', data: project }],
   experience: [{ file: 'content/experience/technyx-systems.mdx', data: experience }],
@@ -262,6 +269,26 @@ describe('contentBundleSchema', () => {
     });
 
     expect(messages).toContain('non-deterministic');
+  });
+
+  /**
+   * `draft` is what stands between placeholder copy and a real person's name on a
+   * live page, so an omitted flag has to fail rather than fall back to published.
+   */
+  it('rejects a testimonial with no draft flag', () => {
+    const { draft: _draft, ...withoutFlag } = bundle.testimonial;
+
+    expect(contentBundleSchema.safeParse({ ...bundle, testimonial: withoutFlag }).success).toBe(
+      false
+    );
+  });
+
+  it('rejects a testimonial with no relationship, which is what makes it credible', () => {
+    const { relationship: _relationship, ...anonymous } = bundle.testimonial;
+
+    expect(contentBundleSchema.safeParse({ ...bundle, testimonial: anonymous }).success).toBe(
+      false
+    );
   });
 
   it('does not count a draft towards the featured limit', () => {

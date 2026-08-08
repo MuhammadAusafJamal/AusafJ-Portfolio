@@ -9,6 +9,7 @@
  * Section order is the reading order a recruiter actually uses: who, what I
  * shipped, where I have worked, what I know, how to reach me.
  */
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
   getCompanyHistory,
@@ -16,6 +17,7 @@ import {
   getSite,
   getSkills,
   getSocials,
+  getTestimonial,
 } from '@/lib/content';
 import { Footer } from '@/components/footer';
 import { Nav } from '@/components/nav';
@@ -24,15 +26,26 @@ import { ExperienceTimeline } from '@/components/sections/experience-timeline';
 import { Hero } from '@/components/sections/hero';
 import { Skills } from '@/components/sections/skills';
 import { ProjectCard } from '@/components/ui/project-card';
+import { Quote } from '@/components/ui/quote';
 import { Section } from '@/components/ui/section';
 
+/**
+ * Title, description, and OG copy are inherited from the root layout, which reads
+ * them from `site.json`. Only the canonical is declared per route, and every route
+ * has to declare its own—see the note in the layout.
+ */
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
+
 export default async function Home() {
-  const [site, socials, projects, history, skills] = await Promise.all([
+  const [site, socials, projects, history, skills, testimonial] = await Promise.all([
     getSite(),
     getSocials(),
     getFeaturedProjects(),
     getCompanyHistory(),
     getSkills(),
+    getTestimonial(),
   ]);
 
   // Marks up the same facts the hero states, so a search result can carry the role
@@ -74,6 +87,13 @@ export default async function Home() {
 
         <Section id="experience" title="Experience">
           <ExperienceTimeline history={history} />
+          {/* Inside the section, not beside it—the quote is evidence for the
+              timeline it follows, and it disappears entirely while it is a draft. */}
+          {testimonial !== undefined && (
+            <div className="mt-12">
+              <Quote testimonial={testimonial} />
+            </div>
+          )}
         </Section>
 
         <Section id="skills" title="Skills">

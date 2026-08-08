@@ -31,6 +31,15 @@ const mono = Geist_Mono({
  * the positioning line, and the domain have exactly one source. `metadataBase` is
  * what turns every relative OG image and canonical path elsewhere in the app into
  * an absolute URL; without it a share preview resolves against nothing.
+ *
+ * No `alternates.canonical` here. Metadata is inherited, so a canonical set on the
+ * root layout is inherited by every route below it, and each case study ends up
+ * declaring the homepage as its canonical version—which asks Google to drop it
+ * from the index. Every page sets its own instead.
+ *
+ * No `openGraph.images` either. `app/opengraph-image.tsx` supplies those for this
+ * segment and every one below it. File-based metadata outranks the config kind, so
+ * setting images in both places leaves a dead value that looks authoritative.
  */
 export async function generateMetadata(): Promise<Metadata> {
   const site = await getSite();
@@ -42,14 +51,12 @@ export async function generateMetadata(): Promise<Metadata> {
       template: `%s · ${site.name}`,
     },
     description: site.positioning,
-    alternates: { canonical: '/' },
     openGraph: {
       type: 'profile',
       siteName: site.name,
       title: site.name,
       description: site.positioning,
       url: site.url,
-      images: [site.ogImage],
     },
     twitter: {
       card: 'summary_large_image',

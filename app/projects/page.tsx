@@ -10,10 +10,20 @@ import { getProjects, getSite, getSocials } from '@/lib/content';
 import { Footer } from '@/components/footer';
 import { Nav } from '@/components/nav';
 import { ProjectCard } from '@/components/ui/project-card';
+import { PROJECTS_DESCRIPTION } from './description';
 
 export const metadata: Metadata = {
   title: 'Projects',
-  description: 'Case studies for the work worth reading about at length.',
+  description: PROJECTS_DESCRIPTION,
+  alternates: { canonical: '/projects' },
+  // `openGraph` replaces the parent's rather than merging into it, so a page that
+  // sets a title here has to restate the url too or the share card points at the
+  // homepage. The image comes from `opengraph-image.tsx` beside this file.
+  openGraph: {
+    title: 'Projects',
+    description: PROJECTS_DESCRIPTION,
+    url: '/projects',
+  },
 };
 
 export default async function Projects() {
