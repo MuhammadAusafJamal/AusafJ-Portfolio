@@ -9,6 +9,7 @@
  * Section order is the reading order a recruiter actually uses: who, what I
  * shipped, where I have worked, what I know, how to reach me.
  */
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
   getCompanyHistory,
@@ -25,6 +26,15 @@ import { Hero } from '@/components/sections/hero';
 import { Skills } from '@/components/sections/skills';
 import { ProjectCard } from '@/components/ui/project-card';
 import { Section } from '@/components/ui/section';
+
+/**
+ * Title, description, and OG copy are inherited from the root layout, which reads
+ * them from `site.json`. Only the canonical is declared per route, and every route
+ * has to declare its own—see the note in the layout.
+ */
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
 
 export default async function Home() {
   const [site, socials, projects, history, skills] = await Promise.all([

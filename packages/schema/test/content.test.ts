@@ -64,8 +64,7 @@ const bundle = {
     availability: 'open',
     availabilityLabel: 'Open to software engineering roles—Karachi or remote.',
     resumePath: '/resume.pdf',
-    ogImage: '/og/default.png',
-    url: 'https://mausafjamal.dev',
+    url: 'https://www.mausafjamal.dev',
   },
   skills: [
     {

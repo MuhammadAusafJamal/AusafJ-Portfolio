@@ -67,7 +67,11 @@ export const siteSchema = z.strictObject({
   /** Rendered verbatim beside the status dot. Ambiguity here costs you for free. */
   availabilityLabel: nonEmptyString.max(80),
   resumePath: publicPathSchema,
-  ogImage: publicPathSchema,
+  /**
+   * No `ogImage`. Share cards are drawn at build time by `app/opengraph-image.tsx`
+   * from the fields already here, so a path to a static one would be a setting that
+   * looks live and changes nothing.
+   */
   url: httpUrlSchema,
 });
 
