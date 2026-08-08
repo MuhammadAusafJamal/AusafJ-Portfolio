@@ -17,6 +17,7 @@ import {
   getSite,
   getSkills,
   getSocials,
+  getTestimonial,
 } from '@/lib/content';
 import { Footer } from '@/components/footer';
 import { Nav } from '@/components/nav';
@@ -25,6 +26,7 @@ import { ExperienceTimeline } from '@/components/sections/experience-timeline';
 import { Hero } from '@/components/sections/hero';
 import { Skills } from '@/components/sections/skills';
 import { ProjectCard } from '@/components/ui/project-card';
+import { Quote } from '@/components/ui/quote';
 import { Section } from '@/components/ui/section';
 
 /**
@@ -37,12 +39,13 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const [site, socials, projects, history, skills] = await Promise.all([
+  const [site, socials, projects, history, skills, testimonial] = await Promise.all([
     getSite(),
     getSocials(),
     getFeaturedProjects(),
     getCompanyHistory(),
     getSkills(),
+    getTestimonial(),
   ]);
 
   // Marks up the same facts the hero states, so a search result can carry the role
@@ -84,6 +87,13 @@ export default async function Home() {
 
         <Section id="experience" title="Experience">
           <ExperienceTimeline history={history} />
+          {/* Inside the section, not beside it—the quote is evidence for the
+              timeline it follows, and it disappears entirely while it is a draft. */}
+          {testimonial !== undefined && (
+            <div className="mt-12">
+              <Quote testimonial={testimonial} />
+            </div>
+          )}
         </Section>
 
         <Section id="skills" title="Skills">
