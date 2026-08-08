@@ -10,6 +10,13 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 ## [Unreleased]
 
+Nothing yet.
+
+## [0.2.0]—2026-08-09
+
+Everything a link to this site produces: the canonical it claims, the card that appears
+when it is shared, and the icon in the tab. None of the three were right.
+
 ### Added
 
 - **A sitemap and a robots.txt.** Neither existed, so nothing told a crawler the case
@@ -128,5 +135,6 @@ API routes behind them.
   off the homepage until it has one, and the schema refuses to mark a project featured
   without a metric.
 
-[unreleased]: https://github.com/MuhammadAusafJamal/AusafJ-Portfolio/compare/v0.1.0...HEAD
+[unreleased]: https://github.com/MuhammadAusafJamal/AusafJ-Portfolio/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/MuhammadAusafJamal/AusafJ-Portfolio/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/MuhammadAusafJamal/AusafJ-Portfolio/releases/tag/v0.1.0
