@@ -12,6 +12,15 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 Nothing yet.
 
+## [0.3.1]—2026-08-27
+
+### Fixed
+
+- **`v0.2.0` and `v0.3.0` were tagged but never became GitHub Releases**—a pushed tag alone
+  doesn't populate the repo's Releases page. Both got Release entries retroactively, and the
+  release checklist in `CONTRIBUTING.md` now names the `gh release create` step explicitly
+  so it isn't skipped again.
+
 ## [0.3.0]—2026-08-27
 
 A floating pill nav as an alternative to the full-width bar, documented side by side on the
@@ -156,7 +165,8 @@ API routes behind them.
   off the homepage until it has one, and the schema refuses to mark a project featured
   without a metric.
 
-[unreleased]: https://github.com/MuhammadAusafJamal/AusafJ-Portfolio/compare/v0.3.0...HEAD
+[unreleased]: https://github.com/MuhammadAusafJamal/AusafJ-Portfolio/compare/v0.3.1...HEAD
+[0.3.1]: https://github.com/MuhammadAusafJamal/AusafJ-Portfolio/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/MuhammadAusafJamal/AusafJ-Portfolio/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/MuhammadAusafJamal/AusafJ-Portfolio/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/MuhammadAusafJamal/AusafJ-Portfolio/releases/tag/v0.1.0
