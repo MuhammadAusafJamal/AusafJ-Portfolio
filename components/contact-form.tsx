@@ -34,7 +34,11 @@ export function ContactForm() {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const form = new FormData(event.currentTarget);
+    // React nulls a SyntheticEvent's currentTarget once the synchronous part
+    // of the handler returns, so it can't be read after the `await` below—
+    // capture the element itself now, not just its FormData.
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
     const payload = {
       name: String(form.get('name') ?? ''),
       email: String(form.get('email') ?? ''),
@@ -80,7 +84,7 @@ export function ContactForm() {
       }
 
       setStatus('success');
-      event.currentTarget.reset();
+      formElement.reset();
     } catch {
       setStatus('error');
       setErrorMessage("That didn't quite make it through. Try email instead.");
