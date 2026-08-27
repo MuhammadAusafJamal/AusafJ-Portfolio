@@ -1,0 +1,40 @@
+---
+title: Day / Night Cycle
+slug: day-night-cycle
+summary: A 3D scene where the sun rises and sets in a loop over a cottage in a forest—sky, shadows, and fireflies all shift with it.
+role: Solo build
+startDate: '2026-05-11'
+endDate: present
+status: wip
+featured: false
+order: 6
+categories:
+  - creative
+stack:
+  - Three.js
+  - JavaScript
+links:
+  live: https://three-js-journey-day-night-cycle-with-particles.vercel.app
+  repo: https://github.com/MuhammadAusafJamal/Three-Js-Journey/tree/main/Day-Night-Cycle-With-Particle
+cover: /content/projects/day-night-cycle/cover.png
+coverAlt: The cottage scene at sunset, shadows sweeping across the ground.
+draft: false
+---
+
+## Problem
+
+Lighting is the part of a 3D scene that's hardest to fake convincingly—a static day scene and a
+static night scene are two separate art problems. Animating the transition between them is a
+third, harder one.
+
+## Approach
+
+The sky shifts through day, sunset, and night on a loop, with shadows sweeping across the ground
+as the sun moves and a moon taking over once it sets. Fireflies fade in after dark as a particle
+system. A `lil-gui` panel exposes the cycle speed and lighting parameters live, which is what
+turned this from "does it work" into "does it look right."
+
+## What I'd change
+
+The cycle is time-based, not tied to any real clock or season—a version that actually read the
+viewer's local time would be a small change with a genuinely interesting payoff.

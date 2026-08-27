@@ -32,7 +32,7 @@ export type {
 } from '../data';
 export type { EmploymentType, Experience } from '../experience';
 export type { Post, PostFrontmatter } from '../post';
-export type { Metric, Project, ProjectStatus } from '../project';
+export type { Metric, Project, ProjectCategory, ProjectStatus } from '../project';
 
 /** The three content types that live as MDX, used to resolve a slug across all of them. */
 export type ContentType = 'project' | 'experience' | 'post';

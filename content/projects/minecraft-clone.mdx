@@ -1,0 +1,41 @@
+---
+title: Basic Minecraft Clone
+slug: minecraft-clone
+summary: A first-person voxel sandbox—an endless, procedurally generated world streamed in as you roam it.
+role: Solo build
+startDate: '2026-05-11'
+endDate: present
+status: wip
+featured: false
+order: 8
+categories:
+  - creative
+  - ai-first
+stack:
+  - Three.js
+  - JavaScript
+links:
+  live: https://three-js-journey-basic-minecraft-clone.vercel.app/
+  repo: https://github.com/MuhammadAusafJamal/Three-Js-Journey/tree/main/Basic-Minecraft-Clone
+cover: /content/projects/minecraft-clone/cover.png
+coverAlt: A procedurally generated voxel landscape with grass, water, and trees.
+draft: false
+---
+
+## Problem
+
+A hand-built world runs out the moment the player walks past its edge. The interesting problem is
+generating, streaming, and discarding chunks fast enough that the world feels endless instead of
+loading.
+
+## Approach
+
+Chunks generate procedurally (grass, dirt, stone, sand, water, trees) and stream in as the player
+roams. Movement and collision run on Rapier physics. WASD and Space walk, jump, and fly; the
+player can break and place blocks, including advanced ones (glass, water, exploding TNT), and a
+day/night cycle runs an orbiting sun and moon over all of it.
+
+## What I'd change
+
+Chunk generation and streaming currently run on the main thread, so a large render distance drops
+frames on generation. Moving it to a worker is the obvious next step and hasn't happened yet.

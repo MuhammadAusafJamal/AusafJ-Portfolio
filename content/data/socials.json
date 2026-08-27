@@ -12,5 +12,12 @@
     "handle": "muhammadausafjamal",
     "icon": "linkedin",
     "showInHero": true
+  },
+  {
+    "platform": "Upwork",
+    "url": "https://www.upwork.com/freelancers/~01bc402bcc9faae8eb",
+    "handle": "MuhammadAusafJ",
+    "icon": "upwork",
+    "showInHero": false
   }
 ]
