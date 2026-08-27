@@ -45,7 +45,11 @@ edits, a new post, a bug fix.
    entries under the new heading with a date.
 2. Merge `release/x.y.z` → `main`; tag `vX.Y.Z`; push tags.
 3. Merge `release/x.y.z` back → `develop`.
-4. Vercel deploys `main` to production. The tag is what you point at when something breaks.
+4. **Create the GitHub Release**, not just the tag—a pushed tag alone doesn't appear under
+   the repo's Releases page. `gh release create vX.Y.Z --latest --notes "..."`, notes lifted
+   from the new `CHANGELOG.md` section for that version. Do this every release; a tag with no
+   Release entry is the gap this step exists to close.
+5. Vercel deploys `main` to production. The tag is what you point at when something breaks.
 
 ## Coding conventions
 
