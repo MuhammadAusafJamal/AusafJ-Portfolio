@@ -12,6 +12,27 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 Nothing yet.
 
+## [0.3.0]—2026-08-27
+
+A floating pill nav as an alternative to the full-width bar, documented side by side on the
+style guide.
+
+### Added
+
+- **A floating pill nav variant.** Centered, sticky, with surface elevation and backdrop
+  blur—an island instead of a full-width bar. `Nav` takes a `variant` prop
+  (`'floating' | 'bar'`); `'floating'` is the default, `'bar'` stays available for a route
+  that wants full-width instead.
+- **`ThemeToggle` accepts a `className` override**, so the floating variant can size and
+  border it inline without a second component.
+- **Both nav variants on `/style-guide`**, side by side, so a change to one is visible
+  against the other.
+
+### Fixed
+
+- **The skip-to-content link could render behind the new nav.** The floating variant sits at
+  `z-40`; the skip link moves to `z-50` so it always wins.
+
 ## [0.2.0]—2026-08-09
 
 Everything a link to this site produces: the canonical it claims, the card that appears
@@ -135,6 +156,7 @@ API routes behind them.
   off the homepage until it has one, and the schema refuses to mark a project featured
   without a metric.
 
-[unreleased]: https://github.com/MuhammadAusafJamal/AusafJ-Portfolio/compare/v0.2.0...HEAD
+[unreleased]: https://github.com/MuhammadAusafJamal/AusafJ-Portfolio/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/MuhammadAusafJamal/AusafJ-Portfolio/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/MuhammadAusafJamal/AusafJ-Portfolio/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/MuhammadAusafJamal/AusafJ-Portfolio/releases/tag/v0.1.0
