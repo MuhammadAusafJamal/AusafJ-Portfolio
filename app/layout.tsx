@@ -9,7 +9,7 @@
  * tokens, so every route inherits them.
  */
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist, Geist_Mono, Instrument_Serif } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import { getSite } from '@/lib/content';
 import '@/styles/globals.css';
@@ -22,6 +22,18 @@ const sans = Geist({
 
 const mono = Geist_Mono({
   variable: '--font-geist-mono',
+  subsets: ['latin'],
+  display: 'swap',
+});
+
+/**
+ * The one display face on the site—used for exactly one line per page (the hero name, a
+ * case study's title). Self-hosted the same way as Geist rather than a stylesheet link, so
+ * it never becomes a second network hop.
+ */
+const display = Instrument_Serif({
+  variable: '--font-instrument-serif',
+  weight: '400',
   subsets: ['latin'],
   display: 'swap',
 });
@@ -75,7 +87,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   // HTML cannot contain those, so React reports a mismatch on every load. It only
   // suppresses attribute diffs on this element, not anything React renders inside.
   return (
-    <html lang="en" className={`${sans.variable} ${mono.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${sans.variable} ${mono.variable} ${display.variable}`}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <body suppressHydrationWarning>
         <a
           href="#main"

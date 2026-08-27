@@ -72,7 +72,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
 
         <header className="mt-8 flex flex-col gap-6 border-b border-border pb-12">
           <div>
-            <h1 className="text-3xl font-semibold">{data.title}</h1>
+            <h1 className="font-display text-3xl font-normal">{data.title}</h1>
             <p className="mt-4 text-lg text-muted">{data.summary}</p>
           </div>
 

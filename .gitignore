@@ -23,6 +23,7 @@ coverage/
 # logs
 *.log
 npm-debug.log*
+conversations.txt
 
 # CLI local state — the token and machine-local config never leave the machine.
 .ausafrc.local

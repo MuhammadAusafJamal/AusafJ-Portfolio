@@ -21,6 +21,7 @@ const project = {
   status: 'live',
   featured: true,
   order: 1,
+  categories: ['web'],
   stack: ['TypeScript', 'Node'],
   metrics: [{ label: 'intent accuracy', value: '94%' }],
   cover: '/content/projects/madadgar/cover.png',

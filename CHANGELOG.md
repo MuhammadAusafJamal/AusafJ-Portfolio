@@ -12,6 +12,47 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 Nothing yet.
 
+## [0.4.0]—2026-08-28
+
+The V2 redesign, plus two new pages: `/contact` and `/resume`.
+
+### Added
+
+- **`categories` field on projects** (`mobile`/`web`/`ai-first`/`creative`), required on
+  every project. Three.js Journey was wrongly modeled as one project—it's a monorepo of 4
+  independent builds, so it's split into `solar-system`, `day-night-cycle`,
+  `animated-character`, and `minecraft-clone` (tagged `creative` + `ai-first` for its
+  procedural world-gen). New `agent-x` project added. 8 projects total.
+- **`/projects` category filtering**—4 ability tiles plus a filter-pill row, `?category=` in
+  the URL, server-rendered with no client component.
+- **`/contact`**—two-column layout, `// comment`-style field labels, a Resend-backed form
+  with honeypot and minimum-fill-time anti-spam. Mongo persistence and rate-limiting are
+  explicitly deferred, not silently half-built.
+- **`/resume`**—renders inline from the same content functions the homepage uses, plus a
+  Certifications section.
+- **Instrument Serif**, finally wired up. `--font-display` existed as a token with nothing
+  behind it; now self-hosted via `next/font` and used on exactly one line per page.
+
+### Changed
+
+- **Nav's "More" overflow** moved from `<details>` to the native Popover API—`<details>`
+  doesn't close on outside click, which browser-testing caught as a real stuck-open bug.
+  Visible links reordered by intent: `Projects` and `Contact` stay visible, the rest move
+  into `More`.
+- **Tag** goes from a filled pill to a hairline border; **metric badge** label moves above
+  the value; **status dot** wraps in a quiet pill chip.
+- **`ProjectCard`** gets a category kicker line, visible on the homepage's featured cards too.
+
+### Fixed
+
+- **`--palette-text-subtle`** failed WCAG AA against every background in the palette
+  (4.07:1 on `--color-bg`, 3.8:1 on `--color-surface`, both need 4.5:1 at 13px)—caught by a
+  Lighthouse audit on card metric labels. Raised to `#82828b`. Lighthouse accessibility
+  score 96→100.
+- **`data-scroll-behavior="smooth"`** on `<html>` fixes same-page scroll jerk and the
+  cross-page anchor snap.
+- **`/projects` filter clicks** no longer jump the viewport to the top (`scroll={false}`).
+
 ## [0.3.1]—2026-08-27
 
 ### Fixed
