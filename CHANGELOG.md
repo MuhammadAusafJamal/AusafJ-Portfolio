@@ -12,6 +12,17 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 Nothing yet.
 
+## [0.4.2]—2026-08-28
+
+### Fixed
+
+- **Contact form had no way back to idle after a successful send**—it rendered only the
+  success message, permanently, until a full page reload. Adds a "Send another message"
+  link that resets it.
+- **Availability status pill wrapped awkwardly** in the two-column contact card. The label
+  was 52 characters, too long to reliably hold one line at any realistic width. Shortened to
+  "Open to SWE roles, Karachi or remote."
+
 ## [0.4.1]—2026-08-28
 
 ### Fixed

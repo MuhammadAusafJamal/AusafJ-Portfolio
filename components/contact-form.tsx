@@ -93,9 +93,18 @@ export function ContactForm() {
 
   if (status === 'success') {
     return (
-      <p className="rounded-card border border-border bg-surface p-6 text-sm text-muted">
-        Got it. Thanks for reaching out! I&apos;ll reply from the email above.
-      </p>
+      <div className="flex flex-col gap-3 rounded-card border border-border bg-surface p-6">
+        <p className="text-sm text-muted">
+          Got it. Thanks for reaching out! I&apos;ll reply from the email above.
+        </p>
+        <button
+          type="button"
+          onClick={() => setStatus('idle')}
+          className="w-fit font-mono text-xs text-muted no-underline hover:text-text hover:underline"
+        >
+          Send another message
+        </button>
+      </div>
     );
   }
 
