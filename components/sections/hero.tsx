@@ -33,7 +33,7 @@ export function Hero({ site, socials }: { site: Site; socials: Social[] }) {
       <StatusDot availability={site.availability} label={site.availabilityLabel} />
 
       <div>
-        <h1 className="text-3xl font-semibold md:text-4xl">{site.name}</h1>
+        <h1 className="font-display text-3xl font-normal md:text-4xl">{site.name}</h1>
         <p className="mt-4 text-lg text-muted md:text-xl">{site.positioning}</p>
         <p className="mt-4 text-muted">{site.proof}</p>
       </div>

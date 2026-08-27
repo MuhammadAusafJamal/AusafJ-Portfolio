@@ -236,12 +236,16 @@ export default function Styleguide() {
           <p className="mt-4 text-sm text-muted">
             In-page jumps glide. <code className="font-mono text-xs">scroll-behavior: smooth</code>{' '}
             and a 96px <code className="font-mono text-xs">scroll-padding-top</code> both sit on{' '}
-            <code className="font-mono text-xs">&lt;html&gt;</code>, so one number keeps the 56px
-            nav off whatever heading a <code className="font-mono text-xs">/#work</code> link lands
-            on, and an anchor added later inherits it without anyone remembering to. Next overrides
-            the behaviour to <code className="font-mono text-xs">auto</code> while it scrolls after
-            a navigation, so a route change still jumps to the top instead of animating the whole
-            document.
+            <code className="font-mono text-xs">&lt;html&gt;</code>. One number keeps the 56px nav
+            off whatever heading a <code className="font-mono text-xs">/#work</code> link lands on,
+            and an anchor added later inherits it without anyone remembering to.
+          </p>
+          <p className="mt-4 text-sm text-muted">
+            A route change would normally force an instant jump instead of animating.{' '}
+            <code className="font-mono text-xs">data-scroll-behavior=&quot;smooth&quot;</code> on{' '}
+            <code className="font-mono text-xs">&lt;html&gt;</code> tells Next&apos;s router to
+            respect the CSS property instead, so a link from another page to a homepage anchor
+            glides the same way an in-page one does.
           </p>
         </Section>
 

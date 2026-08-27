@@ -6,16 +6,33 @@
  *   with surface elevation and backdrop blur.
  * - 'bar': Full-width sticky top navigation bar.
  *
- * Every link points at a section of the homepage, root-relative (`/#work`),
- * so every item behaves identically across all routes without dead links.
+ * `LINKS` is what's always visible, `MORE_LINKS` is a native-Popover-API
+ * overflow (`popover`/`popoverTarget`, React 19's built-in support—no client
+ * component) so the performance budget in CONTRIBUTING.md stays intact.
+ * Popover over `<details>` because the browser closes it on outside click and
+ * Escape for free; a plain `<details>` stayed open once you clicked anything
+ * outside it.
+ *
+ * The visible/overflow split is by intent, not by anchor-vs-route: Projects
+ * and Contact are the two actions a recruiter actually converts on, so they
+ * stay one tap away. Work/Experience/Skills are sub-sections of the homepage's
+ * own story, and Resume duplicates what the hero already links—lower stakes
+ * if those cost an extra tap into More.
  */
 import Link from 'next/link';
+import { ChevronDown } from 'lucide-react';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 const LINKS = [
+  { href: '/projects', label: 'Projects' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const MORE_LINKS = [
   { href: '/#work', label: 'Work' },
   { href: '/#experience', label: 'Experience' },
-  { href: '/#contact', label: 'Contact' },
+  { href: '/#skills', label: 'Skills' },
+  { href: '/resume', label: 'Resume' },
 ];
 
 export type NavVariant = 'floating' | 'bar';
@@ -50,6 +67,36 @@ export function Nav({ name, variant = 'floating' }: NavProps) {
                 </li>
               ))}
             </ul>
+            <div className="nav-more-wrap relative">
+              <button
+                popoverTarget="nav-more-bar"
+                type="button"
+                className="nav-more-trigger flex cursor-pointer items-center gap-1 font-mono text-xs text-muted no-underline transition-colors duration-micro ease-standard hover:text-text"
+              >
+                More
+                <ChevronDown
+                  size={12}
+                  aria-hidden
+                  className="nav-more-chevron transition-transform duration-micro ease-standard"
+                />
+              </button>
+              <ul
+                popover="auto"
+                id="nav-more-bar"
+                className="nav-more-menu m-0 flex min-w-36 flex-col gap-1 rounded-card border border-border bg-surface p-2 font-mono text-xs"
+              >
+                {MORE_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="block rounded-tag px-3 py-2 text-muted no-underline transition-colors duration-micro ease-standard hover:bg-surface-2 hover:text-text"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
             <ThemeToggle />
           </div>
         </div>
@@ -86,6 +133,37 @@ export function Nav({ name, variant = 'floating' }: NavProps) {
             </li>
           ))}
         </ul>
+
+        <div className="nav-more-wrap relative">
+          <button
+            popoverTarget="nav-more-floating"
+            type="button"
+            className="nav-more-trigger flex cursor-pointer items-center gap-1 rounded-full px-2.5 py-1 font-mono text-xs text-muted no-underline transition-colors duration-micro ease-standard hover:bg-surface-2/60 hover:text-text"
+          >
+            More
+            <ChevronDown
+              size={12}
+              aria-hidden
+              className="nav-more-chevron transition-transform duration-micro ease-standard"
+            />
+          </button>
+          <ul
+            popover="auto"
+            id="nav-more-floating"
+            className="nav-more-menu m-0 flex min-w-36 flex-col gap-1 rounded-card border border-border bg-surface p-2 font-mono text-xs"
+          >
+            {MORE_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="block rounded-tag px-3 py-2 text-muted no-underline transition-colors duration-micro ease-standard hover:bg-surface-2 hover:text-text"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <span className="h-3.5 w-px bg-border shrink-0" aria-hidden="true" />
 

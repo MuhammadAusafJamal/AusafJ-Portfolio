@@ -19,7 +19,7 @@ const COLOR: Record<Availability, string> = {
 
 export function StatusDot({ availability, label }: { availability: Availability; label: string }) {
   return (
-    <p className="flex items-center gap-2 font-mono text-xs text-muted">
+    <p className="flex w-fit items-center gap-2 rounded-full bg-accent-quiet px-3 py-1.5 font-mono text-xs text-muted">
       <span className="relative flex size-1.5 shrink-0" aria-hidden>
         {availability === 'open' && (
           <span className="absolute inset-0 rounded-full bg-success animate-status-pulse" />

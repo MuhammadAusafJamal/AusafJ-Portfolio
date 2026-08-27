@@ -27,7 +27,7 @@
   --palette-border-strong: #3a3a42;
   --palette-text: #ededef;
   --palette-text-muted: #a1a1aa;
-  --palette-text-subtle: #71717a;
+  --palette-text-subtle: #82828b;
   --palette-accent: #fafafa;
   --palette-accent-hover: #ffffff;
   --palette-accent-quiet: #1f1f23;
@@ -66,8 +66,11 @@
    * single exception and is functional signal only: a 6px status dot. Colour that
    * carries meaning is fine; colour that carries emphasis is what we removed.
    *
-   * `text-subtle` is deliberately last: it sits at ~4.6:1 on dark and must never
-   * carry information a recruiter needs.
+   * `text-subtle` is deliberately last: it must never carry information a
+   * recruiter needs. The original #71717a cleared WCAG AA against nothing in
+   * the palette—4.07:1 on `--color-bg`, 3.8:1 on `--color-surface`, both under
+   * the 4.5:1 a Lighthouse audit expects at 13px—so it was raised to #82828b,
+   * which clears 4.5:1 against every background this palette uses it on.
    */
   --color-bg: var(--palette-bg);
   --color-surface: var(--palette-surface);
@@ -92,7 +95,7 @@
   --font-sans:
     var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, 'SF Mono', 'JetBrains Mono', monospace;
-  --font-display: 'Instrument Serif', ui-serif, Georgia, serif;
+  --font-display: var(--font-instrument-serif), ui-serif, Georgia, serif;
 
   --text-xs: 0.8125rem; /* 13px */
   --text-xs--line-height: 1.5;
@@ -177,10 +180,11 @@
    * keeps the sticky nav off the heading it just scrolled to—anchors added later
    * inherit it without anyone remembering to. 96px is the 56px nav plus a gap.
    *
-   * Next's router overrides `scroll-behavior` to `auto` while it scrolls after a
-   * navigation, so a route change still jumps to the top rather than animating the
-   * whole document. The reduced-motion block at the end of the file turns the
-   * smoothing off outright.
+   * `data-scroll-behavior="smooth"` on `<html>` in `app/layout.tsx` is what makes
+   * this survive a route change too—Next's router forces an instant jump on
+   * navigation unless that attribute tells it to respect this property instead.
+   * The reduced-motion block at the end of the file turns the smoothing off
+   * outright.
    */
   html {
     -webkit-text-size-adjust: 100%;
@@ -288,6 +292,37 @@
     padding-left: calc(var(--spacing) * 4);
     color: var(--color-muted);
   }
+
+  /* Nav's "More" overflow. Anchored to the trigger via CSS anchor positioning
+   * rather than an absolutely-positioned child, because a `popover` element
+   * renders in the top layer—normal-flow ancestor positioning doesn't reach it.
+   * The payoff over a plain <details> is that the browser closes it on outside
+   * click and Escape for free, with no client component.
+   */
+  .nav-more-trigger {
+    anchor-name: --nav-more;
+  }
+
+  .nav-more-menu {
+    position: fixed;
+    position-anchor: --nav-more;
+    position-area: bottom span-left;
+    margin-top: calc(var(--spacing) * 2);
+  }
+
+  .nav-more-wrap:has(> .nav-more-menu:popover-open) .nav-more-chevron {
+    transform: rotate(180deg);
+  }
+}
+
+/* Unlayered on purpose: Tailwind utilities (`@layer utilities`) always win over
+ * `@layer components` in the cascade, so the `.nav-more-menu` element's own
+ * `flex` utility class was beating the UA stylesheet's default
+ * `[popover]:not(:popover-open) { display: none }` and leaving the menu visible
+ * on load. An unlayered rule outranks every `@layer`, author or not.
+ */
+.nav-more-menu:not(:popover-open) {
+  display: none;
 }
 
 /* Non-negotiable. Opacity only, no translate, no duration. */
