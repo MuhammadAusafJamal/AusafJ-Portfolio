@@ -11,6 +11,7 @@
 import type { Metadata } from 'next';
 import type { Testimonial } from '@ausaf/schema/types';
 import { Avatar } from '@/components/ui/avatar';
+import { Nav } from '@/components/nav';
 import { Quote } from '@/components/ui/quote';
 import { StatusDot } from '@/components/ui/status-dot';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
@@ -360,6 +361,24 @@ export default function Styleguide() {
                 underline is the only affordance a link has left, so it is never optional. Nav items
                 and button-styled links opt out.
               </p>
+            </div>
+
+            <div>
+              <p className="font-mono text-xs text-muted">Navigation variants</p>
+              <div className="mt-4 flex flex-col gap-6 rounded-card border border-border bg-surface p-6">
+                <div>
+                  <p className="mb-2 font-mono text-xs text-subtle">Floating island (default)</p>
+                  <div className="rounded-tag border border-border bg-bg/50 p-4">
+                    <Nav name="Muhammad Ausaf Jamal" variant="floating" />
+                  </div>
+                </div>
+                <div>
+                  <p className="mb-2 font-mono text-xs text-subtle">Bar (full width)</p>
+                  <div className="overflow-hidden rounded-tag border border-border bg-bg/50">
+                    <Nav name="Muhammad Ausaf Jamal" variant="bar" />
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div>
