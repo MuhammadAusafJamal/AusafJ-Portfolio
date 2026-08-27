@@ -12,6 +12,17 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 Nothing yet.
 
+## [0.4.1]—2026-08-28
+
+### Fixed
+
+- **Contact form showed a false failure after a successful send.** A `SyntheticEvent`'s
+  `currentTarget` goes null once the synchronous part of a handler returns, so
+  `event.currentTarget.reset()` after the `await fetch(...)` threw and landed in the catch
+  block—even though the message had already sent (server logged a clean `200`, email
+  confirmed delivered). The form element is now captured synchronously, before the `await`,
+  instead of read off the event afterward.
+
 ## [0.4.0]—2026-08-28
 
 The V2 redesign, plus two new pages: `/contact` and `/resume`.
