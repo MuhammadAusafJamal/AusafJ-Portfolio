@@ -25,6 +25,9 @@ export const MAX_FEATURED_PROJECTS = 3;
 
 export const projectStatusSchema = z.enum(['live', 'archived', 'wip']);
 
+/** The `/projects` filter taxonomy—separate from `stack`, which is tech tags, not a type. */
+export const projectCategorySchema = z.enum(['mobile', 'web', 'ai-first', 'creative']);
+
 /**
  * One number with a unit and a label—"128ms" / "p95 latency". Rendered as the
  * MetricBadge row on a case study.
@@ -59,6 +62,8 @@ export const projectFrontmatterSchema = z
     featured: z.boolean(),
     /** Manual sort. Ascending. Uniqueness is enforced across the collection. */
     order: z.int(),
+    /** What `/projects` filters by. A project may span more than one. */
+    categories: z.array(projectCategorySchema).min(1),
     stack: z.array(labelSchema).min(1),
     links: projectLinksSchema.default({}),
     metrics: z.array(metricSchema).max(4).default([]),
@@ -78,4 +83,5 @@ export const projectFrontmatterSchema = z
 
 export type Project = z.infer<typeof projectFrontmatterSchema>;
 export type ProjectStatus = z.infer<typeof projectStatusSchema>;
+export type ProjectCategory = z.infer<typeof projectCategorySchema>;
 export type Metric = z.infer<typeof metricSchema>;

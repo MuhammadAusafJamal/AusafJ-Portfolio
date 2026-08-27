@@ -1,0 +1,39 @@
+---
+title: Animated Character
+slug: animated-character
+summary: A robot you can walk, jump, and knock a pyramid of blocks down with, built on ray-casting and real physics.
+role: Solo build
+startDate: '2026-05-11'
+endDate: present
+status: wip
+featured: false
+order: 7
+categories:
+  - creative
+stack:
+  - Three.js
+  - JavaScript
+links:
+  live: https://three-js-journey-animated-character.vercel.app/
+  repo: https://github.com/MuhammadAusafJamal/Three-Js-Journey/tree/main/Animated-Character
+cover: /content/projects/animated-character/cover.png
+coverAlt: The animated robot mid-jump in a grassy field.
+draft: false
+---
+
+## Problem
+
+A character that only plays one animation on a loop doesn't feel controlled by anyone. The point
+of this scene was to get input, animation state, and physics all talking to each other in one
+place.
+
+## Approach
+
+WASD and Space move and jump the robot around a grassy field; clicking it cycles its animation
+clips directly. Clicking the ground uses a ray-caster to aim, then physics (Rapier) throws a ball
+at a pyramid of blocks. Knocking them all down is the goal.
+
+## What I'd change
+
+Animation blending between states (idle → walk → jump) is a hard cut right now, not a crossfade.
+It reads fine at this scale but is the first thing that would need fixing in a bigger scene.

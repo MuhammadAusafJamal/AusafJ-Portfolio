@@ -15,7 +15,8 @@
       { "name": "Redux", "level": "working" },
       { "name": "Tailwind CSS", "level": "working" },
       { "name": "Material UI", "level": "working" },
-      { "name": "SCSS", "level": "working" }
+      { "name": "SCSS", "level": "working" },
+      { "name": "Three.js", "level": "familiar" }
     ]
   },
   {

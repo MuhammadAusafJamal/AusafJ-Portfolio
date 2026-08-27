@@ -1,0 +1,40 @@
+---
+title: Solar System
+slug: solar-system
+summary: An interactive 3D solar system—drag to orbit, zoom in, watch all 8 planets and their moons spin in real time.
+role: Solo build
+startDate: '2026-05-11'
+endDate: present
+status: wip
+featured: false
+order: 5
+categories:
+  - creative
+stack:
+  - Three.js
+  - JavaScript
+links:
+  live: https://three-js-journey-solar-system.vercel.app/
+  repo: https://github.com/MuhammadAusafJamal/Three-Js-Journey/tree/main/Solar-System
+cover: /content/projects/solar-system/cover.png
+coverAlt: The Solar System scene, Saturn's rings visible against a starfield.
+draft: false
+---
+
+## Problem
+
+A solar system is a good first real scene: enough moving parts (8 planets, their moons, a sun) to
+force real decisions about scale, lighting, and camera control, without needing gameplay logic on
+top.
+
+## Approach
+
+A camera fly-in intro leads into a draggable orbit around the sun. Saturn gets rings, several
+planets get cloud layers, and the background is an 8K starfield rather than a flat black—small
+details, but they're the difference between a demo and something that looks finished.
+
+## What I'd change
+
+Orbital periods and sizes are visually plausible, not physically scaled—a real-scale model would
+either put Pluto off-screen or shrink the sun to a dot. Worth a toggle between "looks good" and
+"actually to scale" rather than picking one.
