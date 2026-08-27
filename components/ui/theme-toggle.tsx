@@ -16,8 +16,13 @@
  */
 import { useTheme } from 'next-themes';
 import { Moon, Sun } from 'lucide-react';
+import { clsx } from 'clsx';
 
-export function ThemeToggle() {
+type ThemeToggleProps = {
+  className?: string;
+};
+
+export function ThemeToggle({ className }: ThemeToggleProps = {}) {
   const { resolvedTheme, setTheme } = useTheme();
 
   return (
@@ -25,7 +30,10 @@ export function ThemeToggle() {
       type="button"
       onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
       aria-label="Toggle between light and dark theme"
-      className="grid size-9 place-items-center rounded-tag border border-border text-muted transition-colors duration-micro ease-standard hover:border-border-strong hover:text-text"
+      className={clsx(
+        'grid size-9 place-items-center rounded-tag border border-border text-muted transition-colors duration-micro ease-standard hover:border-border-strong hover:text-text',
+        className
+      )}
     >
       <Sun size={16} aria-hidden className="hidden dark:block" />
       <Moon size={16} aria-hidden className="block dark:hidden" />
