@@ -16,6 +16,12 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
   ASP.NET Core, SQL Server, Azure) and `gov-coastal-development` (Umbraco on ASP.NET MVC with
   a React Native client). These are the site's only evidence for the second backend stack;
   without them the .NET entries on the skills list had nothing behind them.
+- **`ausafj-portfolio`**—this site, as a case study. Tagged `web` and `ai-first`: the AI is in
+  how it gets built, through the repo's own agent instructions and the local `humanizer`
+  skill, not in the product. There are no model calls at runtime and there should not be.
+- **A `Source` section on all three government case studies**, saying plainly that the code is
+  client-owned. Every other card shows Live and Source links; blank space where those sit
+  reads as unfinished, and a stated reason reads as deliberate.
 - **The .NET track in `skills.json`**—C#, ASP.NET Core, ASP.NET MVC, Umbraco, SQL Server,
   Azure, Azure DevOps, plus Bootstrap, Jest, and Vitest. The schema caps the file at six
   groups, so .NET went into Backend and Azure into Tooling rather than getting a group each.
@@ -30,7 +36,18 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
   The old path redirects permanently.
 - **Certifications on `/resume`** trimmed to the four on the CV. The hackathon certificate and
   the Kaggle course came off: a course completion is not a credential.
+- **The `ai-first` filter blurb on `/projects`** promised "agent pipelines doing the actual
+  work". That is true of Madadgar and false of this site, so it now covers both the pipelines
+  and the builds where AI does the authoring.
 - `public/resume.pdf` replaced with the current Full Stack Engineer CV.
+
+### Fixed
+
+- **The README status block claimed the pages and API routes were still to come.** Six routes
+  render from validated content and the contact API is live. It now lists what is genuinely
+  outstanding: the rest of the API, the `ausaf` commands, and `/about` and `/blog`.
+- **`DESIGN-PROMPT.md` hardcoded the previous hero copy**, so anyone regenerating a mockup
+  from it would have reproduced the old positioning line and the "2 years" proof line.
 
 ### Removed
 
