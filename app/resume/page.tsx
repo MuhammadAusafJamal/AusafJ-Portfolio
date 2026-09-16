@@ -23,21 +23,16 @@ const DESCRIPTION = 'Skills, experience, and projects—viewable here, downloada
 /**
  * Static on purpose: this list appears in exactly one place, so it doesn't
  * earn a content schema and a JSON file the way skills or experience do.
- * Sourced from LinkedIn's Licenses & Certifications, Aug 2026—trimmed from
- * eight to six by dropping one expired credential and one generic seminar
- * attendance, per the site's own rule that this list stays short.
+ * Kept in step with the CV, which is the list that gets read first. The
+ * hackathon certificate and the Kaggle course came off both in Sep 2026: a
+ * course completion is not a credential, and neither survives the question
+ * "what did you build with it".
  */
 const CERTIFICATIONS = [
-  { name: 'Claude Code in Action', issuer: 'Anthropic', date: 'Apr 2026' },
-  {
-    name: 'AI Seekho Google Antigravity Hackathon 2026',
-    issuer: 'Google for Developers',
-    date: 'Jun 2026',
-  },
-  { name: 'Claude 101', issuer: 'Anthropic', date: 'Aug 2026' },
   { name: 'JavaScript (Intermediate) Certification', issuer: 'HackerRank', date: 'Aug 2026' },
-  { name: 'Intro to Deep Learning', issuer: 'Kaggle', date: 'Nov 2025' },
-  { name: 'Web and Mobile App Development', issuer: 'S.M.I.T', date: 'Nov 2023' },
+  { name: 'Claude 101', issuer: 'Anthropic', date: 'Aug 2026' },
+  { name: 'Claude Code in Action', issuer: 'Anthropic', date: 'Apr 2026' },
+  { name: 'Certified Web & Mobile Application Developer', issuer: 'S.M.I.T', date: 'Nov 2023' },
 ] as const;
 
 export const metadata: Metadata = {

@@ -1,0 +1,62 @@
+---
+title: Government Family Affairs Digital Services Portal
+slug: gov-family-affairs-portal
+summary: A headless CMS backend serving structured, multi-language government content over a custom REST API.
+role: Software Engineer, Technyx Systems
+startDate: '2026-07-01'
+endDate: present
+status: wip
+featured: true
+order: 3
+categories:
+  - web
+stack:
+  - C#
+  - ASP.NET Core
+  - Umbraco
+  - SQL Server
+  - Azure
+  - REST APIs
+metrics:
+  - label: custom document types
+    value: '10+'
+    detail: Each one modelling a content shape editors fill in without touching a developer.
+cover: /content/projects/gov-family-affairs-portal/cover.png
+coverAlt: The content model behind the family affairs services portal.
+draft: false
+---
+
+## Problem
+
+A government department publishing family services content in multiple languages. The
+editors are not developers, and the external integrations needed that same content as
+structured data rather than as a rendered page.
+
+## Approach
+
+Umbraco as a headless CMS on ASP.NET Core, with SQL Server underneath. The work was mostly
+modelling: 10+ custom document types that describe the content shapes the department
+actually publishes, so an editor fills in fields instead of fighting a rich text box.
+
+Custom REST API controllers sit on top of those types. That is what makes the same content
+serve the web platform and the external integrations without a second source of truth.
+
+Deployment runs on Azure App Service, with Blob Storage for media and CDN in front of it.
+
+## Hard decision
+
+Headless rather than Umbraco's built-in rendering. Rendering in Umbraco would have shipped
+the website sooner. It would also have meant the integrations scraped pages or got their own
+export, and a department already maintaining every page in several languages does not need a
+second place for content to drift.
+
+## What I'd change
+
+The document types were modelled before the integration requirements were fully known, so a
+few of them have fields that exist for one consumer. Worth a pass once the integration list
+stops moving.
+
+## Source
+
+Client work for a government body, published here under an anonymised name. The code is not
+public and will not be. Happy to talk through the content model in detail on a call.
