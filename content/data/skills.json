@@ -4,6 +4,7 @@
     "items": [
       { "name": "TypeScript", "level": "core" },
       { "name": "JavaScript", "level": "core" },
+      { "name": "C#", "level": "working" },
       { "name": "SQL", "level": "working" }
     ]
   },
@@ -13,8 +14,9 @@
       { "name": "React", "level": "core" },
       { "name": "Next.js", "level": "core" },
       { "name": "Redux", "level": "working" },
-      { "name": "Tailwind CSS", "level": "working" },
       { "name": "Material UI", "level": "working" },
+      { "name": "Tailwind CSS", "level": "working" },
+      { "name": "Bootstrap", "level": "working" },
       { "name": "SCSS", "level": "working" },
       { "name": "Three.js", "level": "familiar" }
     ]
@@ -32,6 +34,9 @@
       { "name": "Node.js", "level": "core" },
       { "name": "Express", "level": "working" },
       { "name": "REST APIs", "level": "core" },
+      { "name": "ASP.NET Core", "level": "working" },
+      { "name": "ASP.NET MVC", "level": "working" },
+      { "name": "Umbraco", "level": "working" },
       { "name": "Zod", "level": "working" }
     ]
   },
@@ -40,6 +45,7 @@
     "items": [
       { "name": "MongoDB", "level": "working" },
       { "name": "Mongoose", "level": "working" },
+      { "name": "SQL Server", "level": "working" },
       { "name": "PostgreSQL", "level": "working" },
       { "name": "PL/pgSQL", "level": "familiar" },
       { "name": "Firestore", "level": "working" }
@@ -48,10 +54,13 @@
   {
     "group": "Tooling",
     "items": [
-      { "name": "Git", "level": "core" },
+      { "name": "Azure", "level": "working" },
+      { "name": "Azure DevOps", "level": "working" },
       { "name": "GitHub Actions", "level": "working" },
+      { "name": "Git", "level": "core" },
       { "name": "Vercel", "level": "working" },
-      { "name": "Netlify", "level": "familiar" }
+      { "name": "Jest", "level": "working" },
+      { "name": "Vitest", "level": "working" }
     ]
   }
 ]
