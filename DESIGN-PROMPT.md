@@ -130,10 +130,10 @@ SCREEN STRUCTURE, top to bottom:
      - a 13px mono line in #A1A1AA reading "Karachi, Pakistan · Open to work"
        with a 6px #4ADE80 dot before it
      - "Muhammad Ausaf Jamal" at 49px, weight 600
-     - one sentence at 20px in #A1A1AA: "Software engineer building full-stack
-       products with React, Next.js, and Node." Max 2 lines.
-     - a 16px line: "2 years at Technyx Systems. BS Computer Science, University
-       of Karachi."
+     - one sentence at 20px in #A1A1AA: "Software engineer building government
+       digital platforms on React, Next.js, Node, and .NET." Max 2 lines.
+     - a 16px line: "2+ years at Technyx Systems. BS Computer Science, University
+       of Karachi, 2025."
      - a button row with 12px gap, 24px top margin: primary button "View resume"
        (solid #FAFAFA fill, #0B0B0C text, 12px radius, 12px/24px padding) and
        secondary button "Get in touch" (transparent, 1px #26262B border, #EDEDEF text)

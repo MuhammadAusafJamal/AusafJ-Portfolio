@@ -1,0 +1,56 @@
+---
+title: Government Luxury Coastal Development Project
+slug: gov-coastal-development
+summary: One Umbraco backend and one set of API contracts serving both a web platform and a React Native app.
+role: Software Engineer, Technyx Systems
+startDate: '2026-09-01'
+endDate: present
+status: wip
+featured: false
+order: 4
+categories:
+  - web
+  - mobile
+stack:
+  - C#
+  - ASP.NET MVC
+  - Umbraco
+  - SQL Server
+  - React Native
+  - REST APIs
+cover: /content/projects/gov-coastal-development/cover.png
+coverAlt: The shared content model behind the coastal development web and mobile clients.
+draft: false
+---
+
+## Problem
+
+A coastal development programme that needs a public web platform and a mobile app showing
+the same content. Two clients reading from one source of truth, and nobody wants to find out
+in six months that they have drifted.
+
+## Approach
+
+The backend is Umbraco 17.5 on ASP.NET MVC with SQL Server, and I am building both ends of
+it: the content models and controllers on the server, and the React Native client that
+consumes them.
+
+Building both sides changes how the API gets designed. The contract is written once, against
+a consumer I am also writing, so the mobile app never has to negotiate with an endpoint
+shaped for the website.
+
+## Hard decision
+
+Still open. The web platform and the app do not want identical payloads, and the choice is
+between one endpoint that over-serves the app or separate shapes per client. Leaning towards
+one endpoint until the mobile payload size actually hurts.
+
+## Status
+
+Early. Started September 2026, and the honest summary is that the content model is further
+along than the mobile client.
+
+## Source
+
+Client work for a government body, published here under an anonymised name. No repository
+link, and no live URL until the programme is announced.

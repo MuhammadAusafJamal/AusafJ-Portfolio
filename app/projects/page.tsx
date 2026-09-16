@@ -27,7 +27,7 @@ const CATEGORIES: { value: ProjectCategory; blurb: string }[] = [
   { value: 'web', blurb: 'Full-stack sites and platform migrations.' },
   {
     value: 'ai-first',
-    blurb: 'Agent pipelines doing the actual work, not a chat widget bolted on.',
+    blurb: 'Agent pipelines in the product, and builds where AI authors the work.',
   },
   { value: 'creative', blurb: 'Three.js — WebGL, scenes, shaders, animation.' },
 ];

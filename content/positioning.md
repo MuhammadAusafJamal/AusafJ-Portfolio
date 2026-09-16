@@ -2,7 +2,8 @@
 
 Everything downstream—the hero, the meta description, the OG image, the project
 selection—is derived from this file. Written from the CV and a full pass over
-github.com/MuhammadAusafJamal.
+github.com/MuhammadAusafJamal, and last reconciled against the CV and LinkedIn on
+2026-09-16.
 
 Nothing here is aspirational. Every claim is backed by a repo or a role.
 
@@ -12,10 +13,11 @@ Nothing here is aspirational. Every claim is backed by a repo or a role.
 
 **Recommended:**
 
-> Software engineer building full-stack products with React, Next.js, and Node.
+> Software engineer building government digital platforms on React, Next.js, Node, and .NET.
 
-Plain, accurate, and it names the stack a recruiter is screening for. Twelve words, fits the
-hero at 49px without wrapping past two lines.
+Names the stack a recruiter screens for and the domain the work actually happens in. Opens
+with "Software engineer" deliberately: that is the real job title and the LinkedIn headline,
+so a recruiter cross-checking the site against the CV finds the same words in both places.
 
 **Alternates:**
 
@@ -26,7 +28,7 @@ hero at 49px without wrapping past two lines.
 
 ## The proof line
 
-> 2 years at Technyx Systems. BS Computer Science, University of Karachi.
+> 2+ years at Technyx Systems. BS Computer Science, University of Karachi, 2025.
 
 **Why not a scale metric.** The usual advice is to lead with requests/day or p95 latency.
 That assumes a senior engineer, and inventing a number you cannot defend is disqualifying
@@ -44,15 +46,15 @@ State it plainly on the homepage. Ambiguity here costs Hireability points for fr
 
 ## Identity
 
-| Field    | Value                                                  |
-| -------- | ------------------------------------------------------ |
-| Name     | Muhammad Ausaf Jamal                                   |
-| Role     | Software Engineer                                      |
-| Location | Karachi, Pakistan                                      |
-| Email    | <ausaffarooqui17@gmail.com>                            |
-| GitHub   | github.com/MuhammadAusafJamal                          |
-| LinkedIn | linkedin.com/in/muhammadausafjamal                     |
-| Degree   | BS Computer Science, University of Karachi (2022–2026) |
+| Field    | Value                                                          |
+| -------- | -------------------------------------------------------------- |
+| Name     | Muhammad Ausaf Jamal                                           |
+| Role     | Software Engineer                                              |
+| Location | Karachi, Pakistan                                              |
+| Email    | <ausaffarooqui17@gmail.com>                                    |
+| GitHub   | github.com/MuhammadAusafJamal                                  |
+| LinkedIn | linkedin.com/in/muhammadausafjamal                             |
+| Degree   | BS Computer Science, University of Karachi (Feb 2022–Dec 2025) |
 
 ---
 
@@ -88,41 +90,52 @@ availability, and distance. Why those weights, what you rejected, and how you va
 - The whole project is a single commit. Nobody can see how it was built. Nothing to do
   retroactively, but worth knowing that the git history adds no signal here.
 
-### 2. Experience Abu Dhabi—legacy migration
+### 2. Government Tourism & Destination Information Platform—legacy migration
 
-**Why it makes the cut.** It is the only entry with real users and commercial stakes, and
+**Why it makes the cut.** It is the entry with real users and commercial stakes, and
 "migrate React 16 to Next.js without disrupting a live product" is a story about judgment,
 not just typing. Recruiters weight production work far above side projects.
 
-**Hard decision:** incremental migration versus rewrite, and how you kept the existing stack
+**Hard decision:** incremental migration versus rewrite, and how the existing stack kept
 serving traffic throughout.
 
-**Missing:** a real before/after number. Load time, bundle size, or Lighthouse score across
-the migration would carry this section. "4+ REST endpoints" and "20+ components" are
-countable, not impactful—they describe volume, not effect.
+**Outcome, now sourced:** crash handling across the application cut runtime crashes by
+roughly 5-6%. That number is scoped to this project and belongs nowhere else—never on the
+general Technyx role bullet.
 
-**Constraint to check:** client work. Confirm what you may show publicly. If no live link or
-source is possible, say so in the case study—an explicit "client project, source not
-public" reads as professional, not evasive.
+**Naming:** published under the anonymised name on the site, the CV, and LinkedIn. The real
+client name is not used in public content, and the old `/projects/experience-abu-dhabi` URL
+redirects permanently to the new slug.
 
-### 3. IoT Sensor Data Management System—distributed database
+**Still missing:** a load-time or bundle-size figure across the migration. The crash metric
+carries the section for now, but a performance number is the one a migration story wants.
 
-**Why it beats the other coursework projects.** It is the only repo with real SQL—
-`PLpgSQL` alongside the JavaScript—so it is the one piece of evidence that you have worked
-at the data layer rather than only calling an API. That directly fills the gap the CV leaves.
+### 3. Government Family Affairs Digital Services Portal—headless CMS backend
 
-**Hard decision:** the partitioning or replication strategy, and what it costs on read versus
-write.
+**Why it takes the third slot.** It is the only public evidence of the second backend stack.
+The CV claims ASP.NET Core, Umbraco, SQL Server, and Azure; without this case study those
+four entries on the skills list have nothing behind them.
 
-**Missing:** a diagram of the distribution model, and one number—rows handled, query time,
-or node count.
+**Hard decision:** headless rather than Umbraco's built-in rendering, so the web platform and
+the external integrations read one source of truth instead of two.
+
+**Countable:** 10+ custom document types. That counts structure rather than effect, which is
+an honest description of what the work was.
+
+**Missing:** an outcome rather than a count. Editor time per publish, or integration count
+served, would both work.
 
 ### Reserve
 
+**IoT Sensor Data Management System.** The only repo with real SQL—`PLpgSQL` alongside the
+JavaScript. It held a flagship slot until the government .NET work gave the data layer better
+evidence, and it still backs the PostgreSQL entry on the skills list.
+
 **This portfolio and the `ausaf` CLI.** Once the CLI ships, this repo becomes a legitimate
-fourth flagship: one Zod schema consumed by CLI, build, and API; a command grammar shared
-between a terminal and a browser palette; real Git Flow, protected branches, and CI. Swap it
-in if any of the three above cannot produce a measurable outcome.
+flagship: one Zod schema consumed by CLI, build, and API; a command grammar shared between a
+terminal and a browser palette; real Git Flow, protected branches, and CI. It is already a
+Key Project on the CV. Swap it in if any of the three above cannot produce a measurable
+outcome.
 
 ---
 
@@ -150,14 +163,17 @@ slot. It works as volume evidence, not as a single deep case study.
 
 ## Skills—grouped as they should appear
 
-| Group     | Items                                              |
-| --------- | -------------------------------------------------- |
-| Languages | TypeScript, JavaScript (ES6+), SQL                 |
-| Frontend  | React, Next.js, Redux, Material UI, Tailwind, SCSS |
-| Mobile    | React Native, Expo                                 |
-| Backend   | Node.js, Express, REST APIs, authentication        |
-| Data      | MongoDB, Firestore, PostgreSQL/PLpgSQL             |
-| Tooling   | Git, GitHub Actions, Vercel, Netlify, npm          |
+| Group     | Items                                                                   |
+| --------- | ----------------------------------------------------------------------- |
+| Languages | TypeScript, JavaScript, C#, SQL                                         |
+| Frontend  | React, Next.js, Redux, Material UI, Tailwind, Bootstrap, SCSS, Three.js |
+| Mobile    | React Native, Expo                                                      |
+| Backend   | Node.js, Express, REST APIs, ASP.NET Core, ASP.NET MVC, Umbraco, Zod    |
+| Data      | MongoDB, Mongoose, SQL Server, PostgreSQL/PLpgSQL, Firestore            |
+| Tooling   | Azure, Azure DevOps, GitHub Actions, Git, Vercel, Jest, Vitest          |
+
+Six groups is the schema cap, so the second backend stack had to fit inside the existing
+shape rather than get a group of its own. `.NET` lives in Backend, Azure in Tooling.
 
 No proficiency bars, no percentages, no star ratings. Nobody can check the number, so it
 reads as decoration.
@@ -166,13 +182,27 @@ reads as decoration.
 
 ## Open items
 
-- [ ] Pick the final positioning line from the three above
-- [ ] Get one measurable outcome for each flagship—this is the blocker on all three
+- [x] Pick the final positioning line—settled on the "Software engineer" opener so the site,
+      the CV header, and the LinkedIn headline all say the same thing
+- [x] Decide what the tourism platform may show publicly—anonymised name, no live URL, no repo
+- [x] Source a measurable outcome for the tourism platform—~5-6% runtime crash reduction
+- [ ] Get a measurable outcome for Madadgar and for the Family Affairs portal. Intent-extraction
+      accuracy across the three languages would carry Madadgar
+- [ ] Add a load-time or bundle-size figure to the tourism migration
 - [ ] Fix the `Frontend/` vs `frontend/` collision in Madadgar
 - [ ] Fill in the Madadgar demo video link, or delete the placeholder line
 - [ ] Add descriptions and topics to the repos that have none
 - [ ] Pin Madadgar, IoT Sensor DDB, and this portfolio on the GitHub profile
-- [ ] Update the CV: it says "1.5+ years" and reads as frontend-only. It undersells Madadgar
-      and the distributed-database work entirely, and it does not mention this portfolio
-- [ ] Decide what Experience Abu Dhabi may show publicly
+- [ ] Build `/about` and move education and certifications there. They currently render on
+      `/resume`, and the certification list is hardcoded in `app/resume/page.tsx`
+- [ ] **Covers: render the field before shooting any images.** `cover` is required on every
+      project and read by nothing—`ProjectCard` renders category, title, summary, metrics,
+      stack, and links, and `app/projects/[slug]/opengraph-image.tsx` generates the share
+      card from frontmatter instead. All 10 `cover.png` paths point at files that do not
+      exist, and the site looks correct anyway. Order of work: render `cover` on the card or
+      the case study, then screenshot the five projects with live URLs (the four Three.js
+      scenes and this site), then decide what Madadgar and IoT get, since they are repo-only.
+      The three government projects cannot be shown at all. Deferred to a later release
+- [ ] Decide whether this portfolio gets its own project page. It is a Key Project on the CV
+      and has no page here
 - [ ] One good photo

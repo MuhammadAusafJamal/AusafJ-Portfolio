@@ -1,0 +1,75 @@
+---
+title: AusafJ Portfolio
+slug: ausafj-portfolio
+summary: This site. One Zod schema feeding the build, a serverless API, and a CLI that authors the content.
+role: Solo build
+startDate: '2026-08-01'
+endDate: present
+status: wip
+featured: false
+order: 5
+categories:
+  - web
+  - ai-first
+stack:
+  - Next.js
+  - TypeScript
+  - Node.js
+  - Zod
+  - MongoDB
+  - Mongoose
+  - Vitest
+  - Vercel
+metrics:
+  - label: checks per commit
+    value: '5'
+    detail: Lint, format, typecheck, Vitest, and a production build. All five stay green.
+  - label: schema definitions
+    value: '1'
+    detail: The same Zod schema validates the CLI, the build, and the API request bodies.
+links:
+  live: https://www.mausafjamal.dev
+  repo: https://github.com/MuhammadAusafJamal/AusafJ-Portfolio
+cover: /content/projects/ausafj-portfolio/cover.png
+coverAlt: The portfolio homepage in dark mode, hero and project grid visible.
+draft: false
+---
+
+## Problem
+
+Most portfolios are a CMS with a theme on top, or a single page nobody can extend. I wanted
+the content model to be the interesting part, and I wanted authoring it to be backend
+practice rather than filling in a form.
+
+## Approach
+
+Content is MDX and JSON in git, validated by one Zod schema in `packages/schema`. That schema
+has three consumers: the `ausaf` CLI that authors content, the Next.js build that renders it,
+and the API routes that narrow their own request bodies. A bad frontmatter field fails the
+production build with the file and the field named, which is the whole reason the package
+exists.
+
+The database stays off the critical render path. Pages are static. Mongo handles the things
+that genuinely need writes, so a cluster outage degrades a guestbook instead of blanking the
+site during the twenty seconds a recruiter is looking at it.
+
+## Where the AI part is
+
+Not in the product. The site has no chat widget and no model calls at runtime, and adding
+one would be a worse portfolio.
+
+The AI is in how it gets built. The repo carries its own agent instructions and a local
+`humanizer` skill under `.claude/skills/`, so prose written for the site gets checked against
+a catalogue of AI writing tells before it ships. Content edits run through that pipeline.
+Claude Code does the typing, the schema and the CI gate decide whether it was right.
+
+## Hard decision
+
+Serverless plus a Mongo round-trip on the critical path would have been simpler to build and
+would have cost a visible amount of first paint. Cold start, then a query, then render. Every
+page on this site is prerendered instead, and the dynamic parts arrive after.
+
+## What's left
+
+The CLI commands and most of the API routes. The schema they share is finished and tested,
+which is the part that was worth doing first.

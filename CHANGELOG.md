@@ -10,7 +10,31 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 ## [Unreleased]
 
-Nothing yet.
+### Added
+
+- **Two government platform case studies**—`gov-family-affairs-portal` (Umbraco headless on
+  ASP.NET Core, SQL Server, Azure) and `gov-coastal-development` (Umbraco on ASP.NET MVC with
+  a React Native client). These are the site's only evidence for the second backend stack;
+  without them the .NET entries on the skills list had nothing behind them.
+- **The .NET track in `skills.json`**—C#, ASP.NET Core, ASP.NET MVC, Umbraco, SQL Server,
+  Azure, Azure DevOps, plus Bootstrap, Jest, and Vitest. The schema caps the file at six
+  groups, so .NET went into Backend and Azure into Tooling rather than getting a group each.
+
+### Changed
+
+- **The site described a frontend engineer and the downloadable CV described a dual-stack
+  one.** A recruiter reading `/resume` and then clicking Download got two different people.
+  Experience bullets, skills, positioning, and the PDF are now the same story.
+- **`experience-abu-dhabi` is now `gov-tourism-platform`**, matching the anonymised project
+  names already used on the CV and LinkedIn. Real client names stay out of public content.
+  The old path redirects permanently.
+- **Certifications on `/resume`** trimmed to the four on the CV. The hackathon certificate and
+  the Kaggle course came off: a course completion is not a credential.
+- `public/resume.pdf` replaced with the current Full Stack Engineer CV.
+
+### Removed
+
+- **`agent-x`**—a one-day WIP with no live link, cut from the CVs and now from the site.
 
 ## [0.4.2]—2026-08-28
 

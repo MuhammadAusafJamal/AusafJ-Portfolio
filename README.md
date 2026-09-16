@@ -3,10 +3,11 @@
 Personal site for Muhammad Ausaf Jamal. Static content in git, a real backend off the
 critical path, and a CLI that manages both.
 
-> **Status: in progress.** The toolchain is wired and the full gate is green—lint, typecheck,
-> format, test, and production build all pass. The design tokens in `styles/globals.css` and
-> the content schemas in `packages/schema/` are real. The pages, the API routes, and the CLI
-> commands are still to come.
+> **Status: in progress.** The full gate is green—lint, typecheck, format, test, and
+> production build all pass. The design tokens, the content schemas, and the pages are real:
+> `/`, `/projects`, `/projects/[slug]`, `/resume`, `/contact`, and `/style-guide` all render
+> from validated content. The contact API route is live. Still to come: the remaining API
+> routes, the `ausaf` CLI commands, and `/about` and `/blog`.
 
 ## What this is
 
