@@ -10,6 +10,10 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 ## [Unreleased]
 
+Nothing yet.
+
+## [0.5.0]—2026-09-16
+
 ### Added
 
 - **Two government platform case studies**—`gov-family-affairs-portal` (Umbraco headless on
