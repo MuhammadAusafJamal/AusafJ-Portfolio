@@ -10,6 +10,10 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 ## [Unreleased]
 
+Nothing yet.
+
+## [0.8.1]—2026-09-17
+
 ### Fixed
 
 - **The README and `content/positioning.md` both still said `/about` did not exist.** It
