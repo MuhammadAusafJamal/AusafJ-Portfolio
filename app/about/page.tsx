@@ -16,6 +16,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getCompanyHistory, getSite, getSkills, getSocials } from '@/lib/content';
+import { FAQS, SKILL_GROUP_NOTES } from '@/lib/about-content';
 import { CERTIFICATIONS, EDUCATION } from '@/lib/credentials';
 import { buildPersonSchema } from '@/lib/person-schema';
 import { Footer } from '@/components/footer';
@@ -49,6 +50,16 @@ export default async function About() {
   ]);
 
   const personSchema = buildPersonSchema({ site, socials, skills });
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
+  };
 
   return (
     <>
@@ -129,13 +140,18 @@ export default async function About() {
         </Section>
 
         <Section id="skills" title="Skills">
-          <dl className="flex flex-col gap-5">
+          <dl className="flex flex-col gap-8">
             {skills.map((group) => (
               <div key={group.group} className="flex flex-col gap-2 sm:flex-row sm:gap-6">
                 <dt className="shrink-0 font-mono text-xs text-muted sm:w-24 sm:pt-1">
                   {group.group}
                 </dt>
-                <dd>
+                <dd className="flex flex-col gap-3">
+                  {SKILL_GROUP_NOTES[group.group] !== undefined && (
+                    <p className="max-w-prose text-sm text-muted">
+                      {SKILL_GROUP_NOTES[group.group]}
+                    </p>
+                  )}
                   <TagList items={group.items.map((item) => item.name)} />
                 </dd>
               </div>
@@ -176,6 +192,17 @@ export default async function About() {
             ))}
           </ul>
         </Section>
+
+        <Section id="faq" title="Questions I get asked">
+          <dl className="flex flex-col gap-8">
+            {FAQS.map((faq) => (
+              <div key={faq.question} className="max-w-prose">
+                <dt className="font-semibold">{faq.question}</dt>
+                <dd className="mt-2 text-muted">{faq.answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </Section>
       </main>
 
       <Footer name={site.name} socials={socials} />
@@ -184,6 +211,14 @@ export default async function About() {
         type="application/ld+json"
         // The value is generated above from validated content, never from user input.
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
+
+      <script
+        type="application/ld+json"
+        // Same answers as the rendered <dl> above, from the same array. Google
+        // stopped showing FAQ rich results for most sites in 2023; this is here
+        // for the answer engines that still parse it, not for a snippet.
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
     </>
   );

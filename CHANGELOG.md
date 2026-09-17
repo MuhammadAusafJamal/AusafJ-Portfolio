@@ -12,6 +12,30 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 Nothing yet.
 
+## [0.8.0]—2026-09-17
+
+### Added
+
+- **A "Questions I get asked" section on `/about`**, with `FAQPage` markup built from the same
+  array the visible answers render from. Two independent AEO reads landed on the same gap: the
+  site answered "who is this person" well and "is he a .NET developer" poorly, because a skills
+  list is a set of nouns and nothing stated the relationships in sentences. Google stopped
+  showing FAQ rich results for most sites in 2023, so the markup is there for the answer
+  engines that still parse it rather than for a snippet.
+- **A sentence above each skill group on `/about`.** `C#` and `Umbraco` sitting in a tag row
+  cannot tell a reader whether the work was two years or one afternoon. Each group now says
+  which, in a line.
+- **`hasOccupation` on the `Person` schema**, carrying the occupational category and the full
+  skill list.
+
+### Changed
+
+- **The `Person` schema's `description` is now a full entity definition** rather than a copy of
+  the hero line. `site.positioning` is capped at 120 characters because it has to stay
+  scannable in seconds, which is the right constraint for a recruiter and the wrong one for an
+  answer engine. The hero keeps the short line; the schema carries the long one, and the hero
+  line moves to `disambiguatingDescription`.
+
 ## [0.7.0]—2026-09-17
 
 ### Added
