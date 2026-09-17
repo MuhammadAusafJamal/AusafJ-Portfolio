@@ -15,25 +15,11 @@ import {
   getSkills,
   getSocials,
 } from '@/lib/content';
+import { CERTIFICATIONS } from '@/lib/credentials';
 import { Footer } from '@/components/footer';
 import { Nav } from '@/components/nav';
 
 const DESCRIPTION = 'Skills, experience, and projects—viewable here, downloadable as a PDF.';
-
-/**
- * Static on purpose: this list appears in exactly one place, so it doesn't
- * earn a content schema and a JSON file the way skills or experience do.
- * Kept in step with the CV, which is the list that gets read first. The
- * hackathon certificate and the Kaggle course came off both in Sep 2026: a
- * course completion is not a credential, and neither survives the question
- * "what did you build with it".
- */
-const CERTIFICATIONS = [
-  { name: 'JavaScript (Intermediate) Certification', issuer: 'HackerRank', date: 'Aug 2026' },
-  { name: 'Claude 101', issuer: 'Anthropic', date: 'Aug 2026' },
-  { name: 'Claude Code in Action', issuer: 'Anthropic', date: 'Apr 2026' },
-  { name: 'Certified Web & Mobile Application Developer', issuer: 'S.M.I.T', date: 'Nov 2023' },
-] as const;
 
 export const metadata: Metadata = {
   title: 'Resume',
