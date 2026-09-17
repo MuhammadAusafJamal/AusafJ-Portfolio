@@ -5,9 +5,10 @@ critical path, and a CLI that manages both.
 
 > **Status: in progress.** The full gate is green—lint, typecheck, format, test, and
 > production build all pass. The design tokens, the content schemas, and the pages are real:
-> `/`, `/projects`, `/projects/[slug]`, `/resume`, `/contact`, and `/style-guide` all render
-> from validated content. The contact API route is live. Still to come: the remaining API
-> routes, the `ausaf` CLI commands, and `/about` and `/blog`.
+> `/`, `/about`, `/projects`, `/projects/[slug]`, `/resume`, `/contact`, and `/style-guide`
+> all render from validated content, and a 404 routes back into the site. The contact API
+> route is live. Still to come: the remaining API routes, the `ausaf` CLI commands, and
+> `/blog`.
 
 ## What this is
 

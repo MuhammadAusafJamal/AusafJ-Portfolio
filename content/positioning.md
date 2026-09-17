@@ -193,8 +193,14 @@ reads as decoration.
 - [ ] Fill in the Madadgar demo video link, or delete the placeholder line
 - [ ] Add descriptions and topics to the repos that have none
 - [ ] Pin Madadgar, IoT Sensor DDB, and this portfolio on the GitHub profile
-- [ ] Build `/about` and move education and certifications there. They currently render on
-      `/resume`, and the certification list is hardcoded in `app/resume/page.tsx`
+- [x] Build `/about` and move education and certifications there. Shipped in v0.7.0. Both
+      lists now come from `lib/credentials.ts`, which `/about` and `/resume` share, and
+      `/about` carries the `Person` graph plus the FAQ added in v0.8.0
+- [ ] Submit `sitemap.xml` in Google Search Console and import the property into Bing
+      Webmaster Tools. Search discoverability is the ceiling on the AEO score and no code
+      change moves it. Bing feeds Copilot and partly feeds ChatGPT browsing
+- [ ] `llms.txt` and per-project `CreativeWork` schema, the two AEO items skipped in favour
+      of `/about`
 - [ ] **Covers: render the field before shooting any images.** `cover` is required on every
       project and read by nothing—`ProjectCard` renders category, title, summary, metrics,
       stack, and links, and `app/projects/[slug]/opengraph-image.tsx` generates the share
