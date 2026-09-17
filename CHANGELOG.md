@@ -10,6 +10,10 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 ## [Unreleased]
 
+Nothing yet.
+
+## [0.8.0]—2026-09-17
+
 ### Added
 
 - **A "Questions I get asked" section on `/about`**, with `FAQPage` markup built from the same
