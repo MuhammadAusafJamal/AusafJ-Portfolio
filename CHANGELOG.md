@@ -10,7 +10,14 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 ## [Unreleased]
 
-Nothing yet.
+### Fixed
+
+- **The README and `content/positioning.md` both still said `/about` did not exist.** It
+  shipped in v0.7.0, along with the 404 in v0.6.0, and neither document was updated at the
+  time. The README status block now lists `/about` and the 404 among the routes that render,
+  and leaves `/blog` as the one still outstanding. The open item in `positioning.md` is
+  closed, with two AEO items opened in its place: Search Console and Bing submission, and the
+  `llms.txt` and per-project schema work skipped in favour of `/about`.
 
 ## [0.8.0]—2026-09-17
 
