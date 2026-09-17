@@ -21,9 +21,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // when the work stopped, not when the page changed, and file mtimes on Vercel are
   // the checkout time, identical across every file. A date that means nothing is
   // worse than none, since a crawler that learns to distrust it stops reading it.
+  // The static routes are listed by hand because there is no content file to derive
+  // them from. /resume and /contact were missing until Sep 2026, which meant the two
+  // pages a recruiter is most likely to want were the two a crawler had to stumble
+  // into from a nav link.
   return [
     { url: site.url },
+    { url: `${site.url}/about` },
     { url: `${site.url}/projects` },
+    { url: `${site.url}/resume` },
+    { url: `${site.url}/contact` },
     ...projects.map((project) => ({ url: `${site.url}/projects/${project.data.slug}` })),
   ];
 }

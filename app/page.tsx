@@ -19,6 +19,7 @@ import {
   getSocials,
   getTestimonial,
 } from '@/lib/content';
+import { buildPersonSchema } from '@/lib/person-schema';
 import { Footer } from '@/components/footer';
 import { Nav } from '@/components/nav';
 import { Contact } from '@/components/sections/contact';
@@ -49,18 +50,10 @@ export default async function Home() {
   ]);
 
   // Marks up the same facts the hero states, so a search result can carry the role
-  // and the links without a crawler having to infer them from the copy.
-  const personSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: site.name,
-    jobTitle: 'Software Engineer',
-    email: `mailto:${site.email}`,
-    url: site.url,
-    address: { '@type': 'PostalAddress', addressLocality: site.location },
-    sameAs: socials.map((social) => social.url),
-    knowsAbout: skills.flatMap((group) => group.items.map((item) => item.name)),
-  };
+  // and the links without a crawler having to infer them from the copy. `/about`
+  // emits the identical object, which is what lets an answer engine treat the two
+  // pages as one person rather than two similar ones.
+  const personSchema = buildPersonSchema({ site, socials, skills });
 
   return (
     <>
