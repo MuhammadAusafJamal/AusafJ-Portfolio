@@ -33,19 +33,6 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: '/:path*', headers: securityHeaders }];
   },
-
-  // The tourism platform was published under the client's real name before the
-  // CV and LinkedIn settled on anonymised project names. Permanent, because the
-  // old slug was live and may be linked from somewhere outside this repo.
-  async redirects() {
-    return [
-      {
-        source: '/projects/experience-abu-dhabi',
-        destination: '/projects/gov-tourism-platform',
-        permanent: true,
-      },
-    ];
-  },
 };
 
 export default nextConfig;
