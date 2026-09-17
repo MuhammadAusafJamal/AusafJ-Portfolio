@@ -29,6 +29,7 @@ const LINKS = [
 ];
 
 const MORE_LINKS = [
+  { href: '/about', label: 'About' },
   { href: '/#work', label: 'Work' },
   { href: '/#experience', label: 'Experience' },
   { href: '/#skills', label: 'Skills' },

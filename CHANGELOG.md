@@ -12,6 +12,36 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 Nothing yet.
 
+## [0.7.0]—2026-09-17
+
+### Added
+
+- **`/about`**—the long-form bio, the full experience timeline with every role's bullets and
+  stack, the complete skill matrix, education, and certifications. The homepage answers "what
+  does this person do" in three lines; this answers it in paragraphs, and it is where
+  education and certifications belong rather than competing for space above the fold.
+- **`lib/person-schema.ts`**—the `Person` graph, built once and emitted on both the homepage
+  and `/about`. Two pages describing one identity is what lets an answer engine resolve the
+  name to an entity rather than to a string.
+- **Four fields on that schema** the homepage's inline version never had: `worksFor`,
+  `alumniOf`, `hasCredential`, and `description`. Every one restates something the visible
+  copy already says.
+- **`/about` in the nav**, under More.
+
+### Fixed
+
+- **`/resume` and `/contact` were missing from `sitemap.xml`.** The sitemap listed the
+  homepage, `/projects`, and the case studies only, so the two pages a recruiter is most
+  likely to want were the two a crawler had to reach through a nav link. `/about` is listed
+  from the start.
+
+### Changed
+
+- **Certifications moved to `lib/credentials.ts`**, with education alongside them. The list
+  was hardcoded in `app/resume/page.tsx` under a comment arguing that a list living in one
+  place doesn't need extracting. `/about` made it two places, and two copies of a date is how
+  a credential ends up reading Aug 2026 on one page and Sep 2026 on the other.
+
 ## [0.6.0]—2026-09-17
 
 ### Added
