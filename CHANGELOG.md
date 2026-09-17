@@ -10,6 +10,10 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 ## [Unreleased]
 
+Nothing yet.
+
+## [0.6.0]—2026-09-17
+
 ### Added
 
 - **A real 404 page.** Next was serving its own bare default—no nav, no footer, and the
