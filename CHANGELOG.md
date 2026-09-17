@@ -10,7 +10,18 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 ## [Unreleased]
 
-Nothing yet.
+### Added
+
+- **A real 404 page.** Next was serving its own bare default—no nav, no footer, and the
+  layout's generic title. `app/not-found.tsx` routes back into the site instead: Projects,
+  Resume, Contact, and the homepage, plus a line explaining that project URLs changed, which
+  is the likeliest reason anyone lands there.
+
+### Removed
+
+- **The `/projects/experience-abu-dhabi` redirect.** The old path now 404s rather than
+  forwarding to `gov-tourism-platform`. The renamed slug is the only address for that case
+  study, and the client's real name no longer resolves to anything.
 
 ## [0.5.0]—2026-09-16
 
