@@ -10,6 +10,10 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 ## [Unreleased]
 
+Nothing yet.
+
+## [0.7.0]—2026-09-17
+
 ### Added
 
 - **`/about`**—the long-form bio, the full experience timeline with every role's bullets and
