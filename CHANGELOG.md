@@ -10,6 +10,10 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 ## [Unreleased]
 
+Nothing yet.
+
+## [0.11.0]—2026-11-04
+
 ### Added
 
 - **Two more looks: Riso and Signal Blocks.** `?theme=riso` is a risograph zine: halftone
