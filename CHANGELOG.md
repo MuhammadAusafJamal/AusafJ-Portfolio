@@ -10,6 +10,10 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 ## [Unreleased]
 
+Nothing yet.
+
+## [0.9.1]—2026-11-04
+
 ### Added
 
 - **Sitecore**, in the skills list, the Technyx role, and the tourism case study. It has been
