@@ -6,6 +6,8 @@
  * `openGraph.images` at all—file-based metadata like this outranks the config kind,
  * and having two sources for one tag is how they end up disagreeing.
  */
+import { readFile } from 'node:fs/promises';
+import path from 'node:path';
 import { ImageResponse } from 'next/og';
 import { getSite } from '@/lib/content';
 import { Card, OG_CONTENT_TYPE, OG_SIZE } from '@/lib/og/card';
@@ -16,6 +18,7 @@ export const alt = 'Muhammad Ausaf Jamal — software engineer';
 
 export default async function Image() {
   const site = await getSite();
+  const art = await readFile(path.join(process.cwd(), 'lib/og/background.png'));
 
   return new ImageResponse(
     <Card
@@ -24,6 +27,7 @@ export default async function Image() {
       eyebrow="Portfolio"
       name={site.location}
       url={site.url}
+      background={`data:image/png;base64,${art.toString('base64')}`}
     />,
     size
   );

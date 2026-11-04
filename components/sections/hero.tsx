@@ -27,7 +27,7 @@ export function Hero({ site, socials }: { site: Site; socials: Social[] }) {
   const heroSocials = socials.filter((social) => social.showInHero);
 
   return (
-    <header className="flex flex-col gap-8">
+    <header className="hero flex flex-col gap-8">
       {hasPhoto && <Avatar src="/me.png" alt={`${site.name}, smiling, in a dark blazer.`} />}
 
       <StatusDot availability={site.availability} label={site.availabilityLabel} />
