@@ -20,6 +20,7 @@ import {
   Instrument_Serif,
   Martian_Mono,
 } from 'next/font/google';
+import { LookPicker } from '@/components/look-picker';
 import { ThemeProvider } from '@/components/theme-provider';
 import { getSite } from '@/lib/content';
 import { THEMES } from '@/lib/looks';
@@ -178,7 +179,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <LookPicker />
+        </ThemeProvider>
       </body>
     </html>
   );
