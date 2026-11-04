@@ -15,11 +15,13 @@
  * theme toggle, and the command palette.
  */
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import { THEMES } from '@/lib/looks';
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   return (
     <NextThemesProvider
       attribute="class"
+      themes={THEMES}
       defaultTheme="dark"
       enableSystem
       disableTransitionOnChange

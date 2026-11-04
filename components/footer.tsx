@@ -7,8 +7,12 @@
  *
  * The timestamp is evaluated when the page is built, which is exactly what it
  * claims to be.
+ *
+ * The look switcher uses plain anchors, not `next/link`. A `?theme=` link has to
+ * load a fresh document so the script in the root layout can read it.
  */
 import type { Social } from '@ausaf/schema/types';
+import { LOOKS } from '@/lib/looks';
 
 const BUILT_AT = new Date().toISOString().slice(0, 10);
 
@@ -23,6 +27,17 @@ export function Footer({ name, socials }: { name: string; socials: Social[] }) {
         </p>
         <p className="flex flex-wrap items-center gap-4">
           <span>Last deployed {BUILT_AT}</span>
+          <span className="flex items-center gap-2">
+            Look:
+            <a href="?theme=dark" className="text-muted">
+              Default
+            </a>
+            {LOOKS.map((look) => (
+              <a key={look.id} href={`?theme=${look.id}`} className="text-muted">
+                {look.label}
+              </a>
+            ))}
+          </span>
           {source !== undefined && (
             <a
               href={`${source.url}/AusafJ-Portfolio`}
