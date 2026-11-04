@@ -67,9 +67,16 @@ export const projectFrontmatterSchema = z
     stack: z.array(labelSchema).min(1),
     links: projectLinksSchema.default({}),
     metrics: z.array(metricSchema).max(4).default([]),
-    cover: publicPathSchema,
-    coverAlt: nonEmptyString.max(140),
+    /** A real screenshot. Leave it out and the card draws a skeleton instead. */
+    cover: publicPathSchema.optional(),
+    coverAlt: nonEmptyString.max(140).optional(),
+    /** Client work under NDA: the skeleton cover carries an "Under NDA" mark. */
+    confidential: z.boolean().default(false),
     draft: z.boolean(),
+  })
+  .refine((p) => p.cover === undefined || p.coverAlt !== undefined, {
+    error: 'a cover needs coverAlt—an image without alt text fails the accessibility pass',
+    path: ['coverAlt'],
   })
   .refine((p) => p.endDate === 'present' || p.endDate >= p.startDate, {
     error: 'endDate is before startDate',
