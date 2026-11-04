@@ -10,6 +10,10 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 ## [Unreleased]
 
+Nothing yet.
+
+## [0.12.0]—2026-11-04
+
 ### Added
 
 - **A look picker.** A palette button in the nav and an "Explore another look" button in the
