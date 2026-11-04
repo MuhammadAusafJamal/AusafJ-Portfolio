@@ -592,13 +592,20 @@
   --font-mono: var(--font-archivo), ui-sans-serif, sans-serif;
   --font-display: var(--font-archivo), 'Arial Narrow', sans-serif;
 
-  --radius-tag: 999px;
+  /* Square everywhere. `rounded-tag` also shapes inputs, the message box, menu
+   * items, and the cover, and as a pill it turned the textarea into an oval. Only
+   * tags are pills, set below on the `.tag` hook. */
+  --radius-tag: 0;
   --radius-card: 0;
 
   color-scheme: light;
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
+}
+
+.blocks .tag {
+  border-radius: 999px;
 }
 
 .blocks body {
@@ -666,10 +673,7 @@
   box-shadow: 6px 6px 0 var(--color-text);
 }
 
-/* Tags are pills in this look, and the cover is built from the same radius token. Square
- * it inside the cover so the panel and its skeleton stay rectangular. */
 .blocks .cover-skeleton {
-  --radius-tag: 0;
   border: 2px solid var(--color-text);
   background: var(--blocks-mint);
 }
