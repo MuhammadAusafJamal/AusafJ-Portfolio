@@ -9,9 +9,16 @@
  * tokens, so every route inherits them.
  */
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Instrument_Serif } from 'next/font/google';
+import {
+  Geist,
+  Geist_Mono,
+  Hanken_Grotesk,
+  Instrument_Serif,
+  Martian_Mono,
+} from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import { getSite } from '@/lib/content';
+import { THEMES } from '@/lib/looks';
 import '@/styles/globals.css';
 
 const sans = Geist({
@@ -37,6 +44,37 @@ const display = Instrument_Serif({
   subsets: ['latin'],
   display: 'swap',
 });
+
+/**
+ * The console look's faces. `preload: false` keeps them off every page's critical
+ * path: the `@font-face` rules ship, but a browser only fetches a file when the
+ * console class makes something use it.
+ */
+const consoleMono = Martian_Mono({
+  variable: '--font-martian',
+  subsets: ['latin'],
+  display: 'swap',
+  preload: false,
+});
+
+const consoleSans = Hanken_Grotesk({
+  variable: '--font-hanken',
+  subsets: ['latin'],
+  display: 'swap',
+  preload: false,
+});
+
+/**
+ * `?theme=<id>` written into next-themes' storage before its own script reads it,
+ * so a shared link opens in that look with no flash of the default. Unknown values
+ * are ignored. It runs in <head>, ahead of the provider's script in <body>.
+ *
+ * The parameter is then dropped from the address bar. Left there, it wins again on
+ * every reload or Back, so switching to the default with the toggle never sticks.
+ */
+const THEME_FROM_QUERY = `try{var u=new URL(location.href),t=u.searchParams.get('theme');if(t!==null){if(${JSON.stringify(
+  THEMES
+)}.indexOf(t)>-1)localStorage.setItem('theme',t);u.searchParams.delete('theme');history.replaceState(history.state,'',u.pathname+u.search+u.hash)}}catch(e){}`;
 
 /**
  * Read from `content/data/site.json` rather than written out here, so the name,
@@ -89,10 +127,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${sans.variable} ${mono.variable} ${display.variable}`}
+      className={`${sans.variable} ${mono.variable} ${display.variable} ${consoleMono.variable} ${consoleSans.variable}`}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_FROM_QUERY }} />
+      </head>
       <body suppressHydrationWarning>
         <a
           href="#main"

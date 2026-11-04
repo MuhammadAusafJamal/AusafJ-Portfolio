@@ -12,6 +12,18 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 Nothing yet.
 
+## [0.10.0]—2026-11-04
+
+### Added
+
+- **Alternate looks, starting with Console.** `?theme=console` turns the whole site into an
+  amber terminal: monospace headings, square corners, hard-cut hovers, a `$ whoami` caret on
+  the hero, and redaction bars instead of covers on NDA cards. The choice is remembered, and
+  the footer links back to the default. Its two fonts are not preloaded, so visitors who never
+  switch never download them. Looks are registered in `lib/looks.ts`.
+- **A style guide per look** at `/style-guide/<look>`, locked to that look's tokens whatever
+  theme the visitor has picked. `/style-guide` links to each one.
+
 ## [0.9.1]—2026-11-04
 
 ### Added

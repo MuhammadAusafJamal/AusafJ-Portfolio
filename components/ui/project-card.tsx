@@ -15,7 +15,10 @@ import { TagList } from './tag';
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="flex flex-col gap-6 rounded-card border border-border bg-surface p-6 transition-colors duration-micro ease-standard hover:border-border-strong">
+    <article
+      data-confidential={project.confidential || undefined}
+      className="project-card flex flex-col gap-6 rounded-card border border-border bg-surface p-6 transition-colors duration-micro ease-standard hover:border-border-strong"
+    >
       <ProjectCover project={project} />
 
       <div>
