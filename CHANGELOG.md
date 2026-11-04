@@ -16,10 +16,10 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
   footer open one panel listing the four looks, each with a small preview in its own colours
   and type, and the current one marked. It is the browser's own popover, so it adds no
   client JavaScript, and the preview fonts download only when the panel opens.
-- **Real covers for four public projects:** Animated Character, Day/Night Cycle, Minecraft
-  Clone, and this portfolio, captured from their live deployments. WebP, 14 to 53KB each,
-  loaded lazily. Solar System never finishes its loading screen and IoT's deployment is
-  down, so both keep the skeleton; Madadgar has no live build to capture.
+- **Real covers for five public projects:** Animated Character, Day/Night Cycle, Minecraft
+  Clone, Solar System, and this portfolio, captured from their live deployments. WebP, 14
+  to 53KB each, loaded lazily. IoT's deployment is down and Madadgar has no live build, so
+  both keep the skeleton.
 
 ### Changed
 
