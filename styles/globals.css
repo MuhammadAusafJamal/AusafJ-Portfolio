@@ -430,6 +430,266 @@
   color: var(--color-bg);
 }
 
+/* ---- Riso look ----
+ * Opt-in with `?theme=riso`. A risograph zine on cool paper: ink, two spot colours
+ * (fluoro pink, blue) used only as decoration, a halftone dot ground, and cards
+ * pinned slightly crooked with a strip of tape.
+ *
+ * The accent is the ink, not a spot colour. A primary button sets background-coloured
+ * text on the accent, and paper on pink or blue fails 4.5:1; paper on ink clears 11:1.
+ */
+.riso {
+  --color-bg: #e9ece4;
+  --color-surface: #f6f7f2;
+  --color-surface-2: #dde2d6;
+  --color-border: #aab3a3;
+  --color-border-strong: #1d2733;
+  --color-text: #1d2733;
+  --color-muted: #3f4a55;
+  --color-subtle: #56615a;
+  --color-accent: #1d2733;
+  --color-accent-hover: #0f1720;
+  --color-accent-quiet: #dde2d6;
+  --color-success: #0078bf;
+  --color-danger: #c81d5a;
+
+  --riso-pink: #ff48b0;
+  --riso-blue: #0078bf;
+
+  --font-sans: var(--font-familjen), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-fragment), ui-monospace, 'SF Mono', monospace;
+  --font-display: var(--font-familjen), ui-sans-serif, sans-serif;
+
+  --radius-tag: 2px;
+  --radius-card: 2px;
+
+  color-scheme: light;
+  background-color: var(--color-bg);
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--color-text) 9%, transparent) 1px,
+    transparent 1.2px
+  );
+  background-size: 6px 6px;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+/* Let the halftone on <html> show through. */
+.riso body {
+  background-color: transparent;
+}
+
+.riso ::selection {
+  background: var(--riso-pink);
+  color: var(--color-text);
+}
+
+.riso h1,
+.riso h2,
+.riso h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* The pink plate printed slightly off register. Hover shifts it the other way. */
+.riso .hero-name {
+  text-shadow: 3px 2px 0 var(--riso-pink);
+  transition: text-shadow 250ms var(--ease-standard);
+}
+
+.riso .hero-name:hover {
+  text-shadow: -3px -2px 0 var(--riso-pink);
+}
+
+.riso .project-card {
+  position: relative;
+  border: 2px solid var(--color-text);
+  transition: transform 300ms cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+
+.riso .project-card:nth-child(3n + 1) {
+  transform: rotate(-0.8deg);
+}
+
+.riso .project-card:nth-child(3n + 2) {
+  transform: rotate(0.6deg);
+}
+
+.riso .project-card:nth-child(3n) {
+  transform: rotate(-0.4deg);
+}
+
+.riso .project-card:hover {
+  transform: rotate(0) translateY(-4px);
+}
+
+/* Tape. */
+.riso .project-card::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 72px;
+  height: 20px;
+  margin-left: -36px;
+  background: color-mix(in srgb, var(--riso-pink) 55%, transparent);
+  transform: rotate(-3deg);
+}
+
+.riso .cover-skeleton {
+  border: 2px solid var(--color-text);
+  background:
+    radial-gradient(var(--riso-blue) 1.2px, transparent 1.5px) 0 0 / 7px 7px,
+    #dfe7ee;
+}
+
+.riso .project-card:nth-child(even) .cover-skeleton {
+  background:
+    radial-gradient(var(--riso-pink) 1.2px, transparent 1.5px) 0 0 / 7px 7px,
+    #f6e3ee;
+}
+
+/* A rubber stamp. */
+.riso .cover-nda {
+  border: 2px solid var(--riso-pink);
+  background: var(--color-surface);
+  color: #b0126f;
+  text-transform: uppercase;
+  transform: rotate(-6deg);
+}
+
+/* ---- Signal Blocks look ----
+ * Opt-in with `?theme=blocks`. Transit signage: flat cobalt and sun-yellow panels,
+ * uppercase display type on a variable width axis, hard offset shadows, 2px ink
+ * outlines. The loudest of the looks.
+ *
+ * The hero is a full-bleed cobalt band. It retunes the tokens inside itself, so
+ * every utility in it (text, muted, the primary button) reads against cobalt
+ * without the component knowing.
+ */
+.blocks {
+  --color-bg: #fbfbf8;
+  --color-surface: #ffffff;
+  --color-surface-2: #f0f0ea;
+  --color-border: #111216;
+  --color-border-strong: #111216;
+  --color-text: #111216;
+  --color-muted: #3d3f47;
+  --color-subtle: #565964;
+  --color-accent: #111216;
+  --color-accent-hover: #2340d8;
+  --color-accent-quiet: #ffd23f;
+  --color-success: #1f9d55;
+  --color-danger: #d62839;
+
+  --blocks-cobalt: #2340d8;
+  --blocks-sun: #ffd23f;
+  --blocks-mint: #b7f0d4;
+  --blocks-pink: #ffc1d6;
+
+  --font-sans: var(--font-atkinson), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-archivo), ui-sans-serif, sans-serif;
+  --font-display: var(--font-archivo), 'Arial Narrow', sans-serif;
+
+  --radius-tag: 999px;
+  --radius-card: 0;
+
+  color-scheme: light;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+.blocks body {
+  overflow-x: clip;
+}
+
+.blocks ::selection {
+  background: var(--blocks-sun);
+  color: var(--color-text);
+}
+
+.blocks h1,
+.blocks h2,
+.blocks h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: 112%;
+  letter-spacing: -0.01em;
+}
+
+.blocks .hero {
+  --color-text: #ffffff;
+  --color-muted: #dfe4ff;
+  --color-subtle: #c5cdfb;
+  --color-bg: var(--blocks-cobalt);
+  --color-accent: var(--blocks-sun);
+  --color-accent-hover: #ffe27a;
+  --color-accent-quiet: color-mix(in srgb, #ffffff 16%, transparent);
+  --color-border: color-mix(in srgb, #ffffff 60%, transparent);
+  --color-border-strong: #ffffff;
+  --color-success: var(--blocks-sun);
+
+  color: var(--color-text);
+  padding-block: calc(var(--spacing) * 12);
+  /* Full-bleed band without a wrapper: the border image paints past the column. */
+  border-image: linear-gradient(var(--blocks-cobalt) 0 0) fill 0 / /0 100vw;
+}
+
+/* Condensed at rest, stretching wide on hover. Only where hover exists, so a long
+ * name never overflows a phone. */
+.blocks .hero-name {
+  font-weight: 900;
+  font-stretch: 75%;
+  line-height: 0.9;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+  transition: font-stretch 500ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+@media (hover: hover) and (min-width: 64rem) {
+  .blocks .hero-name:hover {
+    font-stretch: 125%;
+  }
+}
+
+.blocks .project-card {
+  border: 2px solid var(--color-text);
+  transition:
+    transform 200ms var(--ease-standard),
+    box-shadow 200ms var(--ease-standard);
+}
+
+.blocks .project-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0 var(--color-text);
+}
+
+/* Tags are pills in this look, and the cover is built from the same radius token. Square
+ * it inside the cover so the panel and its skeleton stay rectangular. */
+.blocks .cover-skeleton {
+  --radius-tag: 0;
+  border: 2px solid var(--color-text);
+  background: var(--blocks-mint);
+}
+
+.blocks .project-card:nth-child(3n + 2) .cover-skeleton {
+  background: var(--blocks-sun);
+}
+
+.blocks .project-card:nth-child(3n) .cover-skeleton {
+  background: var(--blocks-pink);
+}
+
+.blocks .cover-nda {
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-weight: 700;
+}
+
 /* A light band sweeping across the skeleton cover, so a blank cover reads as
  * "nothing to show" rather than "failed to load". Slow on purpose. The
  * reduced-motion block below stops it after one pass. */

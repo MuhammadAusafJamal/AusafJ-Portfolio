@@ -99,7 +99,7 @@ export function ProjectCover({ project }: { project: Project }) {
     >
       {isMobile ? <PhoneSkeleton widths={widths} /> : <BrowserSkeleton widths={widths} />}
       {project.confidential && (
-        <span className="absolute right-3 bottom-3 inline-flex items-center gap-1 rounded-tag border border-border bg-surface px-2 py-1 font-mono text-xs text-muted">
+        <span className="cover-nda absolute right-3 bottom-3 inline-flex items-center gap-1 rounded-tag border border-border bg-surface px-2 py-1 font-mono text-xs text-muted">
           <Lock size={12} aria-hidden /> Under NDA
         </span>
       )}

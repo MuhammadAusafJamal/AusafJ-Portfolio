@@ -10,7 +10,19 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 ## [Unreleased]
 
-Nothing yet.
+### Added
+
+- **Two more looks: Riso and Signal Blocks.** `?theme=riso` is a risograph zine: halftone
+  paper, an off-register pink plate behind the hero name, cards taped up slightly crooked,
+  and a rubber-stamp NDA mark. `?theme=blocks` is transit signage: a full-bleed cobalt hero,
+  condensed uppercase type that stretches wide on hover, and cards that lift with a hard
+  offset shadow. Each has its own style guide at `/style-guide/riso` and
+  `/style-guide/blocks`. Like Console, their fonts download only for visitors who switch.
+
+### Changed
+
+- **`public/resume.pdf`** is now the merged Full Stack Engineer CV. The (.NET) variant left
+  out the Node.js and Express work that the site presents.
 
 ## [0.10.0]—2026-11-04
 
