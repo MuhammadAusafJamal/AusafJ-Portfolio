@@ -3,7 +3,7 @@
 Everything downstream—the hero, the meta description, the OG image, the project
 selection—is derived from this file. Written from the CV and a full pass over
 github.com/MuhammadAusafJamal, and last reconciled against the CV and LinkedIn on
-2026-09-16.
+2026-11-03.
 
 Nothing here is aspirational. Every claim is backed by a repo or a role.
 
@@ -104,17 +104,16 @@ roughly 5-6%. That number is scoped to this project and belongs nowhere else—n
 general Technyx role bullet.
 
 **Naming:** published under the anonymised name on the site, the CV, and LinkedIn. The real
-client name is not used in public content, and the old `/projects/experience-abu-dhabi` URL
-redirects permanently to the new slug.
+client name is not used in public content, and the pre-rename URL no longer resolves.
 
 **Still missing:** a load-time or bundle-size figure across the migration. The crash metric
 carries the section for now, but a performance number is the one a migration story wants.
 
 ### 3. Government Family Affairs Digital Services Portal—headless CMS backend
 
-**Why it takes the third slot.** It is the only public evidence of the second backend stack.
-The CV claims ASP.NET Core, Umbraco, SQL Server, and Azure; without this case study those
-four entries on the skills list have nothing behind them.
+**Why it takes the third slot.** It is the clearest public evidence of Umbraco on ASP.NET
+Core. The tourism case study now carries the Sitecore backend, but without this one the
+Umbraco, SQL Server, and Azure entries on the skills list have much less behind them.
 
 **Hard decision:** headless rather than Umbraco's built-in rendering, so the web platform and
 the external integrations read one source of truth instead of two.
@@ -163,14 +162,14 @@ slot. It works as volume evidence, not as a single deep case study.
 
 ## Skills—grouped as they should appear
 
-| Group     | Items                                                                   |
-| --------- | ----------------------------------------------------------------------- |
-| Languages | TypeScript, JavaScript, C#, SQL                                         |
-| Frontend  | React, Next.js, Redux, Material UI, Tailwind, Bootstrap, SCSS, Three.js |
-| Mobile    | React Native, Expo                                                      |
-| Backend   | Node.js, Express, REST APIs, ASP.NET Core, ASP.NET MVC, Umbraco, Zod    |
-| Data      | MongoDB, Mongoose, SQL Server, PostgreSQL/PLpgSQL, Firestore            |
-| Tooling   | Azure, Azure DevOps, GitHub Actions, Git, Vercel, Jest, Vitest          |
+| Group     | Items                                                                          |
+| --------- | ------------------------------------------------------------------------------ |
+| Languages | TypeScript, JavaScript, C#, SQL                                                |
+| Frontend  | React, Next.js, Redux, Material UI, Tailwind, Bootstrap, SCSS, Three.js        |
+| Mobile    | React Native, Expo                                                             |
+| Backend   | Node.js, Express, REST APIs, ASP.NET Core, ASP.NET MVC, Sitecore, Umbraco, Zod |
+| Data      | MongoDB, Mongoose, SQL Server, PostgreSQL/PLpgSQL, Firestore                   |
+| Tooling   | Azure, Azure DevOps, GitHub Actions, Git, Vercel, Jest, Vitest                 |
 
 Six groups is the schema cap, so the second backend stack had to fit inside the existing
 shape rather than get a group of its own. `.NET` lives in Backend, Azure in Tooling.

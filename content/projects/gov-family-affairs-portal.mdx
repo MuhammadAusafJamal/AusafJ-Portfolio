@@ -1,11 +1,11 @@
 ---
 title: Government Family Affairs Digital Services Portal
 slug: gov-family-affairs-portal
-summary: A headless CMS backend serving structured, multi-language government content over a custom REST API.
+summary: A headless CMS backend serving structured, multi-language content over a custom REST API.
 role: Software Engineer, Technyx Systems
 startDate: '2026-07-01'
-endDate: present
-status: wip
+endDate: '2026-10-01'
+status: live
 featured: true
 order: 3
 categories:
@@ -40,7 +40,7 @@ actually publishes, so an editor fills in fields instead of fighting a rich text
 Custom REST API controllers sit on top of those types. That is what makes the same content
 serve the web platform and the external integrations without a second source of truth.
 
-Deployment runs on Azure App Service, with Blob Storage for media and CDN in front of it.
+It was deployed to Azure App Service with CDN in front.
 
 ## Hard decision
 
@@ -52,8 +52,8 @@ second place for content to drift.
 ## What I'd change
 
 The document types were modelled before the integration requirements were fully known, so a
-few of them have fields that exist for one consumer. Worth a pass once the integration list
-stops moving.
+few of them ended up with fields that exist for one consumer. With the full list known up
+front, I would have modelled the integrations first and the editor-facing types second.
 
 ## Source
 

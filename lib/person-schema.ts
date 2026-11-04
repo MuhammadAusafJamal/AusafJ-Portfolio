@@ -30,9 +30,10 @@ const EMPLOYER = {
  */
 const ENTITY_DESCRIPTION =
   'Muhammad Ausaf Jamal is a software engineer based in Karachi, Pakistan, working at ' +
-  'Technyx Systems since July 2024. He builds government digital platforms end to end: ' +
+  'Technyx Systems since July 2024. He builds web and mobile platforms end to end: ' +
   'React, Next.js, TypeScript and React Native on the front end, Node.js with Express and ' +
-  'ASP.NET Core with Umbraco on the back, over MongoDB and SQL Server, deployed on Azure.';
+  'ASP.NET Core with Sitecore and Umbraco on the back, over MongoDB and SQL Server, deployed ' +
+  'on Azure.';
 
 export function buildPersonSchema({
   site,

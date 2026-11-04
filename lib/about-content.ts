@@ -20,10 +20,10 @@ export const SKILL_GROUP_NOTES: Record<string, string> = {
   Mobile:
     'React Native clients built against the same API contracts the web platforms use, so the two do not drift apart.',
   Backend:
-    'Two stacks, both in production. Node and Express over MongoDB is where I started; ASP.NET Core with Umbraco over SQL Server came later, with the government contracts in mid-2026.',
+    'Two stacks, both in production. Node and Express over MongoDB is where I started; ASP.NET Core with Sitecore followed in December 2024 on the tourism platform, and Umbraco in mid-2026.',
   Data: 'Relational schemas in SQL Server, document schemas in MongoDB. The PostgreSQL and PL/pgSQL come from a university distributed-database project, where the partitioning logic lives in the database instead of the application.',
   Tooling:
-    'Azure App Service, Blob Storage and CDN in production, with pipelines on Azure DevOps and GitHub Actions. Vitest on this site, Jest on client work.',
+    'Azure App Service and CDN in production, with pipelines on Azure DevOps and GitHub Actions. Vitest on this site, Jest on client work.',
 };
 
 export type Faq = { question: string; answer: string };
@@ -42,17 +42,17 @@ export const FAQS: readonly Faq[] = [
   {
     question: 'What do you actually build?',
     answer:
-      'Government digital platforms, end to end. That means the content model and the API on the server, and the React, Next.js or React Native client that consumes it. Three of the case studies on this site are public-sector work delivered through Technyx Systems.',
+      'Web and mobile platforms, end to end. That means the content model and the API on the server, and the React, Next.js or React Native client that consumes it. Three of the case studies on this site are public-sector work delivered through Technyx Systems.',
   },
   {
     question: "What's your backend stack?",
     answer:
-      'Two of them. Node.js with Express over MongoDB, and ASP.NET Core with Umbraco as a headless CMS over Microsoft SQL Server. The Node side came first; the .NET side arrived with the government contracts in mid-2026 and I learned it against a live platform.',
+      'Two of them. Node.js with Express over MongoDB, and ASP.NET Core with Sitecore and Umbraco as headless CMSs over Microsoft SQL Server. The Node side came first. The .NET side started in December 2024 with Sitecore on the tourism platform, and Umbraco followed in mid-2026.',
   },
   {
-    question: 'Do you have real .NET and Umbraco experience?',
+    question: 'Do you have real .NET, Sitecore, and Umbraco experience?',
     answer:
-      'Yes. I have designed 10+ custom Umbraco document types and the REST API controllers that serve them, modelled the SQL Server schemas underneath, and deployed the result to Azure App Service with Blob Storage and CDN. Two government platforms run on it.',
+      'Yes. Since December 2024 I have built Sitecore templates, renderings, and data templates for a tourism platform, served to its website and native apps through the Layout Service. On Umbraco I have designed 10+ custom document types and the REST API controllers that serve them, and deployed the result to Azure App Service with CDN. Three live platforms run on this work.',
   },
   {
     question: 'How long have you been working?',

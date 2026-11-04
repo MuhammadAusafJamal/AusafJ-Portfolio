@@ -4,8 +4,8 @@ slug: gov-coastal-development
 summary: One Umbraco backend and one set of API contracts serving both a web platform and a React Native app.
 role: Software Engineer, Technyx Systems
 startDate: '2026-09-01'
-endDate: present
-status: wip
+endDate: '2026-10-01'
+status: live
 featured: false
 order: 4
 categories:
@@ -30,26 +30,26 @@ in six months that they have drifted.
 
 ## Approach
 
-The backend is Umbraco 17.5 on ASP.NET MVC with SQL Server, and I am building both ends of
-it: the content models and controllers on the server, and the React Native client that
-consumes them.
+The backend is Umbraco 17.5 on ASP.NET MVC with SQL Server. I built the content models and
+controllers that serve both the web platform and the React Native app.
 
-Building both sides changes how the API gets designed. The contract is written once, against
-a consumer I am also writing, so the mobile app never has to negotiate with an endpoint
+Working on both sides changed how the API got designed. The contract was written once,
+against a consumer I could see, so the mobile app never had to negotiate with an endpoint
 shaped for the website.
 
 ## Hard decision
 
-Still open. The web platform and the app do not want identical payloads, and the choice is
-between one endpoint that over-serves the app or separate shapes per client. Leaning towards
-one endpoint until the mobile payload size actually hurts.
+One set of endpoints, or a shape per client. The web platform and the app do not want
+identical payloads, and separate shapes would have trimmed what the app downloads. I went
+with shared REST endpoints, so web and mobile consume one data layer and cannot drift apart.
+The cost is that the app receives a few fields it does not render, which has not been a
+problem at this payload size.
 
 ## Status
 
-Early. Started September 2026, and the honest summary is that the content model is further
-along than the mobile client.
+Built between September and October 2026, and live.
 
 ## Source
 
-Client work for a government body, published here under an anonymised name. No repository
-link, and no live URL until the programme is announced.
+Client work for a government body, published here under an anonymised name. The platform is
+public; the code is not, so there is no repository link.

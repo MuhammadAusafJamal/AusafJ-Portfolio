@@ -10,7 +10,26 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 ## [Unreleased]
 
-Nothing yet.
+### Added
+
+- **Sitecore**, in the skills list, the Technyx role, and the tourism case study. It has been
+  the tourism platform's backend since December 2024 and the site never mentioned it.
+
+### Changed
+
+- **Content synced to the 2026-11-03 CV.** The tourism platform is ongoing, not ended. The
+  family affairs and coastal projects ended in October 2026 and are live. The coastal case
+  study's open API question is answered: one set of shared endpoints for web and mobile. The
+  .NET timeline now starts in December 2024 rather than mid-2026.
+- **The headline no longer leads with government work.** The positioning line, the `/about`
+  intro, and the Technyx role now open with web and mobile platforms built end to end. The
+  public-sector clients are still named as context.
+- **`public/resume.pdf`** replaced with the current CV.
+
+### Removed
+
+- **Blob Storage**, from four places. It came off the CV on 2026-10-13.
+- **The tourism client's real-name slug** from this changelog and `content/positioning.md`.
 
 ## [0.9.0]—2026-11-04
 
@@ -97,7 +116,7 @@ Nothing yet.
 
 ### Removed
 
-- **The `/projects/experience-abu-dhabi` redirect.** The old path now 404s rather than
+- **The redirect from the tourism platform's pre-rename path.** The old path now 404s rather than
   forwarding to `gov-tourism-platform`. The renamed slug is the only address for that case
   study, and the client's real name no longer resolves to anything.
 
@@ -124,7 +143,7 @@ Nothing yet.
 - **The site described a frontend engineer and the downloadable CV described a dual-stack
   one.** A recruiter reading `/resume` and then clicking Download got two different people.
   Experience bullets, skills, positioning, and the PDF are now the same story.
-- **`experience-abu-dhabi` is now `gov-tourism-platform`**, matching the anonymised project
+- **The tourism platform case study now lives at `gov-tourism-platform`**, matching the anonymised project
   names already used on the CV and LinkedIn. Real client names stay out of public content.
   The old path redirects permanently.
 - **Certifications on `/resume`** trimmed to the four on the CV. The hackathon certificate and

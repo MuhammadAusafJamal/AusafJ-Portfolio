@@ -1,16 +1,18 @@
 ---
 title: Government Tourism & Destination Information Platform
 slug: gov-tourism-platform
-summary: Moved a live React 16 tourism platform onto Next.js without a freeze window.
+summary: Built the Sitecore backend behind a live tourism platform and moved its React 16 front end onto Next.js.
 role: Software Engineer, Technyx Systems
 startDate: '2024-12-01'
-endDate: '2026-07-01'
+endDate: present
 status: live
 featured: true
 order: 2
 categories:
   - web
 stack:
+  - Sitecore
+  - ASP.NET Core
   - React
   - Next.js
   - TypeScript
@@ -24,7 +26,7 @@ metrics:
     detail: Crash handling added across the application.
   - label: REST endpoints integrated
     value: '4+'
-    detail: Each one hardened with defensive validation and error handling.
+    detail: Each one with validation and error handling on every call.
   - label: downtime
     value: None
     detail: The legacy app kept serving traffic through every step.
@@ -34,13 +36,18 @@ draft: false
 
 ## Problem
 
-A government tourism platform running on React 16 with real users on it. The stack was old
-enough to be holding back both performance and hiring, and there was no window to stop
-shipping.
+A tourism platform with real users on it: a website and native Android and iOS
+apps, all reading the same content. The web front end ran on React 16, old enough to be
+holding back both performance and hiring, and there was no window to stop shipping.
 
 ## Approach
 
-Incremental migration rather than a rewrite. Routes moved to Next.js one at a time behind
+I have worked on the backend since I joined the project in December 2024. One Sitecore
+instance serves the Next.js website and both native apps. I build the Sitecore templates,
+renderings, and data templates, and expose that content through the Layout Service, so every
+client reads the same structured data.
+
+The front end was an incremental migration rather than a rewrite. Routes moved to Next.js one at a time behind
 the same domain, so the legacy app kept serving everything that had not moved yet. Shared
 components were ported first, because every route needed them.
 
@@ -51,7 +58,7 @@ products. A tourism platform lives on search traffic.
 
 Rewrite versus incremental. A rewrite is faster to reason about and produces a cleaner
 result, and it also means running two products until the day you cut over. On a live
-government site with a small team, the migration path that never has a big-bang cutover wins
+public site with a small team, the migration path that never has a big-bang cutover wins
 even though it takes longer.
 
 ## What I'd change

@@ -72,16 +72,18 @@ export default async function About() {
           <div className="mt-6 flex flex-col gap-4 text-muted">
             <p>
               I am a software engineer in Karachi, and I have been at Technyx Systems since July
-              2024, first as an intern and since January 2025 full time. The work is government
-              digital platforms, and I build them end to end.
+              2024, first as an intern and since January 2025 full time. The work is large web and
+              mobile platforms, several of them for public-sector clients, and I build them end to
+              end.
             </p>
             <p>
               Most of that time has been spent across two backend stacks. Node and Express over
-              MongoDB came first. ASP.NET Core with Umbraco over SQL Server arrived with the
-              government contracts in mid-2026, and I learned it against a live platform with real
-              users on it. That is the part of this job that has taught me most. The front end has
-              been React, Next.js, TypeScript, and Redux throughout, plus React Native when a
-              project needs a mobile client against the same API.
+              MongoDB came first. The .NET side started in December 2024 with the tourism platform,
+              where I have built on its Sitecore backend from the start; Umbraco on ASP.NET Core
+              followed in mid-2026. Both run live platforms with real users on them, and that is the
+              part of this job that has taught me most. The front end has been React, Next.js,
+              TypeScript, and Redux throughout, plus React Native when a project needs a mobile
+              client against the same API.
             </p>
             <p>
               The work I am proudest of is the least glamorous: migrating a React 16 tourism
