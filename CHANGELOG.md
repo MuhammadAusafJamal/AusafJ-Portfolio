@@ -10,6 +10,10 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 ## [Unreleased]
 
+Nothing yet.
+
+## [0.9.0]—2026-11-04
+
 ### Added
 
 - **Skeleton covers for every project card.** `cover` is now optional. A project without a
