@@ -9,12 +9,15 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import type { Project } from '@ausaf/schema/types';
 import { PROJECT_CATEGORY_LABELS } from '@/lib/project-categories';
+import { ProjectCover } from './project-cover';
 import { MetricRow } from './metric-badge';
 import { TagList } from './tag';
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="flex flex-col gap-6 rounded-card border border-border bg-surface p-6 transition-colors duration-micro ease-standard hover:border-border-strong">
+      <ProjectCover project={project} />
+
       <div>
         <p className="font-mono text-xs tracking-wide text-muted uppercase">
           {project.categories.map((category) => PROJECT_CATEGORY_LABELS[category]).join(' · ')}
