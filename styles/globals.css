@@ -690,6 +690,49 @@
   font-weight: 700;
 }
 
+/* ---- Look picker ----
+ * Opened by the palette button in the nav and the footer's "Explore another look".
+ * The browser's popover centres it in the top layer; this only sizes it and dims
+ * the page behind. */
+.look-picker {
+  width: min(26rem, calc(100vw - 2rem));
+  /* The browser centres a popover with margin: auto; Tailwind's reset zeroes it. */
+  margin: auto;
+}
+
+.look-picker::backdrop {
+  background: rgb(0 0 0 / 0.45);
+}
+
+/* The default look's chip. The other chips wear their look's own class, but the
+ * default is `:root` itself, so its two colours are restated here. */
+.look-chip-default {
+  background: #0b0b0c;
+  color: #ededef;
+}
+
+/* Mark the current look from the class next-themes writes on <html>. */
+:is(html.dark, html.light) .look-option[data-look='dark'],
+html.console .look-option[data-look='console'],
+html.riso .look-option[data-look='riso'],
+html.blocks .look-option[data-look='blocks'] {
+  border-color: var(--color-border-strong);
+}
+
+:is(html.dark, html.light) .look-option[data-look='dark'] .look-current,
+html.console .look-option[data-look='console'] .look-current,
+html.riso .look-option[data-look='riso'] .look-current,
+html.blocks .look-option[data-look='blocks'] .look-current {
+  display: inline-flex;
+}
+
+/* Each look has one palette, so the light/dark toggle has nothing to do there.
+ * Clicking it used to drop the visitor back into the default look. The picker
+ * is the way back. */
+html:not(.dark, .light) .theme-toggle {
+  display: none;
+}
+
 /* A light band sweeping across the skeleton cover, so a blank cover reads as
  * "nothing to show" rather than "failed to load". Slow on purpose. The
  * reduced-motion block below stops it after one pass. */
