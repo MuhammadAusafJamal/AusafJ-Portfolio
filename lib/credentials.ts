@@ -53,7 +53,7 @@ export const CERTIFICATIONS: readonly Credential[] = [
   },
   {
     name: 'Certified Web & Mobile Application Developer',
-    issuer: 'S.M.I.T',
+    issuer: 'Saylani Mass IT Training (SMIT)',
     date: 'Nov 2023',
   },
 ];

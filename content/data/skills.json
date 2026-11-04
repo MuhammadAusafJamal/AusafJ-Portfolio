@@ -36,6 +36,7 @@
       { "name": "REST APIs", "level": "core" },
       { "name": "ASP.NET Core", "level": "working" },
       { "name": "ASP.NET MVC", "level": "working" },
+      { "name": "Sitecore", "level": "working" },
       { "name": "Umbraco", "level": "working" },
       { "name": "Zod", "level": "working" }
     ]
