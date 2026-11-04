@@ -133,6 +133,80 @@ const COPY: Record<'default' | LookId, Copy> = {
       </>
     ),
   },
+  riso: {
+    title: 'Style guide: Riso',
+    palette:
+      'Cool paper and dark ink, printed with two spot colours. Fluoro pink and blue are decoration only: the off-register headline, the halftone covers, the tape, the NDA stamp. Anything you click is ink.',
+    colorIntro:
+      'Swatches read live from the riso tokens. This page is locked to the riso look whatever theme you have picked. The two spot colours are extra variables, --riso-pink and --riso-blue, outside the shared token set.',
+    typeIntro:
+      'Familjen Grotesk for headings and text, set heavy and tight. Fragment Mono for tags, metrics, and labels. Neither font downloads until this look is on.',
+    mono: 'Fragment Mono—tags, metrics, dates, and stamp labels.',
+    shapeIntro:
+      'Corners at 2px, close to square, like a trimmed print. Cards take a 2px ink outline, sit a little crooked, and straighten on hover.',
+    tagRadius: 'rounded-tag · 2px',
+    cardRadius: 'rounded-card · 2px',
+    motionIntro:
+      'Two moments. Cards spring straight when hovered, and the pink plate behind the hero name shifts register. Reduced motion stops both.',
+    easing: (
+      <>
+        Cards use a spring,{' '}
+        <code className="font-mono text-xs">cubic-bezier(0.3, 1.6, 0.5, 1)</code>, so they overshoot
+        slightly as they straighten.
+      </>
+    ),
+    primaryButton:
+      'The primary button is solid ink with paper text. Pink or blue would be louder, but paper text on either fails contrast, so the spot colours stay off anything clickable.',
+    statusDot: (
+      <>
+        The dot prints in riso blue. It still pulses only while the status is open, and stops under{' '}
+        <code className="font-mono text-xs">prefers-reduced-motion</code>.
+      </>
+    ),
+    links: (
+      <>
+        Links keep the underline. <a href="#color">Selected text</a> goes fluoro pink, like a
+        highlighter on the print.
+      </>
+    ),
+  },
+  blocks: {
+    title: 'Style guide: Signal Blocks',
+    palette:
+      'Ink on near-white, with flat cobalt, sun yellow, mint, and pink panels. The homepage hero is a full-bleed cobalt band, and it retunes the tokens inside itself so text and buttons read against the blue.',
+    colorIntro:
+      'Swatches read live from the blocks tokens. This page is locked to the Signal Blocks look whatever theme you have picked. The panel colours are extra variables (--blocks-cobalt, --blocks-sun, --blocks-mint, --blocks-pink).',
+    typeIntro:
+      'Archivo for headings, on its variable width axis: condensed and uppercase for the hero name, wide for section heads. Atkinson Hyperlegible for running text. Neither font downloads until this look is on.',
+    mono: 'Archivo stands in for mono here—tags, metrics, and dates.',
+    shapeIntro:
+      'Cards are square with a 2px ink outline and lift on hover with a hard offset shadow. Tags are full pills. No soft shadows anywhere.',
+    tagRadius: 'rounded-tag · full pill',
+    cardRadius: 'rounded-card · 0',
+    motionIntro:
+      'Cards lift with a hard 6px offset shadow. On a wide screen the hero name stretches from condensed to wide on hover. Reduced motion stops both.',
+    easing: (
+      <>
+        The width stretch uses <code className="font-mono text-xs">font-stretch</code> on
+        Archivo&apos;s <code className="font-mono text-xs">wdth</code> axis, so it is one animated
+        property with no layout script.
+      </>
+    ),
+    primaryButton:
+      'The primary button is solid ink on the page and sun yellow inside the cobalt hero, where ink would disappear.',
+    statusDot: (
+      <>
+        The dot is green on the page and sun yellow inside the hero band. It pulses only while the
+        status is open, and stops under{' '}
+        <code className="font-mono text-xs">prefers-reduced-motion</code>.
+      </>
+    ),
+    links: (
+      <>
+        Links keep the underline. <a href="#color">Selected text</a> gets a sun-yellow highlight.
+      </>
+    ),
+  },
   console: {
     title: 'Style guide: Console',
     palette:

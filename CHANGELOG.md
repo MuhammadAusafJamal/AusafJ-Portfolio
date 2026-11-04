@@ -12,6 +12,27 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 Nothing yet.
 
+## [0.11.0]—2026-11-04
+
+### Added
+
+- **Two more looks: Riso and Signal Blocks.** `?theme=riso` is a risograph zine: halftone
+  paper, an off-register pink plate behind the hero name, cards taped up slightly crooked,
+  and a rubber-stamp NDA mark. `?theme=blocks` is transit signage: a full-bleed cobalt hero,
+  condensed uppercase type that stretches wide on hover, and cards that lift with a hard
+  offset shadow. Each has its own style guide at `/style-guide/riso` and
+  `/style-guide/blocks`. Like Console, their fonts download only for visitors who switch.
+
+- **Line art on the homepage share card.** Blueprint-style browser and phone outlines fill
+  the right side; the name, positioning, and footer keep to the left. The artwork is
+  pre-sized and palette-reduced, so the card renders at 177KB, under WhatsApp's preview
+  limit. Case study cards are unchanged.
+
+### Changed
+
+- **`public/resume.pdf`** is now the merged Full Stack Engineer CV. The (.NET) variant left
+  out the Node.js and Express work that the site presents.
+
 ## [0.10.0]—2026-11-04
 
 ### Added

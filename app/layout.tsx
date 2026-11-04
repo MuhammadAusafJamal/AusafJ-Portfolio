@@ -10,6 +10,10 @@
  */
 import type { Metadata } from 'next';
 import {
+  Archivo,
+  Atkinson_Hyperlegible,
+  Familjen_Grotesk,
+  Fragment_Mono,
   Geist,
   Geist_Mono,
   Hanken_Grotesk,
@@ -59,6 +63,39 @@ const consoleMono = Martian_Mono({
 
 const consoleSans = Hanken_Grotesk({
   variable: '--font-hanken',
+  subsets: ['latin'],
+  display: 'swap',
+  preload: false,
+});
+
+/** The riso look's faces. Not preloaded, same as the console pair. */
+const risoSans = Familjen_Grotesk({
+  variable: '--font-familjen',
+  subsets: ['latin'],
+  display: 'swap',
+  preload: false,
+});
+
+const risoMono = Fragment_Mono({
+  variable: '--font-fragment',
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  preload: false,
+});
+
+/** Signal Blocks. Archivo carries its width axis so the hero name can stretch. */
+const blocksDisplay = Archivo({
+  variable: '--font-archivo',
+  subsets: ['latin'],
+  axes: ['wdth'],
+  display: 'swap',
+  preload: false,
+});
+
+const blocksSans = Atkinson_Hyperlegible({
+  variable: '--font-atkinson',
+  weight: ['400', '700'],
   subsets: ['latin'],
   display: 'swap',
   preload: false,
@@ -127,7 +164,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${sans.variable} ${mono.variable} ${display.variable} ${consoleMono.variable} ${consoleSans.variable}`}
+      className={`${sans.variable} ${mono.variable} ${display.variable} ${consoleMono.variable} ${consoleSans.variable} ${risoSans.variable} ${risoMono.variable} ${blocksDisplay.variable} ${blocksSans.variable}`}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >

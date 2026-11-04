@@ -17,6 +17,13 @@
  * The second one makes a production deploy fail whenever Google has a bad minute.
  * At 76px the difference between two neutral grotesques is not what anyone notices
  * about a link preview, so the hermetic build wins.
+ *
+ * `background` is optional artwork, passed as a data URI. With it, the words and the
+ * footer keep to the left 40%, which the artwork leaves empty. The artwork is stored
+ * pre-sized to 1200×630 and reduced to a 32-colour palette with the film grain
+ * smoothed out, which took the rendered card from 610KB to well under WhatsApp's
+ * preview limit. Without it, the card is the plain
+ * full-width layout the case studies use.
  */
 import { mark } from './mark';
 
@@ -31,6 +38,7 @@ export function Card({
   eyebrow,
   name,
   url,
+  background,
 }: {
   title: string;
   subtitle: string;
@@ -39,6 +47,8 @@ export function Card({
   name: string;
   /** The site's own url, from `site.json`. Shown as the bare host. */
   url: string;
+  /** Artwork covering the card, as a data URI. Must leave the left side dark. */
+  background?: string;
 }) {
   const logo = `data:image/svg+xml;base64,${Buffer.from(mark({ radius: 8 })).toString('base64')}`;
 
@@ -52,8 +62,20 @@ export function Card({
         height: '100%',
         padding: 72,
         backgroundColor: '#0b0b0c',
+        position: 'relative',
       }}
     >
+      {background !== undefined && (
+        // eslint-disable-next-line @next/next/no-img-element -- rendered by Satori, see below.
+        <img
+          src={background}
+          width={OG_SIZE.width}
+          height={OG_SIZE.height}
+          alt=""
+          style={{ position: 'absolute', top: 0, left: 0, objectFit: 'cover' }}
+        />
+      )}
+
       <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
         {/* eslint-disable-next-line @next/next/no-img-element -- Satori renders this,
             not the DOM, so next/image has nothing to optimise here. */}
@@ -61,11 +83,18 @@ export function Card({
         <span style={{ fontSize: 26, color: '#a1a1aa' }}>{name}</span>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          // Satori throws on a style key set to undefined, so add it only when needed.
+          ...(background === undefined ? {} : { maxWidth: 480 }),
+        }}
+      >
         <div
           style={{
             display: 'flex',
-            fontSize: 76,
+            fontSize: background === undefined ? 76 : 64,
             lineHeight: 1.1,
             // The same -0.02em the site applies to headings, in absolute units
             // because Satori resolves no relative lengths.
@@ -79,7 +108,7 @@ export function Card({
           style={{
             display: 'flex',
             marginTop: 24,
-            fontSize: 30,
+            fontSize: background === undefined ? 30 : 26,
             lineHeight: 1.4,
             color: '#a1a1aa',
           }}
@@ -92,6 +121,7 @@ export function Card({
         style={{
           display: 'flex',
           justifyContent: 'space-between',
+          ...(background === undefined ? {} : { maxWidth: 480 }),
           paddingTop: 24,
           borderTop: '1px solid #26262b',
           fontSize: 22,
