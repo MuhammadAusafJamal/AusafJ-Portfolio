@@ -10,6 +10,10 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 ## [Unreleased]
 
+Nothing yet.
+
+## [0.10.0]—2026-11-04
+
 ### Added
 
 - **Alternate looks, starting with Console.** `?theme=console` turns the whole site into an
