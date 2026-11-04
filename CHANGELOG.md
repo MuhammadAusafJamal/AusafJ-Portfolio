@@ -19,6 +19,11 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
   offset shadow. Each has its own style guide at `/style-guide/riso` and
   `/style-guide/blocks`. Like Console, their fonts download only for visitors who switch.
 
+- **Line art on the homepage share card.** Blueprint-style browser and phone outlines fill
+  the right side; the name, positioning, and footer keep to the left. The artwork is
+  pre-sized and palette-reduced, so the card renders at 177KB, under WhatsApp's preview
+  limit. Case study cards are unchanged.
+
 ### Changed
 
 - **`public/resume.pdf`** is now the merged Full Stack Engineer CV. The (.NET) variant left
