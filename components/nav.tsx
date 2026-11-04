@@ -21,6 +21,7 @@
  */
 import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
+import { LookPickerButton } from '@/components/look-picker';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 const LINKS = [
@@ -98,6 +99,7 @@ export function Nav({ name, variant = 'floating' }: NavProps) {
                 ))}
               </ul>
             </div>
+            <LookPickerButton />
             <ThemeToggle />
           </div>
         </div>
@@ -168,6 +170,7 @@ export function Nav({ name, variant = 'floating' }: NavProps) {
 
         <span className="h-3.5 w-px bg-border shrink-0" aria-hidden="true" />
 
+        <LookPickerButton />
         <ThemeToggle className="size-7 rounded-full border border-transparent text-muted hover:border-border hover:bg-surface-2" />
       </nav>
     </header>

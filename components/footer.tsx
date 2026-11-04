@@ -8,11 +8,11 @@
  * The timestamp is evaluated when the page is built, which is exactly what it
  * claims to be.
  *
- * The look switcher uses plain anchors, not `next/link`. A `?theme=` link has to
- * load a fresh document so the script in the root layout can read it.
+ * "Explore another look" opens the site-wide look picker (`components/look-picker.tsx`).
  */
 import type { Social } from '@ausaf/schema/types';
-import { LOOKS } from '@/lib/looks';
+import { Palette } from 'lucide-react';
+import { LOOK_PICKER_ID } from '@/components/look-picker';
 
 const BUILT_AT = new Date().toISOString().slice(0, 10);
 
@@ -27,17 +27,14 @@ export function Footer({ name, socials }: { name: string; socials: Social[] }) {
         </p>
         <p className="flex flex-wrap items-center gap-4">
           <span>Last deployed {BUILT_AT}</span>
-          <span className="flex items-center gap-2">
-            Look:
-            <a href="?theme=dark" className="text-muted">
-              Default
-            </a>
-            {LOOKS.map((look) => (
-              <a key={look.id} href={`?theme=${look.id}`} className="text-muted">
-                {look.label}
-              </a>
-            ))}
-          </span>
+          <button
+            type="button"
+            popoverTarget={LOOK_PICKER_ID}
+            className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-border px-3 py-1.5 text-muted transition-colors duration-micro ease-standard hover:border-border-strong hover:text-text"
+          >
+            <Palette size={14} aria-hidden />
+            Explore another look
+          </button>
           {source !== undefined && (
             <a
               href={`${source.url}/AusafJ-Portfolio`}

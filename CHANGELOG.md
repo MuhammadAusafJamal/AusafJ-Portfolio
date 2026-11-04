@@ -12,6 +12,29 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 Nothing yet.
 
+## [0.12.0]—2026-11-04
+
+### Added
+
+- **A look picker.** A palette button in the nav and an "Explore another look" button in the
+  footer open one panel listing the four looks, each with a small preview in its own colours
+  and type, and the current one marked. It is the browser's own popover, so it adds no
+  client JavaScript, and the preview fonts download only when the panel opens.
+- **Real covers for five public projects:** Animated Character, Day/Night Cycle, Minecraft
+  Clone, Solar System, and this portfolio, captured from their live deployments. WebP, 14
+  to 53KB each, loaded lazily. IoT's deployment is down and Madadgar has no live build, so
+  both keep the skeleton.
+
+### Changed
+
+- **The footer's row of look links** is replaced by the picker button.
+
+### Fixed
+
+- **The light/dark toggle inside a look** sent the visitor back to the default design. Each
+  look has one palette, so the toggle is now hidden while a look is on; the picker is the way
+  back.
+
 ## [0.11.0]—2026-11-04
 
 ### Added
