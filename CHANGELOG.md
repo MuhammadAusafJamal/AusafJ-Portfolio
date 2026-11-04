@@ -12,6 +12,14 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 Nothing yet.
 
+## [0.12.1]—2026-11-04
+
+### Fixed
+
+- **The contact form in the Signal Blocks look** rendered its message box as an oval. The look
+  made the shared tag radius a full pill, and inputs, the textarea, and menu items use that
+  radius too. The look is now square throughout and only tags are pills.
+
 ## [0.12.0]—2026-11-04
 
 ### Added

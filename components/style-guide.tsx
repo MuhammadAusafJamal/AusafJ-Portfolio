@@ -180,8 +180,8 @@ const COPY: Record<'default' | LookId, Copy> = {
       'Archivo for headings, on its variable width axis: condensed and uppercase for the hero name, wide for section heads. Atkinson Hyperlegible for running text. Neither font downloads until this look is on.',
     mono: 'Archivo stands in for mono here—tags, metrics, and dates.',
     shapeIntro:
-      'Cards are square with a 2px ink outline and lift on hover with a hard offset shadow. Tags are full pills. No soft shadows anywhere.',
-    tagRadius: 'rounded-tag · full pill',
+      'Everything is square: cards, inputs, the message box, menus. Tags are the one exception, full pills, set on the tag itself so form fields never inherit the curve. Cards lift on hover with a hard offset shadow. No soft shadows anywhere.',
+    tagRadius: 'rounded-tag · 0 (tags: full pill)',
     cardRadius: 'rounded-card · 0',
     motionIntro:
       'Cards lift with a hard 6px offset shadow. On a wide screen the hero name stretches from condensed to wide on hover. Reduced motion stops both.',

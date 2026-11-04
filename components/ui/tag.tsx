@@ -10,7 +10,7 @@
  */
 export function Tag({ children }: { children: React.ReactNode }) {
   return (
-    <span className="rounded-tag border border-border-strong px-2 py-1 font-mono text-xs text-text">
+    <span className="tag rounded-tag border border-border-strong px-2 py-1 font-mono text-xs text-text">
       {children}
     </span>
   );
