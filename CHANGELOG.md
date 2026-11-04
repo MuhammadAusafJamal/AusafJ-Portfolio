@@ -10,7 +10,12 @@ change that invalidates existing MDX; **minor**—a new page, section, or CLI co
 
 ## [Unreleased]
 
-Nothing yet.
+### Added
+
+- **Skeleton covers for every project card.** `cover` is now optional. A project without a
+  screenshot gets a drawn outline of its shape: a browser for web work, a phone for mobile.
+  A new `confidential` flag puts an "Under NDA" mark on the three government projects, which
+  can never show real screenshots.
 
 ## [0.8.1]—2026-09-17
 
